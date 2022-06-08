@@ -169,7 +169,7 @@ class UserFactory{
 
 
 
-### Bean管理（基于xml）
+### 基于xml的Bean管理
 
 主要负责（1）Spring创建对象；（2）Spring注入属性。
 
@@ -387,7 +387,7 @@ class UserFactory{
 
 
 
-##### **外部bean注入**
+**外部bean注入**
 
 使用场景：调用**其他包**中的类
 
@@ -438,7 +438,7 @@ public interface UserDao {
 
 
 
-##### **内部bean注入**
+**内部bean注入**
 
 使用场景：一个类中包含另一个类的对象
 
@@ -501,9 +501,7 @@ public class Emp {
 
 
 
-
-
-##### xml自动装配
+**xml自动装配**
 
 根据指定的装配规则（属性名称或属性类型），Spring会自动将匹配的属性值进行注入。autowire是在bean标签中设置的。**（较少使用）**
 
@@ -521,7 +519,7 @@ public class Emp {
 
 
 
-##### 引入外部属性文件
+**引入外部属性文件**
 
 需求：
 
@@ -581,7 +579,7 @@ prop.password=root
 
 
 
-### Bean管理（基于注解）
+### 基于注解的Bean管理
 
 **知识点**
 
@@ -779,7 +777,7 @@ public class UserService {
 
 
 
-##### 纯注解开发
+**纯注解开发**
 
 使用配置类代替配置文件，SpringBoot的使用主要就是基于纯注解开发。
 
@@ -875,11 +873,25 @@ bean的生命周期过程：
 
 # AOP面向切面
 
-### 概念
+### 概念和术语
 
 AOP意思是面向切面编程。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。
 
 应用举例：不修改源代码的情况下，在主干程序中添加新的功能模块。
+
+
+
+**术语：**
+
+**连接点**：指类中有哪些方法可以被增强。
+
+**切入点**：实际被真正增强的方法。
+
+**通知（增强）**：实际增强的逻辑部分被称为通知。
+
+- 通知有多种类型：前置通知、后置通知、环绕通知、异常通知、最终通知
+
+**切面**：是指把通知应用到切入点的过程。
 
 
 
@@ -898,11 +910,14 @@ AOP底层使用到了动态代理，动态代理是指在程序运行期，创�
 步骤：
 
 * 创建一个类实现 InvocationHandler 接口
+  * 通过有参构造器，传入需要代理的类对象
+
   * 重写 invoke 方法，在invoke方法中完成需要代理的功能。invoke方法：`public Object invoke(Object proxy, Method method, Object[] args)`有三个参数：
+
     * proxy : 代理类代理的真实代理对象
     * method : 我们所要调用某个对象真实的方法的Method对象(可以使用`method.invoke(object,args)`的方式调用需要代理类对象的方法)
     * args : 指代理对象方法传递的参数
-  * 通过有参构造器，传入需要代理的类对象
+
 * 在主方法中创建 JDK 动态代理类对象（使用反射包中的 java.lang.reflect.Proxy 类），通过调用`Proxy.newProxyInstance()`静态方法进行创建。`newPorxyInstance()`方法：`public static Object newProxyInstance(ClassLoader loader,Class<?>[] interfaces,InvocationHandler h)`有三个参数：
   * loader : 需要传入主方法所在类的类加载器（通过class对象获取：`JDKProxy.class.getClassLoader()`）
   * interfaces : 需要传入增强方法所在类实现的接口（可以为多个）
@@ -945,33 +960,136 @@ class UserDaoProxy implements InvocationHandler{
 
 
 
-（2）基于类的动态代理
+**（2）基于类的动态代理**
 
-使用CGLib的Enhancer类创建代理对象。
+JDK的动态代理机制只能代理实现了接口的类。而不能实现接口的类就不能使用JDK的动态代理，
 
-* 创建当前类子类的代理对象
+**CGLIB是针对类来实现代理的，它的原理是对指定目标类生成一个子类，并覆盖其中的方法实现增强。**但因为采用的是继承，所以不能对final修饰的类进行代理。
+
+实现原理：继承
+
+实现方式：代理类继承的目标类，重写目标类中的方法。CGLIB像是一个拦截器，在调用我们的代理类方法时，代理类(子类)会去找到目标类(父类),此时它会被一个方法拦截器所拦截，在拦截器中才会去实现方法的调用。并且还会对方法进行行为增强。
+
+例子：
+
+```java
+
+package org.example.proxy;
+ 
+import net.sf.cglib.proxy.Enhancer;
+import net.sf.cglib.proxy.MethodInterceptor;
+import net.sf.cglib.proxy.MethodProxy;
+ 
+import java.lang.reflect.Method;
+ 
+public class test3 {
+    public static void main(String[] args) {
+        //得到目标对象
+        You you=new You();
+        //得到代理类
+        Cglib cglib=new Cglib(you);
+        //得到代理对象
+        Marry marry= (Marry) cglib.getProxy();
+        //通过代理对象调用目标对象的方法
+        marry.toMarry();
+    }
+}
+
+class Cglib implements MethodInterceptor {
+    //准备一个目标对象
+    private Object target;
+    //通过构造器传入目标对象
+    public Cglib(Object target) {
+        this.target = target;
+    }
+    /*
+    * 用来获取代理对象(创建一个代理对象)
+    * */
+    public Object getProxy(){
+        //可以通过Enhancer对象中的create()方法可以去生成一个类，用于生成代理对象
+        Enhancer enhancer=new Enhancer();
+        //设置父类(将目标类作为代理类的父类)
+        enhancer.setSuperclass(target.getClass());
+        //设置拦截器(回调对象为本身对象)
+        enhancer.setCallback(this);
+        //生成一个代理类对象并返回给调用着
+        return enhancer.create();
+    }
+    /*
+    * 拦截器
+    *       1.目标对象的方法调用
+    *       2.行为增强
+    *      参数 o: cglib 动态生成的代理类的实例
+    *          method:实体类所调用的都被代理的方法的引用
+    *          objects 参数列表
+    *          methodProxy:生成的代理类对方法的代理引用
+    * */
+    @Override
+    public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+        //增强行为
+        System.out.println("方法执行前的增强行为");
+        //调用目标类中的方法
+        Object Objectss=  methodProxy.invoke(target,objects);
+        //增强行为
+        System.out.println("方法执行后的增强行为");
+        return null;
+    }
+}
+```
 
 
 
+**（3）JDK代理与CGLIB代理的区别**
+
+- JDK动态代理实现接口，CGLIB动态继承思想
+- JDK动态代理(目标对象存在接口时)执行效率高于CGLIB
+- 如果对象有接口实现，选择JDK代理，如果没有接口实现选择CGILB代理
 
 
 
+### AspectJ
+
+Spring框架 一般基于AspectJ实现AOP操作。
+
+AspectJ：AspectJ不是Spring的组成部分，是一个独立的AOP框架，一般把AspectJ和Spring框架一起使用完成AOP操作。
 
 
 
+**切入点表达式**
+
+作用：表示对哪个类中的哪个方法进行增强。
+
+**语法：**`execution(权限修饰符 [返回类型] 类的全路径.方法名称 (参数列表))`
+
+**举例：**
+
+（1）对com.twhupup.dao.BookDao中的add方法进行增强
+
+`execution(* com.twhupup.dao.BookDao.add())`
+
+（2）对com.twhupup.dao.BookDao中的所有方法进行增强
+
+`execution(* com.twhupup.dao.BookDao.*())`
+
+（3）对com.twhupup.dao包下的所有类中的所有方法进行增强
+
+`execution(* com.twhupup.dao.*.*())`
 
 
 
+### 基于xml方式的AOP
 
+步骤：
 
+* 创建类，在类中定义需要增强的方法
 
-
-
-
-
-
-
-
+* 创建增强类（编写增强逻辑）
+  * 在增强类中创建方法，让不同方法代表不同的通知类型
+* 进行通知的配置
+  * 在spring配置文件中开启注解扫描
+  * 使用注解创建User和UserProxy对象
+  * 在增强类上添加注解@Aspect
+  * 在spring配置文件中开启生成代理对象
 
 
 
