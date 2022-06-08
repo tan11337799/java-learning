@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="df906b44-7b23-4426-ab2a-468b1847fb00" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Reflection/src/main/java/com/twhupup/basic/AllTypeClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reflection/src/main/java/com/twhupup/basic/CreateObjectByReflection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reflection/src/main/java/com/twhupup/basic/GetClassObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reflection/src/main/java/com/twhupup/basic/ReflectionDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reflection/src/main/java/com/twhupup/method/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reflection/src/main/java/com/twhupup/method/ClassMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bean6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/jdbc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/src/main/resources/bean.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/src/test/java/com/twhupup/JustTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/classes/bean.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/classes/bean2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/classes/bean3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/classes/bean4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/classes/bean5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/classes/com/twhupup/autowire/Dept.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/classes/com/twhupup/autowire/Emp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/classes/com/twhupup/collectiontype/Book.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/classes/com/twhupup/collectiontype/Course.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/classes/com/twhupup/collectiontype/Stu.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/classes/com/twhupup/factorybean/BeanImp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/classes/com/twhupup/factorybean/BeanService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/classes/com/twhupup/factorybean/MyBean.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/classes/com/twhupup/factorybean/customBean.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/classes/com/twhupup/factorybean/factoryBean.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/classes/com/twhupup/lifeCycle/MyBeanPost.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/classes/com/twhupup/lifeCycle/lifeCycleSource.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/classes/com/twhupup/scope/scopeSource.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDemo2/target/test-classes/com/twhupup/JustTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Leetcode/demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Notes/Using/Maven学习笔记.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Notes/Using/Spring框架学习笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Notes/Using/Spring框架学习笔记.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Notes/Using/java基础.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Notes/Using/java基础.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Notes/Using/计算机底层原理.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Notes/Using/面试题整理.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/clear.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/data/nii_2_png.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/data/split_4_fold.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/interface.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/net_builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/net_builder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/Backbone.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/CE_Net.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/CE_Net.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/CPFNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/CPFNet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/ISBI_Backbone.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/ISBI_Backbone.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/PSPNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/PSPNet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/ResUNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/ResUNet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/SEnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/SEnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/SPPResUNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/SPPResUNet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/extractors.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/extractors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/resnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/nets/resnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/CPFNet/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/CPFNet/dataset/Dataset_init.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/CPFNet/dataset/Linear_lesion.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/CPFNet/dataset/OCT.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/CPFNet/dataset/PiFu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/CPFNet/dataset/SegTHOR.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/CPFNet/dataset/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/CPFNet/metric.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/CPFNet/model/BaseNet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/CPFNet/model/resnet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/CPFNet/model/unet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/CPFNet/train.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/CPFNet/utils/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/CPFNet/utils/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/CPFNet/utils/loss.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/CPFNet/utils/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/data_ori.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/data_os.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/data_roi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/gpu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/model/baseline_v0.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/model/mini_unet_dcm_for_roi_v0.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/model/mini_unet_dcm_v0.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/model/mini_unet_dcm_v1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/model/mini_unet_dcm_v2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/model/mini_unet_dcm_v3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/model/mini_unet_v0.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/model/nestedunet_v0.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/model/unet_3d.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/train.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/train_os.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/train_roi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/utils/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/utils/loss.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/OCT_Crop_leiy/utils/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/Pytorch_Medical_Segmentation_Template-master/Linear_lesion_Code/UNet/dataset/Dataset_init.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/Pytorch_Medical_Segmentation_Template-master/Linear_lesion_Code/UNet/dataset/Linear_lesion.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/Pytorch_Medical_Segmentation_Template-master/Linear_lesion_Code/UNet/demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/Pytorch_Medical_Segmentation_Template-master/Linear_lesion_Code/UNet/metric.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/Pytorch_Medical_Segmentation_Template-master/Linear_lesion_Code/UNet/model/resnet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/Pytorch_Medical_Segmentation_Template-master/Linear_lesion_Code/UNet/model/unet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/Pytorch_Medical_Segmentation_Template-master/Linear_lesion_Code/UNet/train.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/Pytorch_Medical_Segmentation_Template-master/Linear_lesion_Code/UNet/utils/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/Pytorch_Medical_Segmentation_Template-master/Linear_lesion_Code/UNet/utils/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/Pytorch_Medical_Segmentation_Template-master/Linear_lesion_Code/UNet/utils/loss.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/models/reference/Pytorch_Medical_Segmentation_Template-master/Linear_lesion_Code/UNet/utils/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/utils/loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/utils/loss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/utils/progress_bar.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/utils/progress_bar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/CNV_Segmentation_4_fold/utils/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/Leetcode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/Leetcode.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/basic/backTrack/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/basic/backTrack/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/basic/backTrack/backtrack.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/basic/backTrack/backtrack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_1/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_1/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_2/ListNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_2/ListNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_2/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_2/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_2/Tools.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_2/Tools.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_3/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_3/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_5/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_5/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_5/Solution_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_5/Solution_2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_5/Solution_3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_5/Solution_3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_6/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_6/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/test/demo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/test/demo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_1/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_1/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_1/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_1/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_2/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_2/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_2/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_2/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_28/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_28/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_28/Solution_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_28/Solution_2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_28/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_28/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_3/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_3/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_3/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_3/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_31/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_31/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_31/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_31/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_5/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_5/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_5/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_5/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_6/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_6/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_6/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/src/database/leetcode_6/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/src/realtest/microsoft_testDemo/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/src/realtest/microsoft_testDemo/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/src/realtest/microsoft_testDemo/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/src/realtest/microsoft_testDemo/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Reflection/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Reflection/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Reflection/src/main/java/com/twhupup/basic/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Reflection/src/main/java/com/twhupup/basic/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Reflection/src/main/java/com/twhupup/basic/ReflectionQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Reflection/src/main/java/com/twhupup/basic/ReflectionQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Reflection/src/main/resources/re.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Reflection/src/main/resources/re.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringTest/bean1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringTest/bean2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringTest/bean3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringTest/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/Emp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/Emp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/dao/UserDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/dao/UserDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringTest/src/test/java/com/twhupup/TestBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/test/java/com/twhupup/TestBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringTest/src/test/java/com/twhupup/TestSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/test/java/com/twhupup/TestSingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringTest/src/test/java/com/twhupup/TestSpring5.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/test/java/com/twhupup/TestSpring5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/StaticPolicy/TestSP.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/StaticPolicy/TestSP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/StaticPolicy/lambda.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/StaticPolicy/lambda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/ThreadPool/TestPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/ThreadPool/TestPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo1/TestCallable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo1/TestCallable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo1/TestThread2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo1/TestThread2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo1/TestThread3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo1/TestThread3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo1/TestThread4.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo1/TestThread4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo1/TestThread5.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo1/TestThread5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo2/TestDaemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo2/TestDaemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo2/TestJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo2/TestJoin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo2/TestPriority.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo2/TestPriority.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo2/TestSleep.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo2/TestSleep.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo2/TestSleep2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo2/TestSleep2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo2/TestState.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo2/TestState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo2/TestStop.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo2/TestStop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo2/TestYield.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo2/TestYield.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo3/UnsafeBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo3/UnsafeBank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo3/UnsafeBuyTicket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo3/UnsafeBuyTicket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo3/UnsafeList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/demo3/UnsafeList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/syn/DeadLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Thread/src/main/java/com/twhupup/syn/DeadLock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../com.itheima/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../maven-project/java01/src/main/java/com/itheima/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../maven-project/java01/src/main/java/com/itheima/Demo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../maven-project/java01/src/test/java/com/itheima/TestDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../maven-project/java01/src/test/java/com/itheima/TestDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../maven-project/java02/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../maven-project/java02/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../maven-project/java03/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../maven-project/java03/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../maven-project/project01/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../maven-project/project01/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../maven-project/project01/project01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../maven-project/project01/project01.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../maven-project/project02/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../maven-project/project02/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../maven-project/project02/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../maven-project/project02/src/main/java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../maven-project/project02/src/test/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../maven-project/project02/src/test/java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../maven-project/web01/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../maven-project/web01/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../maven-project/web01/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../maven-project/web01/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project01/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project01/project01.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project02/maven-project/project02/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/lib/commons-logging-1.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/lib/spring-beans-5.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/lib/spring-context-5.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/lib/spring-core-5.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/lib/spring-expression-5.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/bean1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/bean2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/bean3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/Animal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/Book.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/CacheLinePadding$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/CacheLinePadding$T.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/CacheLinePadding.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/Dep.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/Emp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/ThreadOrder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/dao/UserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/dao/UserDaoImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/testdemo/Singleton_l.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/testdemo/TestBean.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/testdemo/TestSingleton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/testdemo/TestSpring5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/spring_demo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../underlyingPrinciple/src/main/java/layout/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../underlyingPrinciple/src/main/java/layout/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../underlyingPrinciple/target/classes/classLayout/test$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../underlyingPrinciple/target/classes/classLayout/test$T.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../underlyingPrinciple/target/classes/classLayout/test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../untitled/src/test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../others/new_Result.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../others/new_Result.xlsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="spring-beans.schema" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="F:\Maven\repository" />
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.3\plugins\maven\lib\maven3" />
+        <option name="userSettingsFile" value="E:\apache-maven-3.6.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="28IKuhz3FO2Wqo7LN2e3e8Gvxsj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SpringDemo2" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\MyGit\java" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JustTest.testAutowire" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twhupup.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twhupup" />
+      <option name="MAIN_CLASS_NAME" value="com.twhupup.JustTest" />
+      <option name="METHOD_NAME" value="testAutowire" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.JustTest.testAutowire" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="df906b44-7b23-4426-ab2a-468b1847fb00" name="Default Changelist" comment="" />
+      <created>1650898884462</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1650898884462</updated>
+      <workItem from="1650898885542" duration="6857000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="687" y="216" key="FileChooserDialogImpl" timestamp="1651043428311">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="687" y="216" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1651043428311" />
+    <state width="1867" height="267" key="GridCell.Tab.0.bottom" timestamp="1651043517210">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="267" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1651043517210" />
+    <state width="1867" height="267" key="GridCell.Tab.0.center" timestamp="1651043517210">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="267" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1651043517210" />
+    <state width="1867" height="267" key="GridCell.Tab.0.left" timestamp="1651043517210">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="267" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1651043517210" />
+    <state width="1867" height="267" key="GridCell.Tab.0.right" timestamp="1651043517210">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="267" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1651043517210" />
+    <state width="1867" height="332" key="GridCell.Tab.1.bottom" timestamp="1651043517205">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="332" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1651043517205" />
+    <state width="1867" height="332" key="GridCell.Tab.1.center" timestamp="1651043517204">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="332" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1651043517204" />
+    <state width="1867" height="332" key="GridCell.Tab.1.left" timestamp="1651043517203">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="332" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1651043517203" />
+    <state width="1867" height="332" key="GridCell.Tab.1.right" timestamp="1651043517205">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="332" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1651043517205" />
+    <state x="312" y="0" key="SettingsEditor" timestamp="1650979163800">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="312" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1650979163800" />
+    <state x="158" y="52" key="new project wizard" timestamp="1651043379756">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="158" y="52" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1651043379756" />
+    <state x="636" y="128" key="spring file set editor" timestamp="1650980726596">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="636" y="128" key="spring file set editor/0.0.1920.1040@0.0.1920.1040" timestamp="1650980726596" />
+  </component>
+</project>

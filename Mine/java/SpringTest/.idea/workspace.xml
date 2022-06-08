@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e920389c-1873-4810-93c6-632d297813bd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/java01/src/main/java/com/itheima/Demo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/java01/src/test/java/com/itheima/TestDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/java02/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/java03/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/project01/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/project01/project01.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/project02/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/project02/src/main/java/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/project02/src/test/java/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/web01/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/web01/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../underlyingPrinciple/src/main/java/layout/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Notes/Using/Maven学习笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Notes/Using/Maven学习笔记.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Notes/Using/Spring框架学习笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Notes/Using/Spring框架学习笔记.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Notes/Using/计算机底层原理.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Notes/Using/计算机底层原理.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/basic/backTrack/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/basic/backTrack/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/basic/backTrack/backtrack.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/basic/backTrack/backtrack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_1/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_1/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_2/ListNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_2/ListNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_2/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_2/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_2/Tools.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_2/Tools.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_3/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_3/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_5/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_5/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_5/Solution_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_5/Solution_2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_5/Solution_3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_5/Solution_3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_6/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_6/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/test/demo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/test/demo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/lib/commons-logging-1.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/lib/spring-beans-5.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/lib/spring-context-5.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/lib/spring-core-5.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/lib/spring-expression-5.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/bean1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/bean2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/bean3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/Animal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/Book.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/CacheLinePadding$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/CacheLinePadding$T.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/CacheLinePadding.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/Dep.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/Emp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/ThreadOrder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/dao/UserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/dao/UserDaoImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/testdemo/Singleton_l.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/testdemo/TestBean.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/testdemo/TestSingleton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/testdemo/TestSpring5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/spring_demo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/bean1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bean1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/bean2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bean2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/bean3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bean3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twhupup/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twhupup/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/CacheLinePadding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twhupup/CacheLinePadding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/Dep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twhupup/Dep.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/Emp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twhupup/Emp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twhupup/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/ThreadOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twhupup/ThreadOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twhupup/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twhupup/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/dao/UserDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twhupup/dao/UserDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/twhupup/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/testdemo/TestBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/twhupup/TestBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/testdemo/TestSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/twhupup/TestSingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/testdemo/TestSpring5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/twhupup/TestSpring5.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="spring-beans.schema" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="F:\Maven\repository" />
+        <option name="mavenHome" value="E:\apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="E:\apache-maven-3.6.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="25UgByemXVYeQAbKXtYjq8jDzFf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SpringDemo/src/main/resources" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\MyGit\java\SpringTest\src\main\resources" />
+      <recent name="F:\MyGit\java\SpringTest\src\main\java" />
+      <recent name="F:\MyGit\java\SpringTest" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.twhupup" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\MyGit\java\SpringDemo\src\main\resources" />
+      <recent name="F:\MyGit\java\SpringTest\src\test\java" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.JustTest.testAutowire">
+    <configuration name="JustTest.testAutowire" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twhupup.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twhupup" />
+      <option name="MAIN_CLASS_NAME" value="com.twhupup.JustTest" />
+      <option name="METHOD_NAME" value="testAutowire" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JustTest.testLifeCycle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twhupup.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twhupup" />
+      <option name="MAIN_CLASS_NAME" value="com.twhupup.JustTest" />
+      <option name="METHOD_NAME" value="testLifeCycle" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JustTest.testMyBean" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twhupup.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twhupup" />
+      <option name="MAIN_CLASS_NAME" value="com.twhupup.JustTest" />
+      <option name="METHOD_NAME" value="testMyBean" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JustTest.testScope" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twhupup.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twhupup" />
+      <option name="MAIN_CLASS_NAME" value="com.twhupup.JustTest" />
+      <option name="METHOD_NAME" value="testScope" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="customBean.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twhupup.factorybean.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twhupup.factorybean" />
+      <option name="MAIN_CLASS_NAME" value="com.twhupup.factorybean.customBean" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.JustTest.testAutowire" />
+        <item itemvalue="JUnit.JustTest.testLifeCycle" />
+        <item itemvalue="JUnit.JustTest.testScope" />
+        <item itemvalue="JUnit.customBean.test" />
+        <item itemvalue="JUnit.JustTest.testMyBean" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e920389c-1873-4810-93c6-632d297813bd" name="Default Changelist" comment="" />
+      <created>1645586948001</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1645586948001</updated>
+      <workItem from="1645586949128" duration="21625000" />
+      <workItem from="1645691732410" duration="4318000" />
+      <workItem from="1646630347379" duration="6549000" />
+      <workItem from="1646895934831" duration="20854000" />
+      <workItem from="1647515313669" duration="11820000" />
+      <workItem from="1650898730753" duration="705000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../.." />
+    </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="582" y="183" key="#Inspections" timestamp="1645625405197">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="582" y="183" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1645625405197" />
+    <state x="312" y="0" key="#Project_Structure" timestamp="1645625211831">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="312" y="0" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1645625211831" />
+    <state x="655" y="304" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1645588276339">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="655" y="304" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1645588276339" />
+    <state x="718" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1647515642465">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="718" y="148" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1647515642465" />
+    <state x="560" y="430" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1645587550925">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="560" y="430" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1645587550925" />
+    <state x="688" y="380" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1645587556258">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="688" y="380" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1040@0.0.1920.1040" timestamp="1645587556258" />
+    <state x="624" y="207" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1645619768421">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="624" y="207" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1645619768421" />
+    <state x="687" y="216" key="FileChooserDialogImpl" timestamp="1645777502497">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="687" y="216" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1645777502497" />
+    <state width="1867" height="301" key="GridCell.Tab.0.bottom" timestamp="1648128813693">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="301" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1648128813693" />
+    <state width="1867" height="301" key="GridCell.Tab.0.center" timestamp="1648128813692">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="301" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1648128813692" />
+    <state width="1867" height="301" key="GridCell.Tab.0.left" timestamp="1648128813692">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="301" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1648128813692" />
+    <state width="1867" height="301" key="GridCell.Tab.0.right" timestamp="1648128813692">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="301" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1648128813692" />
+    <state width="1867" height="332" key="GridCell.Tab.1.bottom" timestamp="1647396846063">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="332" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1647396846063" />
+    <state width="1867" height="332" key="GridCell.Tab.1.center" timestamp="1647396846063">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="332" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1647396846063" />
+    <state width="1867" height="332" key="GridCell.Tab.1.left" timestamp="1647396846063">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="332" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1647396846063" />
+    <state width="1867" height="332" key="GridCell.Tab.1.right" timestamp="1647396846063">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="332" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1647396846063" />
+    <state x="479" y="301" key="Registry" timestamp="1645687355259">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="479" y="301" key="Registry/0.0.1920.1040@0.0.1920.1040" timestamp="1645687355259" />
+    <state x="312" y="0" key="SettingsEditor" timestamp="1646642650350">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="312" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1646642650350" />
+    <state x="589" y="32" width="742" height="975" key="find.popup" timestamp="1645687395354">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="589" y="32" width="742" height="975" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1645687395354" />
+    <state x="158" y="103" key="new project wizard" timestamp="1648128681670">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="158" y="103" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1648128681670" />
+    <state x="669" y="130" width="840" height="1034" key="search.everywhere.popup" timestamp="1645687323050">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="669" y="130" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1645687323050" />
+    <state x="636" y="128" key="spring file set editor" timestamp="1645625410882">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="636" y="128" key="spring file set editor/0.0.1920.1040@0.0.1920.1040" timestamp="1645625410882" />
+  </component>
+</project>

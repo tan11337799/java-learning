@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1a52a312-0875-47ec-98d5-53472f89579b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/database/leetcode_1/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/leetcode_2/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/leetcode_28/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/leetcode_28/Solution_2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/leetcode_28/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/leetcode_3/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/leetcode_31/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/leetcode_31/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/leetcode_5/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/leetcode_6/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/realtest/microsoft_testDemo/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/realtest/microsoft_testDemo/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringTest/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/java01/src/main/java/com/itheima/Demo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/java01/src/test/java/com/itheima/TestDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/java02/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/java03/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/project01/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/project01/project01.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/project02/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/project02/src/main/java/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/project02/src/test/java/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/web01/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../maven-project/web01/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../underlyingPrinciple/src/main/java/layout/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Notes/Using/Maven学习笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Notes/Using/Maven学习笔记.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Notes/Using/Spring框架学习笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Notes/Using/Spring框架学习笔记.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Notes/Using/计算机底层原理.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Notes/Using/计算机底层原理.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leetcode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Leetcode.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Leetcode/basic/backTrack/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Leetcode/basic/backTrack/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Leetcode/basic/backTrack/backtrack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Leetcode/basic/backTrack/backtrack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Leetcode/database/leetcode_1/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Leetcode/database/leetcode_1/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Leetcode/database/leetcode_2/ListNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Leetcode/database/leetcode_2/ListNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Leetcode/database/leetcode_2/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Leetcode/database/leetcode_2/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Leetcode/database/leetcode_2/Tools.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Leetcode/database/leetcode_2/Tools.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Leetcode/database/leetcode_3/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Leetcode/database/leetcode_3/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Leetcode/database/leetcode_5/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Leetcode/database/leetcode_5/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Leetcode/database/leetcode_5/Solution_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Leetcode/database/leetcode_5/Solution_2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Leetcode/database/leetcode_5/Solution_3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Leetcode/database/leetcode_5/Solution_3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Leetcode/database/leetcode_6/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Leetcode/database/leetcode_6/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Leetcode/test/demo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Leetcode/test/demo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/leetcode_1/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/leetcode_1/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/leetcode_2/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/leetcode_2/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/leetcode_3/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/leetcode_3/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/leetcode_5/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/leetcode_5/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/leetcode_6/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/leetcode_6/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/lib/commons-logging-1.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/lib/spring-beans-5.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/lib/spring-context-5.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/lib/spring-core-5.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/lib/spring-expression-5.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/bean1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/bean2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/bean3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/Animal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/Book.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/CacheLinePadding$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/CacheLinePadding$T.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/CacheLinePadding.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/Dep.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/Emp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/ThreadOrder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/dao/UserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/dao/UserDaoImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/testdemo/Singleton_l.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/testdemo/TestBean.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/testdemo/TestSingleton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/out/production/spring_demo/com/company/testdemo/TestSpring5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/spring_demo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/bean1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/bean2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/bean3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/CacheLinePadding.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/CacheLinePadding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/Dep.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/Dep.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/Emp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/Emp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/ThreadOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/ThreadOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/dao/UserDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/dao/UserDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/main/java/com/twhupup/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/testdemo/TestBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/test/java/com/twhupup/TestBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/testdemo/TestSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/test/java/com/twhupup/TestSingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_demo/src/com/company/testdemo/TestSpring5.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringTest/src/test/java/com/twhupup/TestSpring5.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="22xd15CFpq0bcpQEaWQXNmkDyG8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\MyGit\java\Leetcode\src\exercise\TwoSum_1" />
+      <recent name="F:\MyGit\java\Leetcode\src\basic\backtrack" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="database.leetcode_28" />
+      <recent name="database.leetcode_6" />
+      <recent name="database.leetcode_5" />
+      <recent name="database.leetcode_3" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\MyGit\java\Leetcode\src\exercise\1_q" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.test (1)">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="realtest.microsoft_testDemo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="realtest.microsoft_testDemo" />
+      <option name="MAIN_CLASS_NAME" value="realtest.microsoft_testDemo.test" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.testSolution (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="database.leetcode_28.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="database.leetcode_28" />
+      <option name="MAIN_CLASS_NAME" value="database.leetcode_28.test" />
+      <option name="METHOD_NAME" value="testSolution" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.testSolution (3)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="database.leetcode_31.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="database.leetcode_31" />
+      <option name="MAIN_CLASS_NAME" value="database.leetcode_31.test" />
+      <option name="METHOD_NAME" value="testSolution" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.testSolution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="realtest.microsoft_testDemo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="realtest.microsoft_testDemo" />
+      <option name="MAIN_CLASS_NAME" value="realtest.microsoft_testDemo.test" />
+      <option name="METHOD_NAME" value="testSolution" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.testSolution_2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="database.leetcode_28.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="database.leetcode_28" />
+      <option name="MAIN_CLASS_NAME" value="database.leetcode_28.test" />
+      <option name="METHOD_NAME" value="testSolution_2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.test (1)" />
+        <item itemvalue="JUnit.test.testSolution" />
+        <item itemvalue="JUnit.test.testSolution (3)" />
+        <item itemvalue="JUnit.test.testSolution_2" />
+        <item itemvalue="JUnit.test.testSolution (2)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1a52a312-0875-47ec-98d5-53472f89579b" name="Default Changelist" comment="" />
+      <created>1640782953720</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1640782953720</updated>
+      <workItem from="1640782954773" duration="4448000" />
+      <workItem from="1641006353996" duration="823000" />
+      <workItem from="1641908292007" duration="482000" />
+      <workItem from="1641908801019" duration="22648000" />
+      <workItem from="1642043768964" duration="602000" />
+      <workItem from="1644482989950" duration="127024000" />
+      <workItem from="1645777506505" duration="5811000" />
+      <workItem from="1646630347379" duration="1216000" />
+      <workItem from="1646895931455" duration="4278000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="377" y="27" key="#Project_Structure" timestamp="1641910720311">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="377" y="27" key="#Project_Structure/0.0.2048.1112@0.0.2048.1112" timestamp="1641910720311" />
+    <state x="400" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1641970196978">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="400" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1641970196978" />
+    <state x="705" y="237" key="FileChooserDialogImpl" timestamp="1645170713673">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="705" y="237" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1645170713673" />
+    <state x="-1215" y="585" key="FileChooserDialogImpl/0.0.2048.1112/-1920.348.1920.1040@-1920.348.1920.1040" timestamp="1641996755516" />
+    <state x="752" y="253" key="FileChooserDialogImpl/0.0.2048.1112/-1920.348.1920.1040@0.0.2048.1112" timestamp="1641990911450" />
+    <state width="1867" height="292" key="GridCell.Tab.0.bottom" timestamp="1647069194488">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="412" key="GridCell.Tab.0.bottom/-1920.350.1920.1030/0.0.2048.1112@-1920.350.1920.1030" timestamp="1640788376929" />
+    <state width="1867" height="292" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1647069194488" />
+    <state width="1867" height="285" key="GridCell.Tab.0.bottom/0.0.2048.1112/-1920.348.1920.1040@-1920.348.1920.1040" timestamp="1644587111454" />
+    <state width="1995" height="296" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1641976298539" />
+    <state width="1867" height="292" key="GridCell.Tab.0.center" timestamp="1647069194488">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="412" key="GridCell.Tab.0.center/-1920.350.1920.1030/0.0.2048.1112@-1920.350.1920.1030" timestamp="1640788376928" />
+    <state width="1867" height="292" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1647069194488" />
+    <state width="1867" height="285" key="GridCell.Tab.0.center/0.0.2048.1112/-1920.348.1920.1040@-1920.348.1920.1040" timestamp="1644587111454" />
+    <state width="1995" height="296" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1641976298539" />
+    <state width="1867" height="292" key="GridCell.Tab.0.left" timestamp="1647069194488">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="412" key="GridCell.Tab.0.left/-1920.350.1920.1030/0.0.2048.1112@-1920.350.1920.1030" timestamp="1640788376928" />
+    <state width="1867" height="292" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1647069194488" />
+    <state width="1867" height="285" key="GridCell.Tab.0.left/0.0.2048.1112/-1920.348.1920.1040@-1920.348.1920.1040" timestamp="1644587111454" />
+    <state width="1995" height="296" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1641976298539" />
+    <state width="1867" height="292" key="GridCell.Tab.0.right" timestamp="1647069194488">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="412" key="GridCell.Tab.0.right/-1920.350.1920.1030/0.0.2048.1112@-1920.350.1920.1030" timestamp="1640788376928" />
+    <state width="1867" height="292" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1647069194488" />
+    <state width="1867" height="285" key="GridCell.Tab.0.right/0.0.2048.1112/-1920.348.1920.1040@-1920.348.1920.1040" timestamp="1644587111454" />
+    <state width="1995" height="296" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1641976298539" />
+    <state width="1867" height="330" key="GridCell.Tab.1.bottom" timestamp="1645780096678">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="330" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1645780096678" />
+    <state width="1867" height="320" key="GridCell.Tab.1.bottom/0.0.2048.1112/-1920.348.1920.1040@-1920.348.1920.1040" timestamp="1644557099734" />
+    <state width="1867" height="330" key="GridCell.Tab.1.center" timestamp="1645780096678">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="330" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1645780096678" />
+    <state width="1867" height="320" key="GridCell.Tab.1.center/0.0.2048.1112/-1920.348.1920.1040@-1920.348.1920.1040" timestamp="1644557099734" />
+    <state width="1867" height="330" key="GridCell.Tab.1.left" timestamp="1645780096678">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="330" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1645780096678" />
+    <state width="1867" height="320" key="GridCell.Tab.1.left/0.0.2048.1112/-1920.348.1920.1040@-1920.348.1920.1040" timestamp="1644557099734" />
+    <state width="1867" height="330" key="GridCell.Tab.1.right" timestamp="1645780096678">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="330" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1645780096678" />
+    <state width="1867" height="320" key="GridCell.Tab.1.right/0.0.2048.1112/-1920.348.1920.1040@-1920.348.1920.1040" timestamp="1644557099734" />
+    <state x="353" y="0" key="SettingsEditor" timestamp="1645173886324">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="353" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1645173886324" />
+    <state x="377" y="27" key="SettingsEditor/0.0.2048.1112@0.0.2048.1112" timestamp="1641975604208" />
+    <state width="623" height="498" key="SwitcherDM" timestamp="1641954591369">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="623" height="498" key="SwitcherDM/0.0.2048.1112@0.0.2048.1112" timestamp="1641954591369" />
+    <state x="579" y="392" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1645779481767">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="579" y="392" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1645779481767" />
+    <state x="-1341" y="740" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.2048.1112/-1920.348.1920.1040@-1920.348.1920.1040" timestamp="1644483033379" />
+    <state x="417" y="230" width="1214" height="748" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1641975670801">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="417" y="230" width="1214" height="748" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.2048.1112@0.0.2048.1112" timestamp="1641975670801" />
+    <state x="158" y="52" key="new project wizard" timestamp="1645171057034">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="158" y="52" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1645171057034" />
+    <state x="603" y="77" width="840" height="1034" key="search.everywhere.popup" timestamp="1641974424851">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="603" y="77" width="840" height="1034" key="search.everywhere.popup/0.0.2048.1112@0.0.2048.1112" timestamp="1641974424851" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.StringIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

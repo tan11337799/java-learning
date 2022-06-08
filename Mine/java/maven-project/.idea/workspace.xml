@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8b86eace-965b-4100-8552-e73a66e9dd4c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/java01/src/main/java/com/itheima/Demo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java01/src/test/java/com/itheima/TestDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java02/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java03/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project01/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project01/project01.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project02/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project02/src/main/java/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project02/src/test/java/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web01/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web01/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../underlyingPrinciple/src/main/java/layout/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Notes/Using/Maven学习笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Notes/Using/Maven学习笔记.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Notes/Using/计算机底层原理.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Notes/Using/计算机底层原理.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/basic/backTrack/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/basic/backTrack/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/basic/backTrack/backtrack.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/basic/backTrack/backtrack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_1/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_1/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_2/ListNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_2/ListNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_2/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_2/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_2/Tools.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_2/Tools.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_3/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_3/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_5/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_5/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_5/Solution_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_5/Solution_2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_5/Solution_3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_5/Solution_3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_6/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/database/leetcode_6/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/test/demo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Leetcode/out/production/Leetcode/test/demo.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="F:\Maven\repository" />
+        <option name="mavenHome" value="E:\apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="E:\apache-maven-3.6.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="25K3UjiqPD7GKYrPTPA1XXRFIRm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/project01" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.itheima" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\MyGit\java\maven-project" />
+      <recent name="F:\MyGit\java\maven-projeci" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.TestDemo">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestDemo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.itheima.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.itheima" />
+      <option name="MAIN_CLASS_NAME" value="com.itheima.TestDemo" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="clean-java01" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="tomcat7:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/java01" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="compile-java01" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="compile" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/java01" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="tomcat7:run" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="tomcat7:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/web01" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Maven.compile-java01" />
+      <item itemvalue="Maven.clean-java01" />
+      <item itemvalue="Maven.tomcat7:run" />
+      <item itemvalue="JUnit.TestDemo" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TestDemo" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8b86eace-965b-4100-8552-e73a66e9dd4c" name="Default Changelist" comment="" />
+      <created>1645261968390</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1645261968390</updated>
+      <workItem from="1645261969550" duration="720000" />
+      <workItem from="1645262715057" duration="2609000" />
+      <workItem from="1645279704691" duration="5245000" />
+      <workItem from="1645430685504" duration="2000" />
+      <workItem from="1645454040910" duration="5735000" />
+      <workItem from="1645528432717" duration="774000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="725" y="174" key="#Menus_and_Toolbars" timestamp="1645263614874">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="725" y="174" key="#Menus_and_Toolbars/0.0.1920.1040@0.0.1920.1040" timestamp="1645263614874" />
+    <state x="312" y="0" key="#Project_Structure" timestamp="1645429503713">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="312" y="0" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1645429503713" />
+    <state x="103" y="144" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1645428624040">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="103" y="144" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1645428624040" />
+    <state x="688" y="366" width="544" height="320" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1645263296618">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="688" y="366" width="544" height="320" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1645263296618" />
+    <state x="687" y="216" key="FileChooserDialogImpl" timestamp="1645430647824">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="687" y="216" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1645430647824" />
+    <state width="1867" height="267" key="GridCell.Tab.0.bottom" timestamp="1645541926520">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="267" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1645541926520" />
+    <state width="1867" height="267" key="GridCell.Tab.0.center" timestamp="1645541926520">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="267" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1645541926520" />
+    <state width="1867" height="267" key="GridCell.Tab.0.left" timestamp="1645541926520">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="267" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1645541926520" />
+    <state width="1867" height="267" key="GridCell.Tab.0.right" timestamp="1645541926520">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="267" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1645541926520" />
+    <state x="561" y="159" key="NewModule_or_Project.wizard" timestamp="1645430336442">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="561" y="159" key="NewModule_or_Project.wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1645430336442" />
+    <state x="344" y="0" key="SettingsEditor" timestamp="1645528031928">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="344" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1645528031928" />
+    <state x="271" y="169" width="1604" height="845" key="new project wizard" timestamp="1645430666947">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="271" y="169" width="1604" height="845" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1645430666947" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1645428827783">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1645428827783" />
+  </component>
+</project>
