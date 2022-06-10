@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: assets
+---
+
 # jvm
 
 + 定义： Java Virtual Machine ,即java程序的运行环境（java二进制字节码的运行环境）

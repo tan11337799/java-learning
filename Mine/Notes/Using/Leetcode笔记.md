@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: assets
+---
+
 # Leetcode刷题笔记（python）
 
 ## 基础

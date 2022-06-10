@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: assets
+---
+
 # 多线程
 
 ### 线程简介
