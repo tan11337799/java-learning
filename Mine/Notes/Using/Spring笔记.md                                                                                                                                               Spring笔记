@@ -610,6 +610,42 @@ prop.password=root
 
 
 
+##### 组件扫描
+
+组件扫描用于从指定的classpath下自动扫描，侦测和实例化具有特定注解的bean。
+
+对于扫描到的组件，Spring有**默认**的命名策略：使用非限定类名，第一个字母小写。
+也可以在注解中通过value属性值标识组建的名称。不使用value属性标识Bean的名称，默认以类名小写命名。
+
+当在组件类上使用了特定的注解之后, 还需要在 Spring 的配置文件中配置以下项：
+base-package 属性指定一个需要扫描的基类包，Spring 容器将会扫描这个基类包里及其子包中的所有类，当需要扫描多个包时, 可以使用逗号分隔。
+
+用法1（include-filter）
+
+```xml
+<context:component-scan base-package="com.twhupup" use-default-filters="false">
+    <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+</context:component-scan>
+```
+
+- `use-default-filters`属性用于选择是否使用默认filter，如果值为false表示不扫描所有内容，而使用自己配置的filter（不设置`use-default-filters`属性，则其设为默认值true，表示需要扫描所有内容）
+- `<context:include-filter>`标签写在`<context:component-scan>`的结构体内 ，设置filter中对指定的内容进行扫描
+- `type="annotation" expression="org.springframework.stereotype.Service"/>` 表示在base-package的范围内只扫描Service的注解类
+
+
+
+用法2（exclude-filter）
+
+```xml
+<context:component-scan base-package="com.twhupup">
+    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+</context:component-scan>
+```
+
+- `<context:exclude-filter>`标签写在`<context:component-scan>`的结构体内 ，设置filter中哪些内容不进行扫描
+
+
+
 ##### 创建对象
 
 **方式：**
@@ -668,36 +704,6 @@ public void testService(){
     userService.add();
 }
 ```
-
-
-
-**组件扫描细节：**
-
-举例1（include-filter）
-
-```xml
-<context:component-scan base-package="com.twhupup" use-default-filters="false">
-    <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
-</context:component-scan>
-```
-
-* `use-default-filters`属性用于选择是否使用默认filter，如果值为false表示不扫描所有内容，而使用自己配置的filter（不设置`use-default-filters`属性，则其设为默认值true，表示需要扫描所有内容）
-
-* `<context:include-filter>`标签写在`<context:component-scan>`的结构体内 ，设置filter中对指定的内容进行扫描
-
-* `type="annotation" expression="org.springframework.stereotype.Service"/>` 表示在base-package的范围内只扫描Service的注解类
-
-
-
-举例2（exclude-filter）
-
-```xml
-<context:component-scan base-package="com.twhupup">
-    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-</context:component-scan>
-```
-
-* `<context:exclude-filter>`标签写在`<context:component-scan>`的结构体内 ，设置filter中哪些内容不进行扫描
 
 
 
@@ -1604,7 +1610,17 @@ bookService.batchDelete(delBatchArgs);
 
 # 事务
 
-### 搭建事务环境
+### 概念
+
+事务是数据库操作最基本单位，要么都成功，要么都失败。（典型场景：转账）
+
+事务四个特性ACID：原子性，一致性，隔离性，持久性。
+
+Spring事务管理有两种方式：**编程式事务管理 和 声明式事务管理**，一般使用声明式事务管理，底层使用AOP原理。
+
+声明式事务管理有两种方式：**基于xml配置方式 和 基于注解方式**，一般使用注解方式。
+
+Spring事务管理提供了一个接口，叫做**事务管理器**，这个接口针对不同的框架提供不同的实现类。
 
 
 
