@@ -1616,19 +1616,38 @@ bookService.batchDelete(delBatchArgs);
 
 事务四个特性ACID：原子性，一致性，隔离性，持久性。
 
-Spring事务管理有两种方式：**编程式事务管理 和 声明式事务管理**，一般使用声明式事务管理，底层使用AOP原理。
+**知识点：**
 
-声明式事务管理有两种方式：**基于xml配置方式 和 基于注解方式**，一般使用注解方式。
+* 我们一般会选择将事务添加到Service层（业务逻辑层）.
 
-Spring事务管理提供了一个接口，叫做**事务管理器**，这个接口针对不同的框架提供不同的实现类。
+* Spring事务管理有两种方式：**编程式事务管理 和 声明式事务管理**，一般使用声明式事务管理，底层使用AOP原理。
+
+* 声明式事务管理有两种方式：**基于xml配置方式 和 基于注解方式**，一般使用注解方式。
+* 在Spring中进行声明式事务管理，底层使用了AOP原理。
+
+* Spring事务管理提供了一个API接口，叫做**事务管理器**，这个接口针对不同的框架提供不同的实现类。
+  * 对于使用JdbcTemplate进行数据库交互，则使用DataSourceTransactionManager实现类；
+  * 如果整合Hibernate框架则使用HibernateTransactionManager实现类，具体情况具体使用。
 
 
 
+### 声明式事务管理
 
+##### 基于注解方式
 
+步骤：
 
+（1）在配置文件中创建事务管理器，开启事务注解。
 
+```xml
+<!--创建事务管理器-->
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="dataSource"/>
+</bean>
 
+<!--开启事务注解-->
+<tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+```
 
 
 
