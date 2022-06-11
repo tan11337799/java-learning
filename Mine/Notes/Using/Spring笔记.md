@@ -1637,7 +1637,7 @@ bookService.batchDelete(delBatchArgs);
 
 步骤：
 
-（1）在配置文件中创建事务管理器，开启事务注解。
+（1）在配置文件中创建事务管理器，注入dataSource属性。
 
 ```xml
 <!--创建事务管理器-->
@@ -1645,17 +1645,22 @@ bookService.batchDelete(delBatchArgs);
     <property name="dataSource" ref="dataSource"/>
 </bean>
 
+```
+
+（2）开启tx（transaction）名称空间，开启事务注解。
+
+```xml
+<!--开启tx名称空间-->
+<beans xmlns:tx="http://www.springframework.org/schema/tx"...>...</beans>
 <!--开启事务注解-->
 <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
 ```
 
+（3）在service类添加事务注解`@Transactional`（或指定service中的方法）
 
+使用方法：添加在类上表示类中的所有方法添加事务，添加在方法上表示为指定方法添加事务。
 
-
-
-
-
-
+ 
 
 
 
