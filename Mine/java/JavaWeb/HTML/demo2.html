@@ -7,11 +7,26 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-        <form>
-            昵称：<input type="text" name="nickname"><br/>
-            密码：<input type="password" name="pwd"><br/>
-            性别：<input type="radio" name="sex" value="male">男<input type="radio" name="sex" value="female">女<br/>
-            昵称：<input type="text" name="nickname"><br/>
+        <p>开始页面</p>
+        <div>
+            <p>注册系统</p>
+        </div>
+        <form action="demo1.html" method="post">
+            昵称：<input type="text" name="nickname"/><br/>
+            密码：<input type="password" name="pwd"/><br/>
+            性别：<input type="radio" name="sex" value="male" checked/>男<input type="radio" name="sex" value="female"/>女<br/>
+            爱好：<input type="checkbox" name="hobby" value="basketball" checked/>篮球<input type="checkbox" name="hobby" value="football"/>足球<br/>
+            星座：<select name="star">
+                <option value="1" select>白羊座</option>
+                <option value="2">金牛座</option>
+                <option value="3">天蝎座</option>
+                <option value="4">天秤座</option>
+                <option value="5">双子座</option>
+                </select><br/>
+            备注：<textarea name="remark" rows="5" cols="50"></textarea><br/>
+            <input type="submit" value=" 注 册 "/>
+            <input type="reset" value=" 重 置 "/>
+            <input type="button" value=" 普通按钮 "/>
         </form>
     </body>
 </html>

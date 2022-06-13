@@ -1,4 +1,8 @@
-JavaWeb
+---
+typora-copy-images-to: assets
+---
+
+# JavaWeb
 
 ### 概念
 
@@ -66,22 +70,26 @@ Web资源按实现的技术和呈现效果的不同又分为：**静态资源**�
 
 **介绍：**HTML被称为超文本标记语言。html是解释型语言，这类语言直接以源代码的形式出现，运行的时候再实时解析为机器码并执行。这表示每句代码只有在运行时，系统才知道这句代码是否有错。
 
-**语法：**
+**语法**
 
 * HTML有两种标记：（1）单标记：独自使用就可以表达；（2）双标记：成对使用，又开始和结束。
-* 嵌套使用，不能交叉使用。
-* 不区分大小写，但标记名和属性建议都用小写字母
+* HTML的注释：单行和多行均用`<!--xxx-->`；
+* 当属性名等于属性值时，等号和等号后面的内容可以省略；
+* 嵌套使用，不能交叉使用；
+* 不区分大小写，但标记名和属性建议都用小写字母；
 * 注重缩进，有层次。偏于检查和改编。（用空格，一次缩进两个空格）
 * 网站首页文件名一般是index.html或default.html
 
-
-**文档结构：**
+**基本结构**
 
 ```html
 <html>
 	<head>:保留信息不会显示在正文中
 		<title>打开的网页名字</title>
 		<meta character='UTF-8'>
+        <style>
+        	css..
+        </style>
 	</head>
 	<body>:正文<br/>内容
 		<h1>标题</h1>
@@ -93,7 +101,7 @@ Web资源按实现的技术和呈现效果的不同又分为：**静态资源**�
 
 * html页面由一对标签组成：`<html></html>`，分别称为开始标签和结束标签。
 
-* `<head> `：为html文件的保留信息，不会显示在网页中，其中的title表示网页的标题，meta character表示HTML使用的编码方式
+* `<head> `：为html文件的保留信息，不会显示在网页中，其中的title表示网页的标题，meta character表示HTML使用的编码方式；CSS用于定义HTML元素样式。
 
 * `<br/>`：是一个单标签，表示换行。
 
@@ -110,6 +118,57 @@ Web资源按实现的技术和呈现效果的不同又分为：**静态资源**�
 * `<a href="" target="">`：表示超链接，href表示超链接引导的地址，标签内为链接的名字。target标签用于网页的打开方式。`_self`表示在当前窗口打开默认值，`_blank`表示在新窗口打开，`_parent`表示在父窗口打开，`_top`在顶层窗口打开
 
 *  `<div>`：用于html的分块分层
+
+
+
+**列表标签**
+
+HTML存在三种列表：
+
+- 有序列表，使用 <ol> + <li> 标签。<ol>创建了一个有序列表，会为列表进行编号。<li>表示列表的每一项。
+
+- 无序列表，使用 <ul> + <li> 标签。<ol>创建了一个无序列表，会为列表进行编号。<li>表示列表的每一项。
+
+- 定义列表，使用 <dl> + <dt> + <dd> 标签。<dl>表示创建列表，<dt>定义了一个概念（术语），<dd>用于对概念进行解释。
+
+  ```html
+  <dl>
+      <dt>标题1<dt>
+      <dd>描述文本2<dd>
+      <dt>标题2<dt>
+      <dd>描述文本2<dd>
+      <dt>标题3<dt>
+      <dd>描述文本3<dd>
+  </dl>
+  ```
+
+e.g.
+
+```html
+<!--body内-->
+<p style="margin:0px auto;">煮米饭的步骤：</p>
+    <ol style="margin:0px auto; padding-left:20px; list-style:upper-latin;">
+        <li>将水煮沸</li>
+        <li>加入一勺米</li>
+        <li>搅拌均匀</li>
+        <li>继续煮10分钟</li>
+    </ol>
+    <p style="margin-bottom:0px;">早餐的种类：</p>
+    <ul style="margin:0px auto; padding-left:20px; list-style:square;">
+        <li>鸡蛋</li>
+        <li>牛奶</li>
+        <li>面包</li>
+        <li>生菜</li>
+    </ul>
+    <dl style="margin-bottom:0px;">
+        <dt><b>HTML</b></dt>
+        <dd style="margin:auto auto 10px 0px;">HTML 是一种专门用来开发网页的标记语言。</dd>
+        <dt><b>CSS</b></dt>
+        <dd style="margin:auto auto 10px 0px;">CSS 层叠样式表可以控制 HTML 文档的显示样式，用来美化网页。</dd>
+        <dt><b>JavaScript</b></dt>
+        <dd style="margin:auto auto 10px 0px;">JavaScript 简称 JS，是一种用来开发网站（包括前端和后台）的脚本编程语言。</dd>
+    </dl>
+```
 
 
 
@@ -145,27 +204,108 @@ td标签中属性：rowspan和colspan，表示列、行合并（值表示合并�
 
 **表单**
 
+当您想要通过网页来收集一些用户的信息（例如用户名、电话、邮箱地址等）时，就需要用到 HTML 表单。表单可以接收用户输入的信息，然后将其发送到后端应用程序，例如 PHP、Java、Python 等，后端应用程序将根据定义好的业务逻辑对表单传递来的数据进行处理。
+
+表单包含了如**输入框、复选框、单选按钮、提交按钮**等不同的表单控件，用户通过修改表单中的元素（输入文本，选择选项等）完成表单，通过表单中的提交按钮将表单数据提交给后端程序。
+
 ```html
 <!--body标签内-->
-<form>
-	昵称：<input ty
+<form action="demo1.html" method="post">
+    昵称：<input type="text" name="nickname"/><br/>
+    密码：<input type="password" name="pwd"/><br/>
+    性别：<input type="radio" name="sex" value="male" checked="checked"/>男<input type="radio" name="sex" value="female"/>女<br/>
+    爱好：<input type="checkbox" name="hobby" value="basketball"/>篮球<input type="checkbox" name="hobby" value="football"/>足球<br/>
+    星座：<select name="star">
+        <option value="1" select>白羊座</option>
+        <option value="2">金牛座</option>
+        <option value="3">天蝎座</option>
+        <option value="4">天秤座</option>
+        <option value="5">双子座</option>
+        </select><br/>
+    </select><br/>
+    备注：<textarea name="remark" rows="5" cols="50"></textarea><br/>
+    <input type="submit" value=" 注 册 "/>
+    <input type="reset" value=" 重 置 "/>
+    <input type="button" value=" 普通按钮 "/>
 </form>
 ```
 
-`<input type="text" name="">` 表示文本框，其中name属性必须指定，否则文本框数据无法发送给服务器。
-
-`<input type=“password” name="">` 表示密码框
-
-`<input type="radio" name="" value="">` 表示单选框，value表示选择后返回的值
-
-
+* `<input type="text" name=""/>` 表示文本框，其中name属性必须指定，否则文本框数据无法发送给服务器。
+* `<input type=“password” name=""/>` 表示密码框
+* `<input type="radio" name="" value="" checked/>` 表示单选框，name属性需要保持一致，起到互斥的效果；value表示选择后向服务器返回的值；`checked`表示默认选中该选项
+* `<input type="checkbox" name="" value="“ checked/>` 表示多选框，name属性需要保持一致，这样服务器获取的是一个数组；其他同上单选框
+* `<select name="star"><option value="" select>xxx</option></select>` 表示下拉列表，option标签内为下拉的选项，value表示返回值，`select`表示默认选中该选项
+* `<textarea name="remark" rows="5" cols="50"></textarea>` 表示多行文本框，其value值是开始结束标签中的内容
+* `<input type="submit"><input type="reset"><input type="button">`分别表示注册、重置、普通按钮。
 
 
 
 
 ### CSS
 
+CSS被称为**层叠样式表**，是一种描述 HTML 文档样式的语言，也就是在描述应该如何显示 HTML 元素。
 
+
+
+**语法：**
+
+在html文件中的head标签中可以定义style标签，被style标签包围的范围是CSS环境，用于写CSS代码。
+
+CSS规则集由**样式表**和**声明块**组成。样式表指向您需要设置样式的 HTML 元素，声明块包含一条或多条用分号分隔的声明。每条声明都包含一个 CSS 属性名称和一个值，以冒号分隔。多条 CSS 声明用分号分隔，声明块用花括号括起来。
+
+![image-20220613155006411](F:\MyGit\Clone\twh\Mine\Notes\Using\assets\image-20220613155006411.png)
+
+
+
+**样式表**
+
+**按实现方式分类：**
+
+```css
+/*元素样式表：根据元素名称来选择 HTML 元素*/
+p,h1,h2 {
+    text-align: center;
+    color: red;
+}
+div p{/*选择div块中的p元素*/
+    text-align: center;
+    color: red;
+}
+/*id样式表：根据HTML元素的id属性来选择特定元素（不能以数字开头）*/
+#para1 {
+    text-align: center;
+    color: red;
+}
+#para1 p{/*选择id为para1的p元素*/
+    font-style: italic;
+	text-align: right;
+	margin-top: 0.5em;
+}
+/*类样式表：选择有特定class属性的HTML元素*/
+.center {/*选择class="center"的元素*/
+  text-align: center;
+  color: red;
+}
+p.center {/*选择class="center"的<p>元素*/
+  text-align: center;
+  color: red;
+}
+/*通用样式表：选择页面上的所有 HTML 元素*/
+* {
+  text-align: center;
+  color: blue;
+}
+```
+
+
+
+**按位置分类：**
+
+**内部样式表：**包含在 <style> 标签内，一个 <style> 标签就表示一个内部样式表。
+
+**外部样式表：**如果 CSS 样式被放置在网页文档外部的文件中，则称为外部样式表，一个 CSS 样式表文档就表示一个外部样式表。
+
+**嵌入样式表：**将style设置于标签的内部，以属性的形式出现。
 
 
 
