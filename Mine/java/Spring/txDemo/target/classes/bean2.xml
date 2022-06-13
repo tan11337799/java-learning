@@ -29,7 +29,15 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <!--开启事务注解-->
-    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
-
+    <!--配置通知-->
+    <tx:advice id="txadvice">
+        <tx:attributes>
+            <tx:method name="accountMoney" propagation="REQUIRED" isolation="REPEATABLE_READ"/>
+        </tx:attributes>
+    </tx:advice>
+    <!--配置切入点和切面-->
+    <aop:config>
+        <aop:pointcut id="pt" expression="execution(* com.twhupup.service.UserService.*(..))"/>
+        <aop:advisor advice-ref="txadvice" pointcut-ref="pt"></aop:advisor>
+    </aop:config>
 </beans>

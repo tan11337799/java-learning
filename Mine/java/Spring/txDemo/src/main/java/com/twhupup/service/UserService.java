@@ -6,13 +6,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
+// @Transactional
 public class UserService {
     @Autowired
     private UserDao userDao;
     //转账
     public void accountMoney(){
         userDao.reduceMoney();
+        int a = 10/0;
         userDao.addMoney();
     }
 }

@@ -1633,9 +1633,9 @@ bookService.batchDelete(delBatchArgs);
 
 ### 声明式事务管理
 
-##### 基于注解方式
+##### 基于注解方式（常用）
 
-步骤：
+**实现**
 
 （1）在配置文件中创建事务管理器，注入dataSource属性。
 
@@ -1660,21 +1660,141 @@ bookService.batchDelete(delBatchArgs);
 
 使用方法：添加在类上表示类中的所有方法添加事务，添加在方法上表示为指定方法添加事务。
 
- 
+ ```
+@Service
+@Transactional
+public class UserService {
+    ...
+    // 相关服务方法
+}
+ ```
 
 
 
+**参数配置**
+
+在service的`@transaction`注解中，可以配置事务相关参数。
+
+例：`@Transactional(timeout = -1,propagation = Propagation.REQUIRED,isolation = Isolation.REPEATABLE_READ)`
+
+![1655005254783](D:\WorkSpace\git\Mine\Notes\Using\assets\1655005254783.png)
+
+* **propagation:** 事务传播行为。描述了多事务方法（对数据库数据进行变化的操作）直接进行调用，这个过程事务是如何进行管理的。
+
+  事务传播行为有7种，常用以下两种：
+
+  * **REQUIRED（默认）：**支持当前事务，如果当前没有事务，就新建一个事务。举例：如果A方法本身有事务，则调用B方法之后，则B方法会使用A方法中的事务；如果A方法本身没有事务，则调用B方法之后，会创建新的事务。
+  * **REQUIRED_NEW：**新建事务，如果当前存在事务，把当前事务挂起。 举例：如果A方法调用B方法，无论A方法是否有事务，都会创建新的事务。
+
+* **isolation：**事务的隔离级别。事务存在三个问题：脏读、不可重复读、幻读。
+
+  事务的隔离级别有四种：
+
+  | 隔离级别              | 脏读 | 不可重复读 | 幻读 |
+  | --------------------- | ---- | ---------- | ---- |
+  | Read uncommitted      | √    | √          | √    |
+  | Read committed        | ×    | √          | √    |
+  | Repeatable Read(默认) | ×    | ×          | √    |
+  | Serializable          | ×    | ×          | ×    |
+
+* **timeout：**事务的超时时间。事务需要一定时间提交，如果不提交进行回滚，默认值为-1表示不进行超时操作，单位为秒。
+
+* **readOnly：**是否只读。readOnly默认值为False，可以查询也可以删除修改。
+
+* **rollBackFor：**回滚。设置出现哪些异常进行事务回滚。
+
+* **noRollBackFor：**不回滚。设置出现哪些异常不进行事务回滚。
 
 
 
+##### 基于XML文件
+
+实现
+
+（1）配置事务管理器（同上）
+
+（2）配置通知（通知是指对切入点增强的逻辑【事务】）
+
+（3）配置切入点和切面（切入点是指需要增强的方法【service方法】）
+
+```xml
+<!--创建事务管理器-->
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="dataSource"/>
+</bean>
+<!--配置通知-->
+<tx:advice id="txadvice">
+    <tx:attributes>
+        <tx:method name="accountMoney" propagation="REQUIRED" isolation="REPEATABLE_READ"/>
+    </tx:attributes>
+</tx:advice>
+<!--配置切入点和切面-->
+<aop:config>
+    <aop:pointcut id="pt" expression="execution(* com.twhupup.service.UserService.*(..))"/>
+    <aop:advisor advice-ref="txadvice" pointcut-ref="pt"></aop:advisor>
+</aop:config>
+```
 
 
 
+### 纯注解声明式事务管理
+
+**知识点：**
+
+* 表名注解类：`@Configuration`
+  * 注解类的使用方法：在测试时使用`AnnotationConfigApplicationContext(A.class)方法表示返回注解类A的ApplicationContext对象`
+
+* 开启组件扫描：`@ComponentScan(basePackages = classpath)`
+* 开启事务注解：`@EnableTransactionManagement`
 
 
 
+**举例：**
+
+```java
+@Configuration	//表示该类为注解类
+@ComponentScan(basePackages = "com.twhupup")	//开启组件扫描
+@EnableTransactionManagement	//开启事务注解
+public class TxConfig {
+    //创建数据库连接池
+    @Bean
+    public DruidDataSource getDruidDataSource(){
+        DruidDataSource dataSource = new DruidDataSource();
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql:///user_db");
+        dataSource.setUsername("root");
+        dataSource.setPassword("root");
+        return dataSource;
+    }
+
+    //创建JdbcTemplate对象
+    @Bean
+    public JdbcTemplate getJdbcTemplate(DataSource dataSource){
+        //到IOC容器中根据类型找到DataSource(防止重复创建datasource对象)
+        JdbcTemplate jdbcTemplate = new JdbcTemplate();
+        jdbcTemplate.setDataSource(dataSource);
+        return jdbcTemplate;
+    }
+
+    //创建事务管理器对象
+    @Bean
+    public DataSourceTransactionManager getDataSourceTransactionManager(DataSource dataSource){
+        DataSourceTransactionManager transactionManager = new DataSourceTransactionManager();
+        transactionManager.setDataSource(dataSource);
+        return transactionManager;
+    }
+}
+
+//测试类中
+@Test
+public void TestAccountMoney_Annotation(){
+    ApplicationContext context = new AnnotationConfigApplicationContext(TxConfig.class);
+    UserService userService = context.getBean("userService", UserService.class);
+    userService.accountMoney();
+}
+```
 
 
 
-
+# 其他功能
 
