@@ -249,17 +249,23 @@ CSS被称为**层叠样式表**，是一种描述 HTML 文档样式的语言，�
 
 **语法：**
 
+使用：`<styles> ..css.. </style>>`
+
+外部引入：`<link rel="stylesheet" href="./styles.css" />`
+
 在html文件中的head标签中可以定义style标签，被style标签包围的范围是CSS环境，用于写CSS代码。
 
 CSS规则集由**样式表**和**声明块**组成。样式表指向您需要设置样式的 HTML 元素，声明块包含一条或多条用分号分隔的声明。每条声明都包含一个 CSS 属性名称和一个值，以冒号分隔。多条 CSS 声明用分号分隔，声明块用花括号括起来。
 
-![image-20220613155006411](F:\MyGit\Clone\twh\Mine\Notes\Using\assets\image-20220613155006411.png)
+![image-20220613155006411](assets\image-20220613155006411.png)
 
 
 
 **样式表**
 
 **按实现方式分类：**
+
+大致可以分为元素样式表、id样式表、类样式表、
 
 ```css
 /*元素样式表：根据元素名称来选择 HTML 元素*/
@@ -303,17 +309,65 @@ p.center {/*选择class="center"的<p>元素*/
 
 **内部样式表：**包含在 <style> 标签内，一个 <style> 标签就表示一个内部样式表。
 
-**外部样式表：**如果 CSS 样式被放置在网页文档外部的文件中，则称为外部样式表，一个 CSS 样式表文档就表示一个外部样式表。
+**外部样式表：**如果 CSS 样式被放置在网页文档外部的文件中，则称为外部样式表，一个 CSS 样式表文档就表示一个外部样式表。（常用）
 
 **嵌入样式表：**将style设置于标签的内部，以属性的形式出现。
 
 
 
+**声明**
+
+字体样式：`color:red;font-size=20px;`
+
+宽度高度：`width=19px;height:20px;`	也可以设百分比
+
+背景颜色：`background-color:#0F2D4C;`
+
+边框：`border:1px solid red;`	设置边框的像素值、线样式、边框颜色
+
+div位置：`margin-left:auto;margin-right=auto;`
+
+文本位置：`text-align:center;`
+
+表格：`border: 1px solid black;border-collapse:collapse;`  折叠边框
+
+
+
 ### JavaScript
 
-JavaScript是客户端的脚本语言。
+JavaScript是客户端的脚本语言，需要运行浏览器来解析执行 JavaScript 代码。JavaScript是一种属于网络的高级脚本语言,已经被广泛用于Web应用开发。
+常用来为网页添加各式各样的动态功能,为用户提供更流畅美观的浏览效果。
+通常JavaScript脚本是通过嵌入在HTML中来实现自身的功能的。 
+
+**特点：**
+
+* 交互性（它可以做的就是信息的动态交互）
+
+* 安全性（不允许直接访问本地硬盘）
+
+* 跨平台性（只要是可以解释 JS 的浏览器都可以执行，和平台无关）
+
+**主要功能：**
+
+- 嵌入动态文本于HTML页面
+- 对浏览器事件做出响应
+- 读写HTML元素
+- 在数据被提交到服务器之前验证数据
+- 检测访客的浏览器信息。控制cookies，包括创建和修改等
+- 基于Node.js技术进行服务器端编程。 
+
+**知识点：**
+
+* JS 是弱类型，Java 是强类型。
+  弱类型就是类型可变（由数据定义类型决定）；强类型就是定义变量时，类型已确定无法改变。
 
 
+
+**语法：**
+
+使用：`<script type="text/javascript"> ...(js code)... </script>`
+
+外部引入：`<script type="text/javascript" src="js/demo.js"></script>`
 
 
 
