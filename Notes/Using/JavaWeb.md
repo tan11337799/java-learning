@@ -51,9 +51,68 @@ Web资源按实现的技术和呈现效果的不同又分为：**静态资源**�
 
 
 
-### HTTP报错
+### HTTP协议
 
-404：资源丢失，比如URL填写错误。
+HTTP被称为超文本传输协议。
+
+**特点：**HTTP是无状态的。
+
+**分类：**HTTP可以分为请求和响应。
+
+**HTTP请求报文**
+
+包含三个部分：1.请求行；2.请求头；3.请求体。
+
+**请求行**展示当前请求的最基本信息，其中包含三个信息：请求的方式（GET/POST/...）、请求的URL、请求的协议（一般是HTTP1.1）
+
+**请求头**通过具体的参数对本次请求进行详细的说明，其中比较重要的请求消息头：
+
+| 名称           | 功能                                                 |
+| -------------- | ---------------------------------------------------- |
+| Host           | 服务器的主机地址                                     |
+| Accept         | 声明当前请求能够接受的『媒体类型』                   |
+| Referer        | 当前请求来源页面的地址                               |
+| Content-Length | 请求体内容的长度                                     |
+| Content-Type   | 请求体的内容类型，这一项的具体值是媒体类型中的某一种 |
+| Cookie         | 浏览器访问服务器时携带的Cookie数据                   |
+
+**请求体**作为请求的主体，发送数据给服务器。具体来说其实就是POST请求方式下的请求参数。有三种情况：（1）get方式则没有请求体，请求参数附着在URL地址后，但有queryString；（2）post方式有请求体，form data；（3）json格式，有请求体，request Payload
+
+
+
+**HTTP响应报文**
+
+包含三个部分：1.响应行；2.响应头；3.响应体。
+
+**响应行**包含三个信息：HTTP协议版本、响应状态码、响应状态的文字说明
+
+| 状态码 | 含义                                                      |
+| ------ | --------------------------------------------------------- |
+| 200    | 服务器成功处理了当前请求，成功返回响应                    |
+| 302    | 重定向                                                    |
+| 400    | [SpringMVC特定环境]请求参数问题                           |
+| 403    | 没有权限                                                  |
+| 404    | 找不到目标资源                                            |
+| 405    | 请求方式和服务器端对应的处理方式不一致                    |
+| 406    | [SpringMVC特定环境]请求扩展名和实际返回的响应体类型不一致 |
+| 50X    | 服务器端内部错误，通常都是服务器端抛异常了                |
+
+**响应消息头**是响应体的说明书，用于服务器端对浏览器设置数据：
+
+| 名称           | 功能                                                 |
+| -------------- | ---------------------------------------------------- |
+| Content-Type   | 响应体的内容类型                                     |
+| Content-Length | 响应体的内容长度                                     |
+| Set-Cookie     | 服务器返回新的Cookie信息给浏览器                     |
+| location       | 在**重定向**的情况下，告诉浏览器访问下一个资源的地址 |
+
+**响应体**是服务器返回的数据主体，可能是各种数据类型。（比如html文本）
+
+
+
+### 错误列表
+
+404：资源丢失（比如URL填写错误，访问WEB-INF目录下的资源，Web引用启动时控制台已抛出异常，访问任何资源都是404
 
 405：请求方法不支持，比如设置表单method=post，则必须对应doPost方法。
 
@@ -63,7 +122,7 @@ Web资源按实现的技术和呈现效果的不同又分为：**静态资源**�
 
 
 
-# 前端知识
+### 前端知识
 
 **前端目前主要使用以下三种语言，被称为前端三剑客：**
 
@@ -73,7 +132,7 @@ Web资源按实现的技术和呈现效果的不同又分为：**静态资源**�
 
 
 
-### HTML
+##### HTML
 
 **背景：**浏览器端发送请求（index.html）给服务器端，服务器端返回响应（`<html><head></head><html>`）给浏览器。
 
@@ -250,7 +309,7 @@ td标签中属性：rowspan和colspan，表示列、行合并（值表示合并�
 
 
 
-### CSS
+##### CSS
 
 CSS被称为**层叠样式表**，是一种描述 HTML 文档样式的语言，也就是在描述应该如何显示 HTML 元素。
 
@@ -342,7 +401,7 @@ div位置：`margin-left:auto;margin-right=auto;`
 
 
 
-### JavaScript
+##### JavaScript
 
 JavaScript是客户端的脚本语言，需要运行浏览器来解析执行 JavaScript 代码。JavaScript是一种属于网络的高级脚本语言,已经被广泛用于Web应用开发。
 常用来为网页添加各式各样的动态功能,为用户提供更流畅美观的浏览效果。
@@ -381,8 +440,6 @@ JavaScript是客户端的脚本语言，需要运行浏览器来解析执行 Jav
 
 
 
-
-
 # Servlet
 
 ### 概念
@@ -413,17 +470,15 @@ Java Servlet 是运行在 Web 服务器或应用服务器上的程序，它是�
 
 ##### **继承关系**
 
-Servlet是一个接口，来自于javax.servlet包；
+Servlet是一个接口，全称为javax.servlet.Servlet；
 
 Servlet继承于javax.servlet.GenericServlet抽象类，该抽象类又继承于javax.servlet.http.HttpServlet
+
+HttpServlet => GenericServlet => Servlet
 
 
 
 ##### **相关方法**
-
-init(config)
-
-
 
 **service方法**
 
@@ -434,7 +489,7 @@ public void service(ServletRequest request,
 }
 ```
 
-service() 方法是执行实际任务的主要方法。Servlet 容器（即 Web 服务器）调用 service() 方法来处理来自客户端（浏览器）的请求，并把格式化的响应写回给客户端。
+service() 方法是执行实际任务的主要方法，当收到请求时，Servlet 容器（即 Web 服务器）会调用 service() 方法来处理来自客户端（浏览器）的请求，并把格式化的响应写回给客户端。
 
 每次服务器接收到一个 Servlet 请求时（默认为GET），服务器会产生一个新的线程并调用服务。service() 方法检查 HTTP 请求类型（GET、POST、PUT、DELETE 等），并在适当的时候调用 doGet、doPost、doPut，doDelete 等方法。
 
@@ -482,17 +537,47 @@ service() 方法是执行实际任务的主要方法。Servlet 容器（即 Web 
 
 
 
+**init方法**
+
+```java
+public void init() throws ServletException {
+  // 初始化代码...
+}
+```
+
+nit 方法被设计成只调用一次。它在第一次创建 Servlet 时被调用，在后续每次用户请求时不再调用。
 
 
 
+**destroy方法**
+
+```java
+public void destroy() {
+    // 终止化代码...
+}
+```
+
+destroy() 方法只会被调用一次，在 Servlet 生命周期结束时被调用。destroy() 方法可以让您的 Servlet 关闭数据库连接、停止后台线程、把 Cookie 列表或点击计数器写入到磁盘，并执行其他类似的清理活动。
+
+在调用 destroy() 方法之后，servlet 对象被标记为垃圾回收。
 
 
 
-destroy()
+##### 生命周期
 
- 
+Servlet的生命周期对应于Servlet对象从创建到销毁的过程。分别对应上述的三个方法。Servlet的生命周期如下：
 
+- Servlet 初始化后调用 **init ()** 方法。
+- Servlet 调用 **service()** 方法来处理客户端的请求（一般有多个）。
+- Servlet 销毁前调用 **destroy()** 方法。
 
+<img src="/image-20220615155146747.png" alt="image-20220615155146747" style="zoom:50%;" />
+
+**注意点：**
+
+* Servlet对象只会创建一个，所有请求都是基于这个对象进行响应；
+* 第一次请求时tomcat才会实例化和初始化，然后再进行服务。这样可以提高系统的启动速度，但会影响第一次请求的响应速度。（如果需要提高响应速度，应该设置Servlet的响应请求时机：通过`<servlet>`标签中的`<load-on-startup>`设置servlet启动的先后顺序）
+* Servlet在容器中是单例的，线程不安全的；因此尽量不要在servlet中定义成员变量，也不要去修改成员变量的值，不要做逻辑判断。
 
 
 
@@ -525,17 +610,26 @@ destroy()
 
 ##### 项目管理
 
-* 创建Web工程（Web有小蓝点表示创建成功）
+* **创建Web工程**（Web有小蓝点表示创建成功）
+  
   * 使用Maven模板创建：选择maven-archetype-webapp模板
-  * 手动创建：创建后右键工程，选择Add frameworks Support，勾选Web Application和Maven；然后进入Project Structure-Facets，添加Web框架，配置部署描述符地址（web.xml）和Web资源文件的地址。
-
-* 进入启动配置Run/Debug Configurations，添加Tomcat Server-Local（如果第一次设定需要设置模板，在Application server中选择使用的服务器Tomcat路径）
+* 手动创建：创建后右键工程，选择Add frameworks Support，勾选Web Application和Maven；然后进入Project Structure-Facets，添加Web框架，配置部署描述符地址（web.xml）和Web资源文件的地址。
+  
+* **配置启动属性**
+  
+  进入启动配置Run/Debug Configurations，添加Tomcat Server-Local（如果第一次设定需要设置模板，在Application server中选择使用的服务器Tomcat路径）
+  
   * 添加部署包：Project Structure-Artifacts添加Web Application Exploded-From Modules表示将本项目以文件夹形式发布，Web Application Archive则表示将本项目打包为war包再发布。Output Directory表示Artifact包生成的位置。
   * 在Deployment中添加Artifact，如果不显示Artifact需要在，此时再添加Artifact；application context改为/便于访问。
   * 在Server中修改URL为`http://localhost:8080/网页名; `表示Tomcat启动时打开的网址。如果不指定网页，则会默认访问index.html/index.jsp/index.htm（这是web.xml文件中设置的`<welcome-file-list>`标签的作用）
-* 添加需要的jar包到web/WEB-INFO/lib下，如果使用maven-archetype-webapp模板，则会自动添加。
+  
+* **添加需要的jar包**
 
-* 在web.xml中设置servlet配置。<servlet>标签中表示servlet的注册，表示为servlet名与路径建立关系。<servlet-mapping>`表示设定servlet的映射，映射中的name要与servlet标签中的name一致，<url-pattern>标签表示指定匹配的请求（必须加/），该值与form表单中的action对应。
+  将jar包添加到web/WEB-INFO/lib下，如果使用maven-archetype-webapp模板，则会自动添加。
+
+* **在web.xml中设置servlet配置**
+
+  `<servlet>`标签中表示servlet的注册，表示为servlet名与路径建立关系。`<servlet-mapping>`表示设定servlet的映射，映射中的name要与servlet标签中的name一致。`<url-pattern>`标签表示指定匹配的请求（必须加/），该值与form表单中的action对应。【注意：一个servlet标签可以对应多个servlet-mapping，服务器可以根据收到的不同请求运行不同的业务逻辑】
 
   ```xml
   <servlet>
@@ -548,11 +642,9 @@ destroy()
   </servlet-mapping>
   ```
 
-* 此时IDEA会将Web文件夹打包部署到Tomcat中。
 
 
-
-### 实际操作
+### 实操
 
 ##### 处理表单数据
 
@@ -590,7 +682,7 @@ public class AddServlet extends HttpServlet {
 
 
 
-### 
+##### 会话跟踪
 
-
+http是无状态的，服务器无法判断两次请求是同一个客户端还是不同客户端发送的。我们通过会话跟踪技术解决http的无状态问题。
 
