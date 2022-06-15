@@ -8,21 +8,25 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+// @WebServlet("/add")
 public class AddServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
         FruitService fruitService = context.getBean("fruitService", FruitService.class);
-        Fruit fruit = new Fruit();
-        fruit.setName(req.getParameter("fname"));
-        fruit.setPrice(Integer.parseInt(req.getParameter("price")));
-        fruit.setNumber(Integer.parseInt(req.getParameter("fcount")));
-        // String remark = req.getParameter("remark");
-        fruitService.addFruit(fruit);
+        //tomcat8,对post方式设置编码，get方式不需要设置
+        req.setCharacterEncoding("UTF-8");
+        String name = req.getParameter("fname");
+        int price = Integer.parseInt(req.getParameter("price"));
+        int number = Integer.parseInt(req.getParameter("fcount"));
+        String des = req.getParameter("remark");
+        int flag = fruitService.addFruit(new Fruit(name, price, number,des));
+        System.out.println(flag==1?"添加成功！":"添加失败！");;
     }
 }

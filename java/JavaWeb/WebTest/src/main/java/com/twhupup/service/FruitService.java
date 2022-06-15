@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class FruitService {
     @Autowired
     private FruitDao fruitDao;
-    public void addFruit(Fruit fruit){
-        fruitDao.add(fruit);
+    public int addFruit(Fruit fruit){
+        return fruitDao.add(fruit);
     }
 }

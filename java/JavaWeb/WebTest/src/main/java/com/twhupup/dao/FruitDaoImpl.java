@@ -11,9 +11,9 @@ public class FruitDaoImpl implements FruitDao{
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public void add(Fruit fruit) {
-        String sql = "insert into t_fruit values(?,?,?)";
-        Object[] args = {fruit.getName(),fruit.getPrice(),fruit.getNumber()};
-        jdbcTemplate.update(sql,args);
+    public int add(Fruit fruit) {
+        String sql = "insert into t_fruit values(?,?,?,?)";
+        Object[] args = {fruit.getName(),fruit.getPrice(),fruit.getNumber(),fruit.getDes()};
+        return jdbcTemplate.update(sql,args);
     }
 }

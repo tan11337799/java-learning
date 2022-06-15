@@ -1,5 +1,6 @@
 ---
 typora-copy-images-to: assets
+typora-root-url: assets
 ---
 
 # JavaWeb
@@ -47,6 +48,14 @@ Web资源按实现的技术和呈现效果的不同又分为：**静态资源**�
 **Web服务器**一般指的是“网站服务器”，是某种驻留在因特网上的计算机程序，可以向请求终端提供服务，主要功能时存储、处理和传递网页给“客户”，传递内容一般是HTML文档、图像、样式表或脚本等，也可以放置网站文件以供浏览或下载。
 
 常用Web服务器包括Tomcat、JBoss、Jetty…
+
+
+
+### HTTP报错
+
+404：资源丢失，比如URL填写错误。
+
+405：请求方法不支持，比如设置表单method=post，则必须对应doPost方法。
 
 
 
@@ -374,23 +383,214 @@ JavaScript是客户端的脚本语言，需要运行浏览器来解析执行 Jav
 
 
 
-# Tomcat
+# Servlet
 
-Tomcat是一个Web服务器，同时也是一个Servet容器。
+### 概念
 
+Java Servlet 是运行在 Web 服务器或应用服务器上的程序，它是作为来自 Web 浏览器或其他 HTTP 客户端的请求和 HTTP 服务器上的数据库或应用程序之间的中间层。
 
-
-
-
-
+使用 Servlet，您可以收集来自网页表单的用户输入，呈现来自数据库或者其他源的记录，还可以动态创建网页。
 
 
 
+**架构**
+
+![1655219228314](/1655219228314.png)
+
+
+
+**任务**
+
+- 读取客户端（浏览器）发送的显式的数据。这包括网页上的 HTML 表单，或者也可以是来自 applet 或自定义的 HTTP 客户端程序的表单。
+- 读取客户端（浏览器）发送的隐式的 HTTP 请求数据。这包括 cookies、媒体类型和浏览器能理解的压缩格式等等。
+- 处理数据并生成结果。这个过程可能需要访问数据库，执行 RMI 或 CORBA 调用，调用 Web 服务，或者直接计算得出对应的响应。
+- 发送显式的数据（即文档）到客户端（浏览器）。该文档的格式可以是多种多样的，包括文本文件（HTML 或 XML）、二进制文件（GIF 图像）、Excel 等。
+- 发送隐式的 HTTP 响应到客户端（浏览器）。这包括告诉浏览器或其他客户端被返回的文档类型（例如 HTML），设置 cookies 和缓存参数，以及其他类似的任务。
+
+
+
+### 原理
+
+##### **继承关系**
+
+Servlet是一个接口，来自于javax.servlet包；
+
+Servlet继承于javax.servlet.GenericServlet抽象类，该抽象类又继承于javax.servlet.http.HttpServlet
+
+
+
+##### **相关方法**
+
+init(config)
+
+
+
+**service方法**
+
+```java
+public void service(ServletRequest request, 
+                    ServletResponse response) 
+      throws ServletException, IOException{
+}
+```
+
+service() 方法是执行实际任务的主要方法。Servlet 容器（即 Web 服务器）调用 service() 方法来处理来自客户端（浏览器）的请求，并把格式化的响应写回给客户端。
+
+每次服务器接收到一个 Servlet 请求时（默认为GET），服务器会产生一个新的线程并调用服务。service() 方法检查 HTTP 请求类型（GET、POST、PUT、DELETE 等），并在适当的时候调用 doGet、doPost、doPut，doDelete 等方法。
+
+底层逻辑：
+
+* 首先获取请求的类型：`String method = req.getMethod();`
+
+* 根据请求的类型调用不同的do方法，如果不存在相应类型，报501错误。
+
+  ```java
+  if (method.equals("GET")) {
+      lastModified = this.getLastModified(req);
+      this.doGet(req, resp);
+  } else if (method.equals("HEAD")) {
+      lastModified = this.getLastModified(req);
+      this.maybeSetLastModified(resp, lastModified);
+      this.doHead(req, resp);
+  } else if (method.equals("POST")) {
+      this.doPost(req, resp);
+  } else if (method.equals("PUT")) {
+      this.doPut(req, resp);
+  } else if (method.equals("DELETE")) {
+      this.doDelete(req, resp);
+  } else if (method.equals("OPTIONS")) {
+      this.doOptions(req, resp);
+  } else if (method.equals("TRACE")) {
+      this.doTrace(req, resp);
+  } else {
+      String errMsg = lStrings.getString("http.method_not_implemented");
+      Object[] errArgs = new Object[]{method};
+      errMsg = MessageFormat.format(errMsg, errArgs);
+      resp.sendError(501, errMsg);
+  }
+  ```
+
+* 如果没有重写相应的do方法，则报405错误：
+
+  ```java
+  if (protocol.endsWith("1.1")) {
+      resp.sendError(405, msg);
+  } else {
+      resp.sendError(400, msg);
+  }
+  ```
 
 
 
 
 
+
+
+
+
+destroy()
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+### 部署
+
+##### 软件
+
+* **Java开发工具包**
+
+  Servlet是由Java编写的，因此需要使用 Java 编译器 javac 编译 Servlet。
+
+  安装JDK后，设置 PATH 和 JAVA_HOME 环境变量指向包含 java 和 javac 的目录：
+
+  ```
+  set PATH=C:\jdk1.5.0_20\bin;%PATH%
+  set JAVA_HOME=C:\jdk1.5.0_20
+  ```
+
+* **Web应用服务器Tomcat**
+
+  Apache Tomcat 是一款 Java Servlet 和 JavaServer Pages 技术的开源软件实现，可以作为测试 Servlet 的独立服务器，而且可以集成到 Apache Web 应用服务器。
+
+
+
+##### 项目管理
+
+* 创建Web工程（Web有小蓝点表示创建成功）
+  * 使用Maven模板创建：选择maven-archetype-webapp模板
+  * 手动创建：创建后右键工程，选择Add frameworks Support，勾选Web Application和Maven；然后进入Project Structure-Facets，添加Web框架，配置部署描述符地址（web.xml）和Web资源文件的地址。
+
+* 进入启动配置Run/Debug Configurations，添加Tomcat Server-Local（如果第一次设定需要设置模板，在Application server中选择使用的服务器Tomcat路径）
+  * 添加部署包：Project Structure-Artifacts添加Web Application Exploded-From Modules表示将本项目以文件夹形式发布，Web Application Archive则表示将本项目打包为war包再发布。Output Directory表示Artifact包生成的位置。
+  * 在Deployment中添加Artifact，如果不显示Artifact需要在，此时再添加Artifact；application context改为/便于访问。
+  * 在Server中修改URL为`http://localhost:8080/网页名; `表示Tomcat启动时打开的网址。如果不指定网页，则会默认访问index.html/index.jsp/index.htm（这是web.xml文件中设置的`<welcome-file-list>`标签的作用）
+* 添加需要的jar包到web/WEB-INFO/lib下，如果使用maven-archetype-webapp模板，则会自动添加。
+
+* 在web.xml中设置servlet配置。<servlet>标签中表示servlet的注册，表示为servlet名与路径建立关系。<servlet-mapping>`表示设定servlet的映射，映射中的name要与servlet标签中的name一致，<url-pattern>标签表示指定匹配的请求（必须加/），该值与form表单中的action对应。
+
+  ```xml
+  <servlet>
+      <servlet-name>AddServlet</servlet-name>
+      <servlet-class>com.twhupup.servlet.AddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>AddServlet</servlet-name>
+      <url-pattern>/add</url-pattern>
+  </servlet-mapping>
+  ```
+
+* 此时IDEA会将Web文件夹打包部署到Tomcat中。
+
+
+
+### 实际操作
+
+##### 处理表单数据
+
+我们有事需要从浏览器到 Web 服务器传递信息，最终到后台程序。浏览器使用两种方法可将这些信息传递到 Web 服务器，分别为 GET 方法和 POST 方法。
+
+Servlet 处理表单数据，这些数据会根据不同的情况使用不同的方法自动解析：
+
+- **getParameter()：**您可以调用 request.getParameter() 方法来获取表单参数的值。
+- **getParameterValues()：**如果参数出现一次以上，则调用该方法，并返回多个值，例如复选框。
+- **getParameterNames()：**如果您想要得到当前请求中的所有参数的完整列表，则调用该方法。
+
+举例：
+
+```java
+@WebServlet("/add")
+public class AddServlet extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        FruitService fruitService = context.getBean("fruitService", FruitService.class);
+        req.setCharacterEncoding("UTF-8"); 
+        String name = req.getParameter("fname");
+        int price = Integer.parseInt(req.getParameter("price"));
+        int number = Integer.parseInt(req.getParameter("fcount"));
+        String des = req.getParameter("remark");
+        int flag = fruitService.addFruit(new Fruit(name, price, number,des));
+        System.out.println(flag==1?"添加成功！":"添加失败！");;
+    }
+}
+```
+
+**注意点：**
+
+* 处理中文时，tomcat8之后只需要对post方式设置编码，get方式不需要设置；设置声明必须在所有参数获取之前
+
+
+
+### 
 
 
 
