@@ -1,6 +1,6 @@
-# Leetcode刷题笔记（python）
+# Leetcode笔记
 
-## 基础
+
 
 我们从算法所占用的「时间」和「空间」两个维度考察算法之间的优劣。
 
@@ -21,7 +21,7 @@
 
 
 
-## 内置函数
+# 内置函数
 
 **set()**
 
@@ -191,9 +191,9 @@ print(list(a))
 
 
 
-## 内置容器
+# 内置容器
 
-#### **列表**
+### **列表**
 
 序列是 Python 中最基本的数据结构。序列中的每个值都有对应的位置值，称之为索引，用索引的方式可以访问列表中的元素。
 
@@ -228,7 +228,7 @@ print(list(a))
 
 
 
-#### 字典
+### 字典
 
 字典是一种可变容器模型，且可存储任意类型对象。字典的每个键值 key=>value 对用冒号 : 分割，每个对之间用逗号(,)分割，整个字典包括在花括号 {} 中。格式：d = {key1 : value1, key2 : value2, key3 : value3 }
 
@@ -273,7 +273,7 @@ for i in p:
 
 
 
-#### 集合
+### 集合
 
 集合（set）是一个**无序**的**不重复**元素序列。
 
@@ -304,9 +304,9 @@ for i in p:
 
 
 
-## 方法
 
-#### 滑动窗口
+
+# 滑动窗口
 
 滑动窗口是一种基于**双指针**的一种思想，两个指针指向的元素之间形成一个窗口。
 
@@ -354,7 +354,7 @@ while (right < s.size()) {
 
 
 
-#### 动态规划
+# 动态规划
 
 动态规划，英文：Dynamic Programming，简称DP，如果某一问题有很多重叠子问题，使用动态规划是最有效的。
 
@@ -385,13 +385,71 @@ while (right < s.size()) {
 
 
 
-#### 二叉树
+# 二叉树
 
-二叉树有两种形式：满二叉树和完全二叉树。
+### 基础
 
-满二叉树：如果一棵二叉树只有度为0的结点和度为2的结点，并且度为0的结点在同一层上，则这棵二叉树为满二叉树。
+二叉树是n个有限元素的集合，该集合或者为空、或者由一个称为根（root）的元素及两个不相交的、被分别称为左子树和右子树的二叉树组成，是有序树。当集合为空时，称该二叉树为空二叉树。在二叉树中，一个元素也称作一个节点。
 
-数组记录二叉树：父节点的数组下标是 i，左节点就是 i \* 2 + 1，右节点就是 i \* 2 + 2
+性质1：二叉树的第i层上至多有2^(i-1)（i≥1）个节点 。
+
+性质2：深度为h的二叉树中至多含有2^h - 1个节点 。
+
+性质3：若在任意一棵二叉树中，有n0个叶子节点，有n2个度为2的节点，则必有n0 = n2 + 1 。
+
+性质4：具有n个节点的满二叉树深为log2n + 1。
+
+**术语**
+
+节点的度：一个节点拥有子树的数目称为节点的度
+
+树的度：树中所有节点的度的最大值
+
+树的高度(深度)：树中节点的最大层次
+
+节点的层次：从根节点开始，根节点的层次为1，根的直接后继层次为2，以此类推
+
+双亲节点（父节点）：一个节点的直接前驱称为该节点的双亲节点
+
+孩子节点：一个节点的直接后继节点称为该节点的孩子节点
+
+兄弟节点：同一双亲节点的孩子结点间互称兄弟节点
+
+根节点：没有父节点的节点称为根节点
+
+叶子节点：也称为终端节点，没有子树的节点或者度为零的节点
+
+分支节点：也称为非终端节点，度不为零的节点称为非终端节点
+
+**分类**
+
+二叉树有两种形式：满二叉树和完全二叉树。（满二叉树一定是完全二叉树）
+
+**满二叉树：**如果一棵二叉树只有度为0的结点和度为2的结点，并且度为0的结点在同一层上，则这棵二叉树为满二叉树。
+
+**完全二叉树：**深度为k，有n个结点的二叉树当且仅当其每一个结点都与深度为k的满二叉树中编号从1到n的结点一一对应时，称为完全二叉树。（在完全二叉树中，除了最底层节点可能没填满外，其余每层节点数都达到最大值，并且最下面一层的节点都集中在该层最左边的若干位置。）
+
+有数值的二叉树被称为**二叉搜索树**，二叉搜索树是一个有序树。
+
+**平衡二叉搜索树：**又被称为AVL（Adelson-Velsky and Landis）树，且具有以下性质：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。
+
+
+
+**存储方式**
+
+二叉树可以链式存储，也可以顺序存储。链式存储方式用指针， 顺序存储的方式用数组。
+
+链式存储：
+
+<img src="C:\Users\TRT\AppData\Roaming\Typora\typora-user-images\image-20220617132813549.png" alt="image-20220617132813549" style="zoom: 67%;" />
+
+用链式表示的二叉树，更有利于我们理解，所以一般我们都是用链式存储二叉树
+
+顺序存储：
+
+<img src="C:\Users\TRT\AppData\Roaming\Typora\typora-user-images\image-20220617132841580.png" alt="image-20220617132841580" style="zoom:50%;" />
+
+数组记录二叉树时，父节点的数组下标如果为 i，左节点就是 i \* 2 + 1，右节点就是 i \* 2 + 2。
 
 
 
@@ -399,5 +457,103 @@ while (right < s.size()) {
 
 二叉树主要有两种遍历方式：
 
-1. 深度优先遍历：先往深走，遇到叶子节点再往回走。
-2. 广度优先遍历：一层一层的去遍历。
+1. **深度优先遍历：**先往深走，遇到叶子节点再往回走。（前中后指的是中间节点的遍历顺序）
+   1. 前序遍历（递归法，迭代法）
+   2. 中序遍历（递归法，迭代法）
+   3. 后序遍历（递归法，迭代法）
+2. **广度优先遍历：**一层一层的去遍历。
+
+
+
+
+
+### 实现
+
+**实现方式：**深度优先遍历使用递归或栈，广度优先遍历使用队列。
+
+**定义**
+
+Java
+
+```java
+public class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(){}
+    TreeNode(int val){ this.val = val;}
+    TreeNode(int val,TreeNode left,TreeNode right){
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}
+```
+
+
+
+**深度优先遍历（递归）**
+
+**递归**
+
+递归需要按三要素写：
+
+1. **确定递归函数的参数和返回值：** 确定哪些参数是递归的过程中需要处理的，那么就在递归函数里加上这个参数， 并且还要明确每次递归的返回值是什么进而确定递归函数的返回类型。
+2. **确定终止条件：** 写完了递归算法, 运行的时候，经常会遇到栈溢出的错误，就是没写终止条件或者终止条件写的不对，操作系统也是用一个栈的结构来保存每一层递归的信息，如果递归没有终止，操作系统的内存栈必然就会溢出。
+3. **确定单层递归的逻辑：** 确定每一层递归需要处理的信息。在这里也就会重复调用自己来实现递归的过程。
+
+代码：
+
+```java
+public class Traverse {
+    // 递归法
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<Integer>();
+        preorder(root, res);
+        return res;
+    }
+
+    void preorder(TreeNode root, List<Integer> res) {
+        if (root == null) {
+            return;
+        }
+        res.add(root.val);
+        preorder(root.left, res);
+        preorder(root.right, res);
+    }
+
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        inorder(root, res);
+        return res;
+    }
+
+    void inorder(TreeNode root, List<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        inorder(root.left, list);
+        list.add(root.val);             // 注意这一句
+        inorder(root.right, list);
+    }
+
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        postorder(root, res);
+        return res;
+    }
+
+    void postorder(TreeNode root, List<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        postorder(root.left, list);
+        postorder(root.right, list);
+        list.add(root.val);             // 注意这一句
+    }
+}
+```
+
+
+
+**深度优先遍历（迭代）**

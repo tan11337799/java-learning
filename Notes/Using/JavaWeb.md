@@ -684,5 +684,57 @@ public class AddServlet extends HttpServlet {
 
 ##### 会话跟踪
 
-http是无状态的，服务器无法判断两次请求是同一个客户端还是不同客户端发送的。我们通过会话跟踪技术解决http的无状态问题。
+http是无状态的，这意味着每次客户端检索网页时，客户端打开一个单独的连接到 Web 服务器，服务器不保留之前客户端请求的任何记录，因此服务器无法判断两次请求是同一个客户端还是不同客户端发送的。我们通过会话跟踪技术解决http的无状态问题。
+
+客户端第一次发送请求给服务器，服务器获取session；如果无法获取则创建新的session响应给客户端。
+
+下一次客户端给服务器发送请求，会将sessionID一起发给服务器，服务器确定该次请求和上一次为同一个客户端。
+
+Servlet 提供了 **HttpSession 接口**，该接口提供了一种跨多个页面请求或访问网站时识别用户以及存储有关用户信息的方式。
+
+Servlet 容器使用这个接口来创建一个 HTTP 客户端和 HTTP 服务器之间的 session 会话。会话持续一个指定的时间段，跨多个连接或页面请求。
+
+**常用API：**
+
+`request.getSession([true])`	获取当前会话，如果没有则创新新会话
+
+`request.getSession(false)` 	获取当前会话，如果不存在则返回null
+
+`session.getId()`	获取session的id号
+
+`session.isNew()`	判断当前session是否为新
+
+`session.invalidate()`	使该session会话失效，并解除绑定到它上的任意对象
+
+`setMaxInactiveInterval(int interval)`指定客户端的请求时间
+
+保存作用域（注意保存的对象仅绑定当前的sessionid）：
+
+`setAttribute(String name, Object value)` 使用指定的名称key绑定一个对象value到该 session 会话
+
+`getAttribute(String name)`	返回该session会话中具有指定名称key的对象，如果没有则返回null
+
+`removeAttribute(String name)`	移除指定名称k的对象
+
+
+
+##### 服务器内部转发和客户端重定向
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -2568,25 +2568,61 @@ Java 集合框架主要包括两种类型的**容器**，一种是**集合**（C
 
 
 
-**框架体系**
+### Collection接口
 
-<img src="assets/image-20220119212737442.png" alt="image-20220119212737442"/>
+![image-20220617140451850](assets\image-20220617140451850.png)
 
-集合类Collection，实现了Iterable接口。
+集合类Collection，实现了Iterator接口。
 
 Collection 接口又有 3 种子类型：**List、Set 和 Queue**，
 
-再下面是一些抽象类，最后是具体实现类，有常用的**Vector、ArrayList、LinkedList**类实现**List接口**，有常用的**TreeSet、HashSet**类实现了**Set接口**。有常用的**HashMap、Hashtable、TreeMap**类实现了**Map接口**。
+再下面是一些抽象类，最后是具体实现类，**Vector、ArrayList、LinkedList**类实现**List接口**，**TreeSet、HashSet**类实现了**Set接口**，**Dueue、PriorityQueue、ArrayDeque**实现了Queue接口
 
 
 
-**实现类的特点**
+**常用方法**
 
-(1) Collection实现子类可以存放多个元素，每个元素可以为Object；
+`boolean add(Object e) `  向集合中添加元素
 
-(2) 有些实现类可以存放重复的元素，有些不可以；
+`int size() `             获取集合中元素的个数
 
-(3) 有些实现类是有序的（如List），有些是无序的（如Set）；
+`void clear() `          清空集合
+
+`boolean contains(Object o) ` 判断当前集合中是否包含元素o，包含返回true，不包含返回false
+
+`boolean remove(Object o) ` 删除集合中的某个元素。
+
+`boolean isEmpty()`        判断该集合中元素的个数是否为0
+
+
+
+
+
+**各接口的特点**
+
+| 接口名称        |                            作  用                            |
+| --------------- | :----------------------------------------------------------: |
+| Iterator 接口   | 集合的输出接口，主要用于遍历输出（即迭代访问）Collection 集合中的元素，Iterator 对象被称之为迭代器。迭代器接口是集合接口的父接口，实现类实现 Collection 时就必须实现 Iterator 接口。 |
+| Collection 接口 | 是 List、Set 和 Queue 的父接口，是存放一组单值的最大接口。所谓的单值是指集合中的每个元素都是一个对象。一般很少直接使用此接口直接操作。 |
+| Queue 接口      |       Queue 是 Java 提供的队列实现，有点类似于 List。        |
+| Dueue 接口      |             是 Queue 的一个子接口，为双向队列。              |
+| List 接口       | 是最常用的接口。是有序集合，允许有相同的元素。使用 List 能够精确地控制每个元素插入的位置，用户能够使用索引（元素在 List 中的位置，类似于数组下标）来访问 List 中的元素，与数组类似。 |
+| Set 接口        |                     不能包含重复的元素。                     |
+| Map 接口        | 是存放一对值的最大接口，即接口中的每个元素都是一对，以 key➡value 的形式保存。 |
+
+
+
+**实现类特点**
+
+| 类名称     | 作用                                                         |
+| ---------- | ------------------------------------------------------------ |
+| HashSet    | 为优化査询速度而设计的 Set。它是基于 HashMap 实现的，HashSet 底层使用 HashMap 来保存所有元素，实现比较简单 |
+| TreeSet    | 实现了 Set 接口，是一个有序的 Set，这样就能从 Set 里面提取一个有序序列 |
+| ArrayList  | 一个用数组实现的 List，能进行快速的随机访问，效率高而且实现了可变大小的数组 |
+| ArrayDueue | 是一个基于数组实现的双端队列，按“先进先出”的方式操作集合元素 |
+| LinkedList | 对顺序访问进行了优化，但随机访问的速度相对较慢。此外它还有 addFirst()、addLast()、getFirst()、getLast()、removeFirst() 和 removeLast() 等方法，能把它当成栈（Stack）或队列（Queue）来用 |
+| HsahMap    | 按哈希算法来存取键对象                                       |
+| TreeMap    | 可以对键对象进行排序                                         |
 
 
 
@@ -2944,6 +2980,40 @@ HashSet实现了Set接口，实际上底层是**基于 HashMap** 来实现的，
 
 
 
+### Queue接口
+
+Queue接口是Collection的子接口，遵循先进先出的原则，基于链表实现。LinkedList接口，实现了Queue。
+
+**特点：**
+
+* 队列是一种特殊的线性表，它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作。进行插入操作的端称为队尾，进行删除操作的端称为队头。
+* LinkedList类实现了Queue接口，因此我们可以把LinkedList当成Queue来用。
+* 队列中没有元素时，称为空队列。
+
+<img src="F:\MyGit\Clone\twh\Notes\Using\assets\image-20220617150008624.png" alt="image-20220617150008624" style="zoom: 67%;" />
+
+**实际应用**
+
+队列以一种先进先出的方式管理数据，如果你试图向一个已经满了的阻塞队列中添加一个元素或者是从一个空的阻塞队列中移除一个元索，将导致线程阻塞．在多线程进行合作时，阻塞队列是很有用的工具。工作者线程可 以定期地把中间结果存到阻塞队列中而其他工作者线线程把中间结果取出并在将来修改它们。队列会自动平衡负载。如果第一个线程集运行得比第二个慢，则第二个 线程集在等待结果时就会阻塞。
+
+
+
+**常用方法：**
+
+`boolean add(E e)`	添加元素e到队尾，成功则返回true，失败抛出异常
+
+`boolean offer(E e)`	添加元素e到队尾，成功则返回true，失败返回false
+
+`E poll()`	将队首元素删除，并返回该元素；队列为空抛出异常
+
+`E remove()`  将队首元素删除，并返回该元素；队列为空返回null
+
+`E element()`	返回队首的元素，如果为空抛出异常
+
+`E peek()`	返回队首的元素，如果为空返回null
+
+
+
 ### Map接口
 
 Map接口比Set接口使用的更为广泛。常用实现类包括：HashMap（最最频繁）, Hashtable和Properties.
@@ -2952,9 +3022,9 @@ Map与Collection并列存在，用于保存具有映射关系的数据Key-Value�
 
 **特点：**
 
-(1) Map中的key和value可以是任何**引用类型**的数据（如果传入基本数据类型，则编译器会自动装箱为包装类），会封装到**HashMap$Node对象**中;
+(1) Map中的key和value可以是任何引用类型的数据（如果传入基本数据类型，则编译器会自动装箱为包装类），会封装到HashMap$Node对象中;
 
-(2) Map中的**key不允许重复**，而**value允许重复**。如果put的key相同，则后添加的value值会覆盖该key原来对应的value值（等同于修改）；
+(2) Map中的key不允许重复，而value允许重复。如果put的key相同，则后添加的value值会覆盖该key原来对应的value值（等同于修改）；
 
 (3) Map的key常用String类型；
 
@@ -3025,7 +3095,7 @@ for(Map.Entry<String, String> s:entries){
 * 为了便于程序员的遍历，HashMap定义了一个entrySet集合用于存储每个Node：`transient Set<Map.Entry<K,V>> entrySet;`	
 * entrySet中定义的类型是Map.Entry，但实际存放的类型是HashMap$Node（这里相当于将HashMap$Node的对象赋值给了Map.Entry，发生了向上转型【Node实现了Map.Entry】）；
 
-* 在Map.Entry中提供了getKey()和getValue()方法，用于遍历显示；
+* 在Map.Entry中提供了`getKey()`和`getValue()`方法，用于遍历显示；
 
 
 
