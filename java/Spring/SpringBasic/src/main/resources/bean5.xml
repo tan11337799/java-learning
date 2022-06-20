@@ -10,6 +10,6 @@
 <!--        <property name="dept" ref="dept"></property>-->
 <!--        <property name="dept" ref="dept"/>-->
     </bean>
-    <bean id="dept" class="com.twhupup.autowire.Dept"></bean>
+    <bean id="dept" class="com.twhupup.autowire.Dept"/>
 </beans>
 

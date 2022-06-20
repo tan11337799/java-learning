@@ -1,5 +1,6 @@
 ---
 typora-copy-images-to: assets
+typora-root-url: assets
 ---
 
 # Spring框架
@@ -180,12 +181,26 @@ class UserFactory{
 }
 ```
 
+**结构图：**
+
+![1655309650669](/1655309650669.png)
+
 **基本要点：**
 
 * IOC思想需要基于IOC容器，IOC底层是一个对象工厂；
 * Spring提供了IOC容器实现的两种方式：
   * BeanFactory接口：是IOC容器基本实现方式，是Spring内部的使用接口，不提供给开发人员进行使用（加载配置文件时候**不会创建对象**，在获取对象时才会创建对象。）
-  * ApplicationContext接口：BeanFactory接口的子接口，提供更多更强大的功能，提供给开发人员使用（加载配置文件时候就会把在配置文件的对象进行创建）【推荐使用，服务器在启动过程中就加载对象】
+
+  * ApplicationContext接口：BeanFactory接口的子接口，提供更多更强大的功能，提供给开发人员使用（加载配置文件时候就会把在配置文件的对象进行创建）【推荐使用，服务器在启动过程中就加载对象】功能包括：
+
+    * 访问应用程序组件的Bean工厂方法。从org.springframework.beans.factory.ListableBeanFactory继承。
+
+    * 以通用方式加载文件资源的能力。继承自org.springframe .core.io。ResourceLoader接口。
+
+    * 向注册侦听器发布事件的能力。继承自ApplicationEventPublisher接口。
+
+    * 解析消息的能力，支持国际化。继承自MessageSource接口。
+
 
 
 
@@ -725,7 +740,7 @@ public void testService(){
 
 （1）@AutoWired 根据类型注入
 
-* 把service和dao对象进行创建，在service和dao类添加创建对象注释
+* 把service和dao对象进行创建，在service和dao类添加创建对象注释。此时Spring的组件扫描就会找到这两个类，将其初始化为bean对象注入到IOC容器中。
 
   ```java
   @Service(value="userService")//相当于在bean文件中配置：<bean id="userService" class="com.twhupup.service.UserService"/>
@@ -744,7 +759,7 @@ public void testService(){
   }
   ```
 
-* 在service中注入dao对象，在service类中添加dao类型属性，在属性上使用注释注入属性
+* 在service中注入dao对象，在属性上使用注释注入属性。**这里使用spring进行注入而不通过new创建对象，是因为：直接创建对象时会增加耦合性，将对象的创建交给ioc容器可以降低耦合性，同时对于对象的单例和多例可以有效的控制而不需要自己采取维护措施**
 
   ```java
   @Service(value="userService")//相当于在bean文件中配置：<bean id="userService" class="com.twhupup.service.UserService"/>
@@ -875,21 +890,29 @@ public class SpringConfig {
 
 生命周期是对象从创建到销毁的过程，bean生命周期也就是bean对象的创建到销毁过程。
 
+![1655310053331](/1655310053331.png)
+
 bean的生命周期过程：
 
-（1）通过构造器创建bean对象实例（无参构造）
+（1）通过反射调用构造器创建bean对象实例（无参构造）
 
-（2）为bean属性设置值和其它bean引用（调用set方法）
+（2）通过依赖注入为bean对象装配属性（调用set方法）
 
-（3）将bean实例传递给bean的后置处理器方法postProcessBeforeInitialization
+（3）实现了Aware接口的Bean，执行接口方法：如顺序执行BeanNameAware、BeanFactoryAware、ApplicationContextAware的接口方法。
 
-（4）调用bean的初始化init-method方法（需要进行配置初始化）
+（3）将bean实例传递给bean的前置处理器方法postProcessBeforeInitialization
+
+（4）顺序执行@PostConstruct注解方法、InitializingBean接口方法、init-method
+方法进行初始化
 
 （5）将bean实例传递给bean的后置处理器方法postProcessAfterInitialization
 
 （6）得到bean对象，使用bean
 
-（7）容器关闭后，调用bean的销毁方法（需要进行配置销毁）
+（7）容器关闭后，调用bean的销毁方法，顺序是：@PreDestroy注解方法、DisposableBean接口
+方法、destroy-method。
+
+
 
 
 

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public class BookDaoImpl implements BookDao{
-    //注入JdbcTemplate
+    //根据xml文件中的属性注入JdbcTemplate
     @Autowired
     private JdbcTemplate jdbcTemplate;
 

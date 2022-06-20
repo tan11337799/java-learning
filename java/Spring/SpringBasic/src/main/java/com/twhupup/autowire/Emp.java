@@ -9,6 +9,7 @@ package com.twhupup.autowire;
  * @License: (C)2022, MIPAV Lab(mipav.net), Soochow University. tanritian1@163.com All Rights Reserved.
  */
 public class Emp {
+
     private Dept dept;
 
 //    public void setDept(Dept dept) {

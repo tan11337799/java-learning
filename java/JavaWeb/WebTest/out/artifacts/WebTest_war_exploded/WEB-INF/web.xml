@@ -9,6 +9,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>WebTest</servlet-name>
-        <url-pattern>/add</url-pattern>
+        <url-pattern>/test</url-pattern>
     </servlet-mapping>
 </web-app>

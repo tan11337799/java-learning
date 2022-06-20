@@ -325,8 +325,6 @@ CSS被称为**层叠样式表**，是一种描述 HTML 文档样式的语言，�
 
 CSS规则集由**样式表**和**声明块**组成。样式表指向您需要设置样式的 HTML 元素，声明块包含一条或多条用分号分隔的声明。每条声明都包含一个 CSS 属性名称和一个值，以冒号分隔。多条 CSS 声明用分号分隔，声明块用花括号括起来。
 
-![image-20220613155006411](assets\image-20220613155006411.png)
-
 
 
 **样式表**
@@ -611,18 +609,18 @@ Servlet的生命周期对应于Servlet对象从创建到销毁的过程。分别
 ##### 项目管理
 
 * **创建Web工程**（Web有小蓝点表示创建成功）
-  
-  * 使用Maven模板创建：选择maven-archetype-webapp模板
+
+  > 使用Maven模板创建：选择maven-archetype-webapp模板
 * 手动创建：创建后右键工程，选择Add frameworks Support，勾选Web Application和Maven；然后进入Project Structure-Facets，添加Web框架，配置部署描述符地址（web.xml）和Web资源文件的地址。
-  
+
 * **配置启动属性**
-  
+
   进入启动配置Run/Debug Configurations，添加Tomcat Server-Local（如果第一次设定需要设置模板，在Application server中选择使用的服务器Tomcat路径）
-  
+
   * 添加部署包：Project Structure-Artifacts添加Web Application Exploded-From Modules表示将本项目以文件夹形式发布，Web Application Archive则表示将本项目打包为war包再发布。Output Directory表示Artifact包生成的位置。
   * 在Deployment中添加Artifact，如果不显示Artifact需要在，此时再添加Artifact；application context改为/便于访问。
   * 在Server中修改URL为`http://localhost:8080/网页名; `表示Tomcat启动时打开的网址。如果不指定网页，则会默认访问index.html/index.jsp/index.htm（这是web.xml文件中设置的`<welcome-file-list>`标签的作用）
-  
+
 * **添加需要的jar包**
 
   将jar包添加到web/WEB-INFO/lib下，如果使用maven-archetype-webapp模板，则会自动添加。
@@ -645,6 +643,24 @@ Servlet的生命周期对应于Servlet对象从创建到销毁的过程。分别
 
 
 ### 实操
+
+##### 注解
+
+在 Servlet 中，web.xml 扮演的角色十分的重要，它可以将所有的 Servlet 的配置集中进行管理，但是若项目中 Servlet 数量较多时，为了减少冗余，注解（Annotation）就是一种更好的选择。
+
+在Servlet中如果设置了`@WebServlet`注解,当请求该Servlet时,服务器就会⾃动读取当中的信息,如果注解`@WebServlet("/category")`则表⽰该Servlet默认的请求路径为…/category,这⾥省略了urlPatterns属性名。
+
+**语法：**
+
+* 如果在@WebServlet中需要设置多个属性,必须给属性值加上属性名称,中间⽤逗号隔开,否则会报错。
+* 若没有设置@WebServlet的name属性，默认值是Servlet的全类名（包+类）。
+
+**注意事项：**
+
+- 通过实现 Serlvet 接口或继承 GenericServlet 创建的 Servlet 类无法使用 @WebServlet 注解。
+- 使用 @WebServlet 注解配置的 Servlet 类，不要在 web.xml 文件中再次配置该 Servlet 相关属性。若同时使用 web.xml 与 @WebServlet 配置同一 Servlet 类，则 web.xml 中`<servlet-name>`的值与注解中 name 取值不能相同，否则容器会忽略注解中的配置。
+
+
 
 ##### 处理表单数据
 
@@ -718,23 +734,148 @@ Servlet 容器使用这个接口来创建一个 HTTP 客户端和 HTTP 服务器
 
 
 
-##### 服务器内部转发和客户端重定向
+##### 资源跳转
+
+**服务器请求转发**
+
+转发的功能是将用户对当前JSP页面或servlet的请求转发给另一个JSP页面或servlet，并且可以将用户对当前JSP页面或servlet的请求传递给转发到JSP页面或servlet。
+
+请求转发属于服务器行为。转发时request对象会被保存，也就是说被转发到的另外一个servlet或其他资源中的request对象，跟请求转发的request是同一个对象，转发后浏览器地址栏内容不变（依旧是转发前的请求地址）。
+
+**过程：**
+
+本质上是一次请求，对应一个request对象和一个response对象。客户端不清楚服务器内部进行了多少次转发。
+
+**语法：**
+
+服务器内部转发：`request.getRequestDispatcher(url).forward(request,response);` url表示需要转发到的servlet的url。
 
 
 
+**客户端重定向**
+
+servlet重定向指的是一种由http协议规定的机制，重定向属于客户端行为。服务器在收到客户端请求后，会通知客户端浏览器重新向另外一个 URL 发送请求，这称为请求重定向。用户在请求一个servlet时，该servlet在处理完数据后可以使用重定向方法将用户重新定向到另一个JSP页面或servlet。
+
+**过程：**
+
+它本质上是两次 HTTP 请求，对应两个 request 对象和两个 response 对象。
+
+（1）用户在浏览器中输入 URL，请求访问服务器端的 Web 资源。
+（2）服务器端的 Web 资源返回一个状态码为 302 的响应信息，该响应的含义为：通知浏览器再次发送请求，访问另一个 Web 资源（在响应信息中提供了另一个资源的 URL）。
+（3）当浏览器接收到响应后，立即自动访问另一个指定的 Web 资源。
+（4）另一 Web 资源将请求处理完成后，由容器把响应信息返回给浏览器进行展示。
+
+![1655619813581](/1655619813581.png)
+
+**语法：**
+
+客户端重定向：`response.sendRedirect("...");`
 
 
 
+**区别**
+
+转发和重定向都能实现页面的跳转，但是两者也存在以下区别。
+
+| 区别                                  | 转发               | 重定向             |
+| ------------------------------------- | ------------------ | ------------------ |
+| 浏览器地址栏 URL 是否发生改变         | 否                 | 是                 |
+| 是否支持跨域跳转                      | 否                 | 是                 |
+| 请求与响应的次数                      | 一次请求和一次响应 | 两次请求和两次响应 |
+| 是否共享 request 对象和 response 对象 | 是                 | 否                 |
+| 是否能通过 request 域对象传递数据     | 是                 | 否                 |
+| 速度                                  | 相对要快           | 相对要慢           |
+| 行为类型                              | 服务器行为         | 客户端行为         |
 
 
 
+##### Thymeleaf
+
+thymeleaf是springboot官方推荐的视图模板技术。
+
+**使用步骤：**
+
+* 引入thymeleaf的jar包；
+
+* 新建Servlet类ViewBaseServlet，作为视图解析器
+
+  ```java
+  public class ViewBaseServlet extends HttpServlet {
+  
+      private TemplateEngine templateEngine;
+  
+      @Override
+      public void init() throws ServletException {
+          // 1.获取ServletContext对象
+          ServletContext servletContext = this.getServletContext();
+          // 2.创建Thymeleaf解析器对象
+          ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(servletContext);
+          // 3.给解析器对象设置参数
+          templateResolver.setTemplateMode(TemplateMode.HTML);// 设置模板模式，HTML是默认模式
+          templateResolver.setPrefix(servletContext.getInitParameter("view-prefix"));// 设置前缀
+          templateResolver.setSuffix(servletContext.getInitParameter("view-suffix"));// 设置后缀
+          templateResolver.setCacheTTLMs(60000L);// 设置缓存过期时间（毫秒）
+          templateResolver.setCacheable(true);// 设置是否缓存
+          templateResolver.setCharacterEncoding("utf-8");        // 设置服务器端编码方式
+          // 4.创建模板引擎对象
+          templateEngine = new TemplateEngine();
+          // 5.给模板引擎对象设置模板解析器
+          templateEngine.setTemplateResolver(templateResolver);
+      }
+  
+      protected void processTemplate(String templateName, HttpServletRequest req, HttpServletResponse resp) throws IOException {
+          // 1.设置响应体内容类型和字符集
+          resp.setContentType("text/html;charset=UTF-8");
+          // 2.创建WebContext对象
+          WebContext webContext = new WebContext(req, resp, getServletContext());
+          // 3.处理模板数据
+          templateEngine.process(templateName, webContext, resp.getWriter());
+      }
+  }
+  ```
+
+* 在web.xml中进行配置servletContext参数
+
+  > 为什么要放在WEB-INF目录下？
+  >
+  > 原因：WEB-INF目录不允许浏览器直接访问，所以我们的视图模板文件放在这个目录下，是一种保护。以免外界可以随意访问视图模板文件。
+  >
+  > 访问WEB-INF目录下的页面，都必须通过Servlet转发过来，简单说就是：不经过Servlet访问不了。
+  >
+  > 这样就方便我们在Servlet中检查当前用户是否有权限访问。
+
+  > 放在WEB-INF目录下之后，重定向进不去怎么办？
+  >
+  > 重定向到Servlet，再通过Servlet转发到WEB-INF下。
+
+  ``` xml
+  <!-- 配置上下文参数,param-value中设置的前缀、后缀的值不是必须叫这个名字，可以根据实际情况和需求进行修改。 -->
+  <context-param>
+      <param-name>view-prefix</param-name><!--配置前缀-->
+      <param-value>/</param-value>
+  </context-param>
+  <context-param>
+      <param-name>view-suffix</param-name><!--配置后缀-->
+      <param-value>.html</param-value>
+  </context-param>
+  ```
+
+* 使需要使用的servlet继承视图解析器ViewBaseServlet
+
+  使用视图解析器中processTemplate()渲染视图，
+
+  `super.processTemplate("index",request,response);`（逻辑视图`index`=>物理视图`/index.html`）
+
+  > 第一个参数templateName声明需要前往的视图名称，第二、三个参数传入请求体和响应体
 
 
 
+* 在html文件中使用th名称空间，完成thymeleaf表达式
+
+  ```
+  <html lang="en" xmlns:th="www.thymeleaf.org">
+  ```
 
 
 
-
-
-
-
+  ``
