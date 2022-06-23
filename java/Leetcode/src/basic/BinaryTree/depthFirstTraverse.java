@@ -1,7 +1,9 @@
 package basic.BinaryTree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * @Project: LeetCode
@@ -13,8 +15,8 @@ import java.util.List;
  */
 
 
-
-public class Traverse_recur {
+// 深度优先遍历
+public class depth_first_traverse {
     // 递归法
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
@@ -59,5 +61,26 @@ public class Traverse_recur {
         postorder(root.left, list);
         postorder(root.right, list);
         list.add(root.val);             // 注意这一句
+    }
+
+
+    public List<Integer> preorderTraversal_iter(TreeNode root) {
+        List<Integer> res = new LinkedList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        stack.add(root);
+        if(root==null){
+            return res;
+        }
+        while(!stack.isEmpty()){
+            TreeNode temp = stack.pop();
+            res.add(temp.val);
+            if(temp.right!=null){
+                stack.push(temp.right);
+            }
+            if(temp.left!=null){
+                stack.push(temp.left);
+            }
+        }
+        return res;
     }
 }

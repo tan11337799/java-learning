@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: assets
+---
+
 # Leetcode笔记
 
 
@@ -21,288 +25,127 @@
 
 
 
-# 内置函数
-
-**set()**
-
-当需要对一个列表进行去重操作的时候，可以使用`set()`函数。
-
-```python3
-obj = ['a','b','c','b','a']
-print(set(obj))
-# 输出：{'b', 'c', 'a'}
-```
-
-`set([iterable])`用于创建一个集合，集合里的元素是**无序且不重复的**。
-
-集合对象创建后，还能使用**并集、交集、差集**功能。
-
-```python3
-A = set('hello')
-B = set('world')
-
-A.union(B) # 并集，输出：{'d', 'e', 'h', 'l', 'o', 'r', 'w'}
-A.intersection(B) # 交集，输出：{'l', 'o'}
-A.difference(B) # 差集，输出：{'d', 'r', 'w'}
-```
-
-
-
-**sorted()**
-
-`sorted()`可以对任何可迭代对象进行排序，并返回列表。
-
-注意：sorted(iterable)可作用于任意的对象，而sort是列表的方法，只能作用于列表，并且sorted是静态，无需使用对象调用
-
-对列表升序操作：
-
-```python3
-a = sorted([2,4,3,7,1,9])
-print(a)
-# 输出：[1, 2, 3, 4, 7, 9]
-```
-
-对元组倒序操作：
-
-```python3
-sorted((4,1,9,6),reverse=True)
-print(a)
-# 输出：[9, 6, 4, 1]
-```
-
-使用参数：key，根据自定义规则，按字符串长度来排序：
-
-```python3
-chars = ['apple','watermelon','pear','banana']
-a = sorted(chars,key=lambda x:len(x))
-print(a)
-# 输出：['pear', 'apple', 'banana', 'watermelon']
-```
-
-使用参数：key，根据自定义规则，对元组构成的列表进行排序：
-
-```python3
-tuple_list = [('A', 1,5), ('B', 3,2), ('C', 2,6)]
-# key=lambda x: x[1]中可以任意选定x中可选的位置进行排序
-a = sorted(tuple_list, key=lambda x: x[1])
-print(a)
-# 输出：[('A', 1, 5), ('C', 2, 6), ('B', 3, 2)]
-```
-
-
-
-**reversed()**
-
-`reversed()`接受一个序列，将序列里的元素反转，并最终返回迭代器。
-
-```python3
-a = reversed('abcde')
-print(list(a))
-# 输出：['e', 'd', 'c', 'b', 'a']
-
-b = reversed([2,3,4,5])
-print(list(b))
-# 输出：[5, 4, 3, 2]
-```
-
-
-
-**map()**
-
-语法：`map(function, iterable, ...)`
-
-**map() 会根据提供的函数对指定序列做映射**。第一个参数 function 以参数序列中的**每一个元素**调用 function 函数，第二个参数iterable为需要操作的参数序列。方法将返回包含每次 function 函数返回值的新列表。
-
-做文本处理的时候，假如要对序列里的每个单词进行大写转化操作。
-
-```python3
-chars = ['apple','watermelon','pear','banana']
-a = map(lambda x:x.upper(),chars)
-print(list(a))
-# 输出：['APPLE', 'WATERMELON', 'PEAR', 'BANANA']
-```
-
-举个例子，对列表里的每个数字作平方处理：
-
-```python3
-nums = [1,2,3,4]
-a = map(lambda x:x*x,nums)
-print(list(a))
-# 输出：[1, 4, 9, 16]
-```
-
-
-
-**filter()**
-
-语法：`filter(function, iterable)`
-
-filter() 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。
-
-该接收两个参数，第一个为函数，第二个为序列，序列的每个元素作为参数传递给函数进行判断，然后返回 True 或 False，最后将返回 True 的元素放到新列表中。
-
-找到列表中的所有奇数。
-
-```python3
-nums = [1,2,3,4,5,6]
-a = filter(lambda x:x%2!=0,nums)
-print(list(a))
-# 输出：[1,3,5]
-```
-
-从许多单词里挑出包含字母`w`的单词。
-
-```python3
-chars = chars = ['apple','watermelon','pear','banana']
-a = filter(lambda x:'w' in x,chars)
-print(list(a))
-# 输出：['watermelon']
-```
-
-
-
-**enumerate()**
-
-这样一个场景，同时打印出序列里每一个元素和它对应的顺序号，我们用`enumerate()`函数做做看。
-
-```python3
-chars = ['apple','watermelon','pear','banana']
-for i,j in enumerate(chars):
-    print(i,j)
-
-'''
-输出：
-0 apple
-1 watermelon
-2 pear
-3 banana
-'''
-```
-
-`enumerate`翻译过来是枚举、列举的意思，所以说`enumerate()`函数用于对序列里的元素进行顺序标注，返回(元素、索引)组成的迭代器。
-
-再举个例子说明，对字符串进行标注，返回每个字母和其索引。
-
-```python3
-a = enumerate('abcd')
-print(list(a))
-# 输出：[(0, 'a'), (1, 'b'), (2, 'c'), (3, 'd')]
-```
-
-
-
 # 内置容器
 
-### **列表**
+### 数组
 
-序列是 Python 中最基本的数据结构。序列中的每个值都有对应的位置值，称之为索引，用索引的方式可以访问列表中的元素。
+ArrayList 类是一个**可以动态修改的数组**，与普通数组的区别就是它是没有固定大小的限制，我们可以添加或删除元素。
 
-特点：查询快、添加慢
+**结构：**ArrayList 继承了 AbstractList，并实现了 List 接口（拥有List接口的所有方法），以及Serializable, Cloneable, RandomAccess接口。
 
-**语法**
+<img src="F:\MyGit\Clone\twh\Notes\Using\assets\20190808105459938.png" alt="img" style="zoom:67%;" />
 
-创建：
+**特点：**
 
-`list()`	创建列表（也可以用`l=[]`）
+* ArrayList中可以存放null元素；
+* ArrayList的底层是用数组进行数据存储的；
+* ArrayList基本等同于Vector，但ArrayList的执行效率更高，但线程不安全。
 
-属性：
+**常用方法：**
 
-`len()`	返回列表元素的个数
+`add(Object element)`	用于向ArrayList集合中的添加元素
 
-`max()`	返回列表元素的最大值
+`size()`	返回ArrayList集合中元素个数
 
-`min()`	返回列表元素的最小值
+`isEmpty()`	用于判断集合容器是否为空，如果为空，则返回true，否则返回false。 
 
-`list(*params)`	将元组转换为列表	
+`contains(Object o)`	用以判断集合容器中是否含有指定元素，有返回值，且为boolean型
 
-操作：
+`clear()`	用于清空集合中元素
 
-| 函数                             | 描述                                                         |
-| :------------------------------- | :----------------------------------------------------------- |
-| l.append(obj)                  | 添加元素                                                     |
-| l.remove(obj)                  | 移除列表中某个值的第一个匹配项                               |
-| l.index(obj)                    | 从列表中找出某个值第一个匹配项的索引位置                     |
-| l.clear()                     | 清空列表                                                     |
-| l.reverse()                   | 反向列表元素                                                 |
-| l.sort(key=None,reverse=False) | 对列表元素进行排序，可以对key进行设置(lambda表达式)自定义排序 |
+`remove(int index)`	于移除列表中指定位置的元素，并返回被删元素
 
+`get(int index)`	用于返回集合中对应位置的元素
 
+`add(int index, Object element)` 	用于在集合指定位置添加元素，原集合中从指定位置开始的元素全部后置
 
-### 字典
-
-字典是一种可变容器模型，且可存储任意类型对象。字典的每个键值 key=>value 对用冒号 : 分割，每个对之间用逗号(,)分割，整个字典包括在花括号 {} 中。格式：d = {key1 : value1, key2 : value2, key3 : value3 }
-
-**注意：**
-
-* 字典在数据结构中用于描述哈希表
-* dict是 Python 的关键字和内置函数，变量名不建议命名为 dict;
-* 键必须是唯一的，但值则不必。值可以取任何数据类型，但键必须是不可变的，如字符串，数字;
-* 特殊用法：key in dict 将返回某键是否存在于字典中（高效率），返回True/False
-
-**语法：**
-
-创建：
-
-`dict()`	创建字典（也可以用`d={}`）
-
-属性：
-
-`len()`	计算字典的元素个数
-
-操作：
-
-| 函数                      | 描述                                                      |
-| :------------------------ | :-------------------------------------------------------- |
-| d.clear()                 | 清空字典                                                  |
-| d.copy()                  | 返回字典的浅复制                                          |
-| d.get(key,default='None') | 返回指定键的值，如果键不在字典中返回 default 设置的默认值 |
-| d.update(dict2)           | 把字典dict2的键/值对更新到dict里                          |
-| d.pop(key)                | 删除字典给定键 key 所对应的值，**返回值**为被删除的值。   |
-
-特殊用法：
-
-```python
-# 快速创建字典
-p = "abc"
-p_dict = dict((i,p.count(i)) for i in p)	# {'a': 1, 'b': 1, 'c': 1}
-# 直接添加元素
-window = {}
-for i in p:
-    window.get()
-```
+`set(int i, Object element) `	用于将索引i位置元素替换为元素element并返回被替换的元素
 
 
 
-### 集合
+### 队列
 
-集合（set）是一个**无序**的**不重复**元素序列。
+队列是一种由数组和链表作为底层构造的只暴露头和尾操作API的数据结构，因此，队列是被认为是一种受限的数据结构。
+队列的特性是：先进先出，类似于排队。
 
-注意：
-
-* 集合用于表示数据结构中的哈希集
-* 创建一个空集合必须用 set() 而不是 {}，{} 是用于一个空字典；
-* 特殊用法：key in set 将返回某元素是否存在于集合中（高效率），返回True/False
-
-**语法：**
-
-创建：
-
-`set()`	创建集合，唯一方法
-
-属性：
-
-`len()`	计算集合的元素个数
-
-操作：
-
-| 方法              | 描述                                  |
-| :---------------- | :------------------------------------ |
-| s.add(element)    | 为集合添加元素element                 |
-| s.clear()         | 移除集合中的所有元素                  |
-| s.copy()          | 拷贝一个集合，返回集合的浅拷贝        |
-| s.remove(element) | 从集合中删除元素element，不存在则报错 |
+<img src="F:\MyGit\Clone\twh\Notes\Using\assets\image-20220623105441554.png" alt="image-20220623105441554" style="zoom: 67%;" />
 
 
+
+**Queue接口**
+
+**常用方法：**
+
+* 压入元素(添加)：add()、offer()
+
+  相同：未超出容量，从队尾压入元素，返回压入的那个元素。
+  区别：在超出容量时，add()方法会对抛出异常，offer()返回false
+
+* 弹出元素(删除)：remove()、poll()
+
+  相同：容量大于0的时候，删除并返回队头被删除的那个元素。
+  区别：在容量为0的时候，remove()会抛出异常，poll()返回false
+
+* 获取队头元素(不删除)：element()、peek()
+
+  相同：容量大于0的时候，都返回队头元素。但是不删除。
+  区别：容量为0的时候，element()会抛出异常，peek()返回null。
+
+
+
+**双端队列**
+
+Deque的实现类包括LinkedList,ArrayDeque,LinkedBlockingDeque，其中LinkedList是最常用的。值得注意的是，LinkedList也实现了List接口。
+
+Java堆栈Stack类已经过时，**Java官方推荐使用Deque替代Stack使用**。Deque堆栈操作方法：push()、pop()、peek()。
+
+**用途：**
+
+- 作为普通队列（先进先出）
+ 
+ `Queue queue = new LinkedList()或Deque deque = new LinkedList();`
+ 
+ - 作为堆栈（先进后出）
+ 
+ `Deque deque = new LinkedList();`
+ 
+- 作为双端队列（两端可进出）
+
+`Deque deque = new LinkedList();`
+
+**方法：**
+
+`addFirst()`	向队头插入元素，如果元素为空，则发生NPE(空指针异常)
+
+`addLast()`	向队尾插入元素，如果为空，则发生NPE
+
+`offerFirst()`	向队头插入元素，如果插入成功返回true，否则返回false
+
+`offerLast()`	向队尾插入元素，如果插入成功返回true，否则返回false
+
+`pop()`	弹出栈中元素，也就是返回并移除队头元素，等价于removeFirst()，如果队列无元素，则发生NoSuchElementException
+
+`push()`	向栈中压入元素，也就是向队头增加元素，等价于addFirst()，如果元素为null，则发生NPE，如果栈空间受到限制，则发生IllegalStateException
+
+`isEmpty()`	判断容器是否为空
+
+**等价关系：**
+
+Deque的`addLast()` = Queue的`add()`
+
+Deque的`offerLast()` = Queue的`offer()`
+
+Deque的`pollFirst()` = Queue的`poll()`
+
+Deque的`peekFirst()` = Queue的`peek()`
+
+
+
+
+
+
+
+---
 
 
 
@@ -472,8 +315,6 @@ while (right < s.size()) {
 **实现方式：**深度优先遍历使用递归或栈，广度优先遍历使用队列。
 
 **定义**
-
-Java
 
 ```java
 public class TreeNode {
