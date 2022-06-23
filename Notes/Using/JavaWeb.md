@@ -110,14 +110,6 @@ HTTP被称为超文本传输协议。
 
 
 
-### 错误列表
-
-404：资源丢失（比如URL填写错误，访问WEB-INF目录下的资源，Web引用启动时控制台已抛出异常，访问任何资源都是404
-
-405：请求方法不支持，比如设置表单method=post，则必须对应doPost方法。
-
-
-
 ---
 
 
@@ -430,11 +422,91 @@ JavaScript是客户端的脚本语言，需要运行浏览器来解析执行 Jav
 
 
 
-**语法：**
+**引入：**
 
 使用：`<script type="text/javascript"> ...(js code)... </script>`
 
 外部引入：`<script type="text/javascript" src="js/demo.js"></script>`
+
+
+
+**常用函数：** 
+
+(1)alert函数：显示一个警告对话框，包括一个OK按钮。 
+
+(2)confirm函数：显示一个确认对话框，包括OK、Cancel按钮。 
+
+(3)escape函数：将字符转换成Unicode码。 
+
+(4)eval函数：计算表达式的结果。 
+
+(5)isNaN函数：测试是(true)否(false)不是一个数字。 
+
+(6)parseFloat函数：将字符串转换成符点数字形式。 
+
+(7)parseInt函数：将符串转换成整数数字形式(可指定几进制)。 
+
+(8)prompt函数：显示一个输入对话框，提示等待用户输入。
+
+**数组函数：**
+
+（1）join函数：转换并连接数组中的所有元素为一个字符串。
+
+（2）length函数：返回数组的长度。
+
+（3）reverse函数：将数组元素顺序颠倒。
+
+（4）sort函数：将数组元素重新排序。
+
+**字符串函数：**
+
+javascript字符串函数完成对字符串的字体大小、颜色、长度和查找等操作：  
+
+(1)anchor函数：产生一个链接点(anchor)以作超级链接用。anchor函数设定的链接点的名称，另一个函数link设定的URL地址。  
+
+(2)big函数：将字体加到一号，与...标签结果相同。  
+
+(3)blink函数：使字符串闪烁，与...标签结果相同。  
+
+(4)bold函数：使字体加粗，与...标签结果相同。  
+
+(5)charAt函数：返回字符串中指定的某个字符。  
+
+(6)fixed函数：将字体设定为固定宽度字体，与...标签结果相同。  
+
+(7)fontcolor函数：设定字体颜色，与标签结果相同。  
+
+(8)fontsize函数：设定字体大小，与标签结果相同。  
+
+(9)indexOf函数：返回字符串中第一个查找到的下标index，从左边开始查找。  
+
+(10)italics函数：使字体成为斜体字，与...标签结果相同。  
+
+(11)lastIndexOf函数：返回字符串中第一个查找到的下标index，从右边开始查找。  
+
+(12)length函数：返回字符串的长度。(不用带括号)  
+
+(13)link函数：产生一个超级链接，相当于设定的URL地址。  
+
+(14)small函数：将字体减小一号，与...标签结果相同。  
+
+(15)strike函数：在文本的中间加一条横线，与...标签结果相同。  
+
+(16)sub函数：显示字符串为下标字(subscript)。  
+
+(17)substring函数：返回字符串中指定的几个字符。  
+
+(18)sup函数：显示字符串为上标字(superscript)。  
+
+(19)toLowerCase函数：将字符串转换为小写。  
+
+(20)toUpperCase函数：将字符串转换为大写。 
+
+
+
+
+
+---
 
 
 
@@ -573,6 +645,7 @@ Servlet的生命周期对应于Servlet对象从创建到销毁的过程。分别
 
 **注意点：**
 
+* Tomcat负责维护Servlet实例的生命周期
 * Servlet对象只会创建一个，所有请求都是基于这个对象进行响应；
 * 第一次请求时tomcat才会实例化和初始化，然后再进行服务。这样可以提高系统的启动速度，但会影响第一次请求的响应速度。（如果需要提高响应速度，应该设置Servlet的响应请求时机：通过`<servlet>`标签中的`<load-on-startup>`设置servlet启动的先后顺序）
 * Servlet在容器中是单例的，线程不安全的；因此尽量不要在servlet中定义成员变量，也不要去修改成员变量的值，不要做逻辑判断。
@@ -642,9 +715,7 @@ Servlet的生命周期对应于Servlet对象从创建到销毁的过程。分别
 
 
 
-### 实操
-
-##### 注解
+### 注解
 
 在 Servlet 中，web.xml 扮演的角色十分的重要，它可以将所有的 Servlet 的配置集中进行管理，但是若项目中 Servlet 数量较多时，为了减少冗余，注解（Annotation）就是一种更好的选择。
 
@@ -662,7 +733,7 @@ Servlet的生命周期对应于Servlet对象从创建到销毁的过程。分别
 
 
 
-##### 处理表单数据
+### 处理表单数据
 
 我们有事需要从浏览器到 Web 服务器传递信息，最终到后台程序。浏览器使用两种方法可将这些信息传递到 Web 服务器，分别为 GET 方法和 POST 方法。
 
@@ -698,13 +769,15 @@ public class AddServlet extends HttpServlet {
 
 
 
-##### 会话跟踪
+### 会话跟踪
 
 http是无状态的，这意味着每次客户端检索网页时，客户端打开一个单独的连接到 Web 服务器，服务器不保留之前客户端请求的任何记录，因此服务器无法判断两次请求是同一个客户端还是不同客户端发送的。我们通过会话跟踪技术解决http的无状态问题。
 
-客户端第一次发送请求给服务器，服务器获取session；如果无法获取则创建新的session响应给客户端。
+客户端第一次发送请求给服务器，服务器获取客户端的session，如果无法获取则创建新的session响应给客户端。
 
 下一次客户端给服务器发送请求，会将sessionID一起发给服务器，服务器确定该次请求和上一次为同一个客户端。
+
+**实现：**
 
 Servlet 提供了 **HttpSession 接口**，该接口提供了一种跨多个页面请求或访问网站时识别用户以及存储有关用户信息的方式。
 
@@ -724,19 +797,23 @@ Servlet 容器使用这个接口来创建一个 HTTP 客户端和 HTTP 服务器
 
 `setMaxInactiveInterval(int interval)`指定客户端的请求时间
 
-保存作用域（注意保存的对象仅绑定当前的sessionid）：
-
-`setAttribute(String name, Object value)` 使用指定的名称key绑定一个对象value到该 session 会话
-
-`getAttribute(String name)`	返回该session会话中具有指定名称key的对象，如果没有则返回null
-
-`removeAttribute(String name)`	移除指定名称k的对象
 
 
+**保存作用域；**
 
-##### 资源跳转
+> 保存作用域只在一次会话范围内有效（仅作用于当前sessionid）
 
-**服务器请求转发**
+`session.setAttribute(String name, Object value)` 使用指定的名称key绑定一个对象value到该 session 会话
+
+`session.getAttribute(String name)`	返回该session会话中具有指定名称key的Object对象，如果没有则返回null
+
+`session.removeAttribute(String name)`	移除指定名称k的对象
+
+
+
+### 资源跳转
+
+##### **服务器请求转发**
 
 转发的功能是将用户对当前JSP页面或servlet的请求转发给另一个JSP页面或servlet，并且可以将用户对当前JSP页面或servlet的请求传递给转发到JSP页面或servlet。
 
@@ -746,13 +823,15 @@ Servlet 容器使用这个接口来创建一个 HTTP 客户端和 HTTP 服务器
 
 本质上是一次请求，对应一个request对象和一个response对象。客户端不清楚服务器内部进行了多少次转发。
 
+![1655727032488](/1655727032488.png)
+
 **语法：**
 
 服务器内部转发：`request.getRequestDispatcher(url).forward(request,response);` url表示需要转发到的servlet的url。
 
 
 
-**客户端重定向**
+##### **客户端重定向**
 
 servlet重定向指的是一种由http协议规定的机制，重定向属于客户端行为。服务器在收到客户端请求后，会通知客户端浏览器重新向另外一个 URL 发送请求，这称为请求重定向。用户在请求一个servlet时，该servlet在处理完数据后可以使用重定向方法将用户重新定向到另一个JSP页面或servlet。
 
@@ -773,7 +852,7 @@ servlet重定向指的是一种由http协议规定的机制，重定向属于客
 
 
 
-**区别**
+##### **区别**
 
 转发和重定向都能实现页面的跳转，但是两者也存在以下区别。
 
@@ -789,11 +868,18 @@ servlet重定向指的是一种由http协议规定的机制，重定向属于客
 
 
 
-##### Thymeleaf
+### Thymeleaf
 
-thymeleaf是springboot官方推荐的视图模板技术。
+##### 基础
 
-**使用步骤：**
+thymeleaf是springboot官方推荐的视图模板技术。其特点包括：
+
+- 动静结合：Thymeleaf 在有网络和无网络的环境下皆可运行，即它可以让美工在浏览器查看页面的静态效果，也可以让程序员在服务器查看带数据的动态页面效果。这是由于它支持 html 原型，然后在 html 标签里增加额外的属性来达到模板+数据的展示方式。浏览器解释 html 时会忽略未定义的标签属性，所以 thymeleaf 的模板可以静态地运行；当有数据返回到页面时，Thymeleaf 标签会动态地替换掉静态内容，使页面动态显示。
+- 开箱即用：它提供标准和spring标准两种方言，可以直接套用模板实现JSTL、 OGNL表达式效果，避免每天套模板、该jstl、改标签的困扰。同时开发人员也可以扩展和创建自定义的方言。
+- 多方言支持：Thymeleaf 提供spring标准方言和一个与 SpringMVC 完美集成的可选模块，可以快速的实现表单绑定、属性编辑器、国际化等功能。
+- 与SpringBoot完美整合，SpringBoot提供了Thymeleaf的默认配置，并且为Thymeleaf设置了视图解析器，我们可以像以前操作jsp一样来操作Thymeleaf。代码几乎没有任何区别，就是在模板语法上有区别。
+
+##### 使用步骤
 
 * 引入thymeleaf的jar包；
 
@@ -870,12 +956,218 @@ thymeleaf是springboot官方推荐的视图模板技术。
 
 
 
-* 在html文件中使用th名称空间，完成thymeleaf表达式
+##### th语法
 
-  ```
-  <html lang="en" xmlns:th="www.thymeleaf.org">
-  ```
+Thymeleaf的主要作用是把model中的数据渲染到html中，因此其语法主要是如何解析model中的数据。
+
+**说明：**
+
+* 使用thymeleaf表达式首先需要引入th名称空间`<html lang="en" xmlns:th="www.thymeleaf.org">`
+
+* 如果我们不经过SpringMVC，而是直接用浏览器打开编写的页面：在静态环境下,th指令不会被识别，但是也不会报错，而是显示标签的缺省默认值；
+
+**具体使用**
+
+**（1）表达式**
+
+**${}**是thymeleaf的变量表达式，用于访问的是**容器上下文的变量**，比如域变量：request域，session域
+
+**#{}**是thymeleaf中的消息表达式、或者是资源表达式
+一般和 th:text一起使用多一点，#{}取出来的值取代了标签中的值，#{key}对应的value。如果标签中间已经有值，#{}取出来的值会覆盖标签中的值。如：
+
+```html
+<div th:text="#{user}"> </div>
+```
+
+**@{}**是thymeleaf中的超链接表达式，如：
+
+```html
+<a th:href="@{/user/login}"></a>
+<a th:src="@{/user/login}"/>
+```
+
+***{}**是选择表达式，是选定的对象，不是整个环境的映射，如：
+
+```html
+<p>Name: <span th: text=" *{firstName}" >Sebastian</span>. </p>
+<p>Surname: <span th: text=" *{lastName}" >Pepper</span>. </p>
+```
+
+**（2）字面量**
+
+我们需要在指令中填写基本类型如：字符串、数值、布尔等，并不希望被Thymeleaf解析为变量，这个时候称为字面值。字符串用单引号引用，其他正常。
+
+**（3）拼接**
+
+字符串字面值需要用单引号，拼接起来非常麻烦，Thymeleaf对此进行了简化，使用一对|即可：
+
+```html
+<!--原先-->
+<span th:text="'欢迎您:' + ${user.name} + '!'"></span> 
+<!--简化-->
+<span th:text="|欢迎您:${user.name}|"></span>
+```
+
+**（4）循环**
+
+我们使用th:each指令来完成循环。假如有用户的集合：users在Context中，我们需要去除每个用户的数据:
+
+```html
+<tr th:each="user : ${users}">    
+    <td th:text="${user.name}">Onions</td>    
+    <td th:text="${user.age}">2.41</td>
+</tr>
+```
+
+**（5）逻辑判断**
+
+Thymeleaf中使用th:if 或者 th:unless ，两者的意思恰好相反。
+
+```go
+<span th:if="${user.age} > 24">老油条</span>
+```
+
+如果表达式的值为true，则标签会渲染到页面，否则不进行渲染。
 
 
 
-  ``
+**举例：**
+
+```html
+<tr th:if="${#lists.isEmpty(session.fruitList)}">
+    <td colspan="5">对不起，库存为空!</td>
+</tr>
+<tr th:unless="${#lists.isEmpty(session.fruitList)}" th:each="fruit:${session.fruitList}">
+    <td><a th:text="${fruit.fid}" th:href="@{edit.do}"></a></td>
+    <td th:text="${fruit.fname}"></td>
+    <td th:text="${fruit.price}"></td>
+    <td th:text="${fruit.fcount}"></td>
+</tr>
+```
+
+> th:if和th:unless对应判断的两种情况。
+>
+> th:each是thymeleaf的迭代器，a:${list}）a表示list中的每个元素
+>
+> th:text表示文本
+>
+> th:href表示超链接
+
+  
+
+### 保存作用域
+
+保存作用域有四种方式：page、request、session、application
+
+* page是页面级别保存，已弃用
+* request为一次请求响应范围有效
+* session为一次会话范围有效（也就是要同一个客户端【浏览器】进行访问）
+* application为一次应用程序有效
+
+
+
+**request保存作用域：**
+
+```java
+@WebServlet("/demo01")
+public class Demo01Servlet extends HttpServlet {
+    @Override
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //1.向request保存作用域保存数据
+        request.setAttribute("uname","lili");
+        //2.客户端重定向
+        // response.sendRedirect("demo02");//demo02打印为null
+        //3.服务器端转发
+        request.getRequestDispatcher("demo02").forward(request,response);//demo02能打印uname的信息
+    }
+}
+//另一个class
+@WebServlet("/demo02")
+public class Demo02Servlet extends HttpServlet {
+    @Override
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //1.获取request保存作用域保存的数据，key为uname
+        Object unameObj = request.getAttribute("uname");
+        System.out.println("unameObj = " + unameObj);
+    }
+}
+```
+
+> 重定向时，页面跳转，由于不是同一个请求（超出了作用域范围），因此demo02无法get到数据；
+>
+> 转发时，页面不变，由于内部使用同一个请求，因此demo02可以获取数据；
+>
+> 重新打开新的demo02页面或打开新的浏览器时，则无法获取数据。
+
+
+
+**session保存作用域：**
+
+```java
+@WebServlet("/demo03")
+public class Demo03Servlet extends HttpServlet {
+    @Override
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //1.向session保存作用域保存数据
+        System.out.println(request.getSession().getId());
+        request.getSession().setAttribute("uname","lili");
+        //2.客户端重定向
+        response.sendRedirect("demo04");
+        //3.服务器端转发
+        // request.getRequestDispatcher("demo04").forward(request,response);
+    }
+}
+//另一个类
+@WebServlet("/demo04")
+public class Demo04Servlet extends HttpServlet {
+    @Override
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //1.获取session保存作用域保存的数据，key为uname
+        System.out.println(request.getSession().getId());
+        Object unameObj = request.getSession().getAttribute("uname");
+        System.out.println("unameObj = " + unameObj);
+    }
+}
+```
+
+>重定向或转发时，单个或多个请求都在同一session内，因此可以获取数据
+>
+>同一个浏览器重新打开demo04页面，也是同一个session，可以获取数据
+>
+>更换浏览器无法获取数据，这是因为不同的浏览器使用不同的session
+
+
+
+**application保存作用域：**
+
+```java
+@WebServlet("/demo05")
+public class Demo05Servlet extends HttpServlet {
+    @Override
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //1.向application保存作用域保存数据
+        //ServletContext : Servlet上下文
+        ServletContext application = request.getServletContext();
+        application.setAttribute("uname","lili");
+        //2.客户端重定向
+        response.sendRedirect("demo06");//demo06能获取uname信息
+        //3.服务器端转发
+        //request.getRequestDispatcher("demo04").forward(request,response);
+    }
+}
+//另一个class
+@WebServlet("/demo06")
+public class Demo06Servlet extends HttpServlet {
+    @Override
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //1.获取application保存作用域保存的数据，key为uname
+        ServletContext application = request.getServletContext() ;
+        Object unameObj = application.getAttribute("uname");
+        System.out.println("unameObj = " + unameObj);
+    }
+}
+```
+
+> 重定向或转发时，由于仍然在同一应用内，因此可以获取get的数据；
+>
+> 同一个浏览器重新打开demo06页面或更换浏览器，都在同一应用内，可以获取数据；
