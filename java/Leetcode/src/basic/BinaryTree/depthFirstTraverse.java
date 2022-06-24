@@ -16,8 +16,9 @@ import java.util.Stack;
 
 
 // 深度优先遍历
-public class depth_first_traverse {
+public class depthFirstTraverse {
     // 递归法
+    // 前序遍历
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
         preorder(root, res);
@@ -32,7 +33,7 @@ public class depth_first_traverse {
         preorder(root.left, res);
         preorder(root.right, res);
     }
-
+    // 中序遍历
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         inorder(root, res);
@@ -47,7 +48,7 @@ public class depth_first_traverse {
         list.add(root.val);             // 注意这一句
         inorder(root.right, list);
     }
-
+    // 后序遍历
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         postorder(root, res);
@@ -63,7 +64,7 @@ public class depth_first_traverse {
         list.add(root.val);             // 注意这一句
     }
 
-
+    //前序遍历（迭代法）
     public List<Integer> preorderTraversal_iter(TreeNode root) {
         List<Integer> res = new LinkedList<>();
         Stack<TreeNode> stack = new Stack<>();
