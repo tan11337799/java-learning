@@ -727,6 +727,38 @@ Servlet的生命周期对应于Servlet对象从创建到销毁的过程。分别
 
 
 
+### 匹配过程
+
+当一个请求发送到servlet容器的时候，容器先会将请求的url去掉当前应用上下文的路径作为servlet的映射url，比如访问的是 `http://localhost/admin/login.jsp`，应用上下文是test，容器会将`http://localhost/admin`去掉， 剩下的`/login.jsp`部分拿来做servlet的映射匹配。
+
+**url-pattern书写规则：**
+
+只有以下几种情况：
+
+* 以`/` 开头
+* 以`*` 开头
+* 以`/` 开始，以`*` 结尾
+
+如该情况无法识别：`/*.do`  *只能用于结尾，或者开头，不能放在中间，正确写法（\*.do）
+
+
+
+**具体匹配顺序和规则是：**
+
+* step1：精确路径匹配。例子：比如servletA 的url-pattern为 `/test`，servletB的url-pattern为 `/*` ，这个时候，如果我访问的url为`http://localhost/test`，这个时候容器就会先进行精确路径匹配，发现/test正好被servletA精确匹配，那么就去调用servletA，也不会去理会其他的 servlet了。
+
+* step2 : 最长路径匹配。例子：servletA的url-pattern为`/test/`，而servletB的url-pattern为`/test/a/`，此时访问`http://localhost/test/a`时，容器会选择路径最长的servlet来匹配，也就是这里的servletB。
+* step3 : 扩展匹配，如果url最后一段包含扩展(.xxx)，容器将会根据扩展选择合适的servlet。
+  .action匹配全部action结尾的请求
+  .css 匹配全部css结尾的请求
+  容器会首先查找完全匹配，如果找不到，再查找目录匹配，如果也找不到，就查找扩展名匹配。
+
+* step4:如果前面三条规则都没有找到一个servlet，容器会根据url选择对应的请求资源。如果应用定义了一个default servlet，则容器会将请求丢给default servlet。
+
+
+
+
+
 ### 注解
 
 在 Servlet 中，web.xml 扮演的角色十分的重要，它可以将所有的 Servlet 的配置集中进行管理，但是若项目中 Servlet 数量较多时，为了减少冗余，注解（Annotation）就是一种更好的选择。

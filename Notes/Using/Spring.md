@@ -78,7 +78,7 @@ xml（Extensible Markup Language）可拓展标记语言。是一种用于标记
 
 ##### **语法**
 
-**结构：**一个XML文件通常包含**文件头**和**文件体**两大部分
+**结构：**一个XML文件通常包含**文件头**和**文件体**两大部分，具体可以分为XML声明（必须拥有）、DTD文档类型定义、XML正文。
 
 **文件头（处理指令）**
 
@@ -203,18 +203,132 @@ class UserFactory{
 
 
 
-
-### 基于xml的Bean管理
-
-主要负责（1）Spring创建对象；（2）Spring注入属性。
-
-管理操作主要有两种方式：（1）基于**xml配置文件**方式实现；（2）基于**注解方式**实现。
+---
 
 
 
-##### **创建对象**
+# Bean基本知识
+
+### FactoryBean
+
+在Spring中有两种类型的bean，一种为普通bean，另外一种叫做FactoryBean。
+
+普通bean：在bean配置文件中定义的类型返回对应的类型；
+
+工厂bean：在bean配置文件中定义类型和返回类型不一致。
+
+
+
+**创建工厂bean的步骤：**
+
+- 创建类，让这个类作为工厂bean，实现接口FactoryBean；
+- 实现接口中的方法，在实现方法中定义返回bean的类型。
+
+实现：
+
+```java
+class factoryBean implements FactoryBean<BeanImp> {
+    @Override
+    public BeanImp getObject() throws Exception {
+        return new BeanImp();
+    }
+
+    @Override
+    public Class<?> getObjectType() {
+        return BeanImp.class;
+    }
+
+    @Override
+    public boolean isSingleton() {
+        return true;
+    }
+}
+```
+
+
+
+### Bean作用域
+
+在 Spring 中默认情况 bean 是单实例对象。需要设置作用域时：
+
+（1）在 spring 配置文件 bean 标签里面有属性（scope）用于设置单实例还是多实例
+
+（2）scope 属性值（默认）**singleton**，表示是单实例对象；另一种属性值 **prototype**，表示是多实例对象
+
+```xml
+<bean id="book" class="com.atguigu.spring5.collectiontype.Book" scope="prototype"><!--设置为多实例-->
+        <property name="list" ref="bookList"></property>
+</bean>
+```
+
+
+
+**创建时刻：**
+
+设置 scope 值是 **singleton** 时，加载 spring 配置文件时就会创建单实例对象 ；
+
+设置 scope 值是 **prototype** 时，不是在加载 spring 配置文件时候创建对象，在调用 getBean 方法时创建多实例对象
+
+
+
+### Bean生命周期
+
+生命周期是对象从创建到销毁的过程，bean生命周期也就是bean对象的创建到销毁过程。
+
+![1655310053331](/1655310053331.png)
+
+**在配置文件中的生命周期配置：**
+
+`init-method`：指定类中的初始化方法
+
+`destroy-method`：指定类中的销毁方法
+
+
+
+**bean的生命周期过程：**
+
+（1）通过反射调用构造器创建bean对象实例（无参构造）；
+
+（2）通过依赖注入为bean对象装配属性（调用set方法）；
+
+（3）实现了Aware接口的Bean，执行接口方法：如顺序执行BeanNameAware、BeanFactoryAware、ApplicationContextAware的接口方法；
+
+（3）将bean实例传递给bean的前置处理器方法postProcessBeforeInitialization；
+
+（4）顺序执行@PostConstruct注解方法、InitializingBean接口方法、init-method方法进行初始化；
+
+（5）将bean实例传递给bean的后置处理器方法postProcessAfterInitialization
+
+（6）得到bean对象，使用bean
+
+（7）容器关闭后，调用bean的销毁方法，顺序是：@PreDestroy注解方法、DisposableBean接口
+方法、destroy-method。
+
+
+
+---
+
+
+
+
+# 基于xml的Bean管理
+
+**开发步骤：**
+
+* 导入相关jar包
+* 创建需要导入的Bean对象
+* 创建context.xml配置文件，进行对象创建和属性注入
+* 创建ApplicationContext对象获取容器中的bean
+
+
+
+### 创建对象
 
 在spring配置文件中，使用bean标签，标签里添加对应属性，即可完成对象的创建。
+
+使用配置文件创建Bean对象有三种方式：
+
+**（1）使用无参构造器实例化**
 
 **语法：**``<bean id="user" class="com.company.User"></bean>``
 
@@ -224,13 +338,53 @@ class UserFactory{
   * id属性【常用】：给相应对象添加别名，id是bean的唯一标识，IoC容器中bean的id不能重复，否则报错。
   * class属性【常用】：对象所属类的全路径，为bean的全限定类名，指向classpath下类定义所在位置。
   * name属性：name属性基本等同于id属性，不常用，name属性不能重复，且id和name属性也不能重复，和id的区别主要在于name属性可以添加符号。
-  * factory-method工厂方法属性：通过该属性，我们可以调用一个指定的静态工厂方法，创建bean实例。
-  * factory-bean属性：factory-bean是生成bean的工厂对象，factory-bean属性和factory-method属性一起使用，首先要创建生成bean的工厂类和方法。
 * 创建对象时，默认调用类中的无参构造器方法，如果需要使用有参构造器，需要在bean标签中添加properties；
 
 
 
-##### **注入属性**
+**（2）使用静态工厂实例化**
+
+使用工厂的静态方法返回Bean实例。
+
+**实现：**
+
+以下程序实现了通过createUserDao这一工厂方法创建UserDao实例，并注入UserDaoImpl属性
+
+```java
+public class StaticFactoryBean{
+    public static UserDao createUserDao(){
+        return new UserDaoImpl();
+    }
+}
+//配置文件中
+<bean id="userDao" class="com.twhupup.factory.StaticFactoryBean" factory-method="createUserDao">
+```
+
+
+
+**（3）使用实例工厂实例化**
+
+使用工厂的非静态方法返回Bean实例（需要先创建工厂类的bean实例）
+
+**实现：**
+
+以下程序实现了通过createUserDao这一工厂方法创建UserDao实例，并注入UserDaoImpl属性，但该方法是非静态的，因此需要在配置文件中先创建工厂的bean对象，再进行工厂bean和工厂方法的配置。
+
+```java
+public class DynamicFactoryBean{
+    public UserDao createUserDao(){
+        return new UserDaoImpl();
+    }
+}
+
+//配置文件中
+<bean id="factoryBean" class="com.twhupup.factory.DynamicFactoryBean">
+<bean id="userDao" factory-bean="factoryBean" factory-method="createUserDao"/>
+```
+
+
+
+### 注入属性
 
 语法：`<property name="xxx" value=“xxx”></property>`	name表示类中的属性名，value表示向属性注入的值；（置于bean标签结构体内）
 
@@ -613,7 +767,7 @@ prop.password=root
 
 
 
-### 基于注解的Bean管理
+# 基于注解的Bean管理
 
 **知识点**
 
@@ -625,7 +779,7 @@ prop.password=root
 
 
 
-##### 组件扫描
+### 组件扫描
 
 组件扫描用于从指定的classpath下自动扫描，侦测和实例化具有特定注解的bean。
 
@@ -661,7 +815,7 @@ base-package 属性指定一个需要扫描的基类包，Spring 容器将会扫
 
 
 
-##### 创建对象
+### 创建Bean对象
 
 **方式：**
 
@@ -708,37 +862,51 @@ public class UserService {
 }
 ```
 
-* 在测试方法中，读取配置文件，获取bean对象，使用反射机制调用方法
-
-```java
-@Test
-public void testService(){
-    ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
-    UserService userService = context.getBean("userService", UserService.class);
-    System.out.println(userService);
-    userService.add();
-}
-```
 
 
-
-##### 注入属性
+### 注入属性
 
 **方式：**
 
-（1）**@AutoWired**	根据属性类型进行自动装配**（常用）**
+（1）@AutoWired	根据属性类型进行自动装配
 
 （2）@Qualifier		根据属性名称进行注入
 
-（3）@Resource		可以根据类型和名称注入
+（3）**@Resource		可以根据类型和名称注入**
 
 （4）@Value		注入普通类型属性（int/float/String...）
 
 
 
-**实现：**
+##### @AutoWired
 
-（1）@AutoWired 根据类型注入
+@AutoWired是一种注解，可以对**成员变量、方法和构造函数**进行标注。
+
+**注意点：**
+
+* 使用注解方式注入属性不需要类具有set方法；
+* @Autowired是根据类型进行自动装配的，如果需要按名称进行装配，则需要配合@Qualifier使用；
+
+* @Autowired标注可以放在任意方法上表示，自动执行当前方法，如果方法有参数，会在IOC容器中自动寻找同类型参数为其传值。
+
+* 一般不建议直接在成员变量上使用@Autowired注解，因为在java底层，是优先对构造方法进行初始化，再进行注解的解析的。因此我们会选择将@Autowired放在构造方法上，在构造方法中实现变量的注入，比如：
+
+  ```java
+  class UserAccountServiceImpl{
+      //如果将注解写在该位置，则无法进行注入，因为jvm优先执行构造器，在构造方法中操作了被@Autowired修饰的user对象,实际上user的bean对象未注入属性，因此报空指针异常
+      private User user;
+      private String school;
+  
+      @Autowired
+      public UserAccountServiceImpl(User user){
+          this.user = user;
+          this.school = user.getSchool();
+      }
+  }
+  ```
+
+
+**一般实现**
 
 * 把service和dao对象进行创建，在service和dao类添加创建对象注释。此时Spring的组件扫描就会找到这两个类，将其初始化为bean对象注入到IOC容器中。
 
@@ -773,15 +941,12 @@ public void testService(){
   }
   ```
 
-  **注意点：**
-
-  * 使用注解方式注入属性不需要类具有set方法；
-  * 如果定义的接口对象有多个实现类则会报错，因为spring无法确认注入哪一个实现类对象；
-  * 注释中的value值如果默认则为类名+首字母改小写
 
 
 
-（2）@Qualifier 根据名称注入，一般和@AutoWired一起使用（这里的名称指注释的value值，默认为类名+首字母小写）
+##### @Qualifier 
+
+根据名称注入，一般和@AutoWired一起使用（这里的名称指注释的value值，默认为类名+首字母小写）
 
 ```java
 @Service
@@ -798,7 +963,9 @@ public class UserService {
 
 
 
-（3）@Resource 可以根据类型注入，也可以根据名称注入
+##### @Resource 
+
+可以根据类型注入，也可以根据名称注入
 
 * 根据类型注入时，和@AutoWired用法一样；
 
@@ -808,7 +975,9 @@ public class UserService {
 
 
 
-（4）@Value	注入普通类型属性
+##### @Value	
+
+注入普通类型属性
 
 @Value(value=xxx)可以将value值注入到普通类型属性中，相当于bean手动配置中的property
 
@@ -816,101 +985,108 @@ public class UserService {
 
 
 
-**纯注解开发**
 
-使用配置类代替配置文件，SpringBoot的使用主要就是基于纯注解开发。
 
-（1）创建配置类，替代xml配置文件
+### 实用注解
+
+##### @Configuration
+
+作用：用于指定当前类是一个Spring配置类，当创建容器时会从该类加载注解（使用配置类代替配置文件，SpringBoot的使用主要就是基于纯注解开发）
+
+注意点：
+
+- 不加`@Configuration`，Spring依然可以扫描类中的注解也可以完成IOC和DI。但是无法实现对象的单例模式，也就是说每调用一次方法就会创建一个新的对象。
+
+  添加`@Configuration`后，配置类会被代理，然后代理对象被Spring进行扫描。在代理对象的方法中会优先检查容器中是否已经存在某个类的对象，如果已经存在则从容器中取出该对象进行使用。如果容器不存在才会调用真正的配置类中的方法来进行对象的创建。
+
+- 注解类的使用方法：在测试时使用`AnnotationConfigApplicationContext(A.class)方法表示返回注解类A的ApplicationContext对象`
+
+
+
+##### @ComponentScan
+
+作用：用于指定组件扫描区域
+
+
+
+##### **@**Bean
+
+作用：使用在方法上，标注该方法的返回值存储到Spring容器中。
+
+
+
+##### @PropertySource
+
+作用：用于加载.properties文件中的配置
+
+
+
+##### @Import
+
+作用：用于导入其他配置类
+
+
+
+### 注入冲突
+
+当一个类有多个实现类时，ioc容器无法确定使用哪一个实现类进行注入。此时需要指定需要注入的实现类，有两种解决方法：
+
+（1）@Primary
+
+在需要注入的实现类上添加@Primary注解，可以通知IOC容器优先使用该标注的bean对象进行注入。
+
+e.g.
 
 ```java
-@Configuration
-@ComponentScan(basePackages="com.twhupup")
-public class SpringConfig {
+@Primary
+@Component
+public class OperaSinger implements Singer{
+    @Override
+    public String sing(String lyrics) {
+        return "I am singing in Bocelli voice: "+lyrics;
+    }
+}
+```
+
+（2）@Qualifier
+
+@Qualifier常用于根据属性名称注入，在这里可以用于和@Autowired合用，通过类型和名称一起筛选需要的bean对象。
+
+e.g.
+
+```java
+@Component // 让spring识别该bean对象
+@Qualifier("metalSinger")
+public class MetalSinger implements Singer{
+    @Override
+    public String sing(String lyrics) {
+        return "I am singing with DIO voice: "+lyrics;
+    }
+}
+ 
+@Component // 让spring识别该bean对象
+@Qualifier("opreaSinger")
+public class OperaSinger implements Singer {
+    @Override
+    public String sing(String lyrics) {
+        return "I am singing in Bocelli voice: "+lyrics;
+    }
 }
 
+//另一个类中注入时
+@Component
+public class SingerService {
+    private static final Logger logger = LoggerFactory.getLogger(SingerService.class);
+ 
+    @Autowired
+    private Singer singer;
+ 	
+    @Qualifier("opreaSinger")
+    public String sing(){
+        return singer.sing("song lyrics");
+    }
+}
 ```
-
-在配置类上使用@Configuration注解表示该类为注解类；
-
-@ComponentScan用于指定组件扫描区域，替代xml配置文件
-
-（2）编写测试类
-
-`ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);`	加载配置类的方，其他和原来一致
-
-
-
----
-
-
-
-### Bean基本知识
-
-##### FactoryBean
-
-在Spring中有两种类型的bean，一种为普通bean，另外一种叫做FactoryBean。
-
-普通bean：在bean配置文件中定义的类型返回对应的类型；
-
-工厂bean：在bean配置文件中定义类型和返回类型不一致。
-
-
-
-创建工厂bean的步骤：
-
-* 创建类，让这个类作为工厂bean，实现接口FactoryBean；
-* 实现接口中的方法，在实现方法中定义返回bean的类型。
-
-
-
-##### Bean作用域
-
-在 Spring 中默认情况 bean 是单实例对象。需要设置作用域时：
-
-（1）在 spring 配置文件 bean 标签里面有属性（scope）用于设置单实例还是多实例
-
-（2）scope 属性值（默认）singleton，表示是单实例对象；另一种属性值 prototype，表示是多实例对象
-
-```xml
-<bean id="book" class="com.atguigu.spring5.collectiontype.Book" scope="prototype"><!--设置为多实例-->
-        <property name="list" ref="bookList"></property>
-</bean>
-```
-
-
-
-单实例和多实例的创建时刻：
-
-设置 scope 值是 singleton 时候，**加载 spring 配置文件时**就会创建单实例对象 ；设置 scope 值是 prototype 时候，不是在加载 spring 配置文件时候创建对象，**在调用 getBean 方法时**创建多实例对象
-
-
-
-
-##### Bean生命周期
-
-生命周期是对象从创建到销毁的过程，bean生命周期也就是bean对象的创建到销毁过程。
-
-![1655310053331](/1655310053331.png)
-
-bean的生命周期过程：
-
-（1）通过反射调用构造器创建bean对象实例（无参构造）
-
-（2）通过依赖注入为bean对象装配属性（调用set方法）
-
-（3）实现了Aware接口的Bean，执行接口方法：如顺序执行BeanNameAware、BeanFactoryAware、ApplicationContextAware的接口方法。
-
-（3）将bean实例传递给bean的前置处理器方法postProcessBeforeInitialization
-
-（4）顺序执行@PostConstruct注解方法、InitializingBean接口方法、init-method
-方法进行初始化
-
-（5）将bean实例传递给bean的后置处理器方法postProcessAfterInitialization
-
-（6）得到bean对象，使用bean
-
-（7）容器关闭后，调用bean的销毁方法，顺序是：@PreDestroy注解方法、DisposableBean接口
-方法、destroy-method。
 
 
 
@@ -1094,7 +1270,7 @@ class Cglib implements MethodInterceptor {
 
 
 
-### 基于注解的操作
+### 实现
 
 Spring框架 一般基于AspectJ实现AOP操作。
 
@@ -1230,7 +1406,7 @@ public void before(){
 
 
 
-### 基于配置文件的操作
+**基于配置文件实现AOP**
 
 了解即可。
 
@@ -1631,9 +1807,9 @@ bookService.batchDelete(delBatchArgs);
 
 
 
-# 事务
+### 事务
 
-### 概念
+##### 概念
 
 事务是数据库操作最基本单位，要么都成功，要么都失败。（典型场景：转账）
 
@@ -1654,9 +1830,9 @@ bookService.batchDelete(delBatchArgs);
 
 
 
-### 声明式事务管理
+##### 声明式事务管理
 
-##### 基于注解方式（常用）
+**基于注解方式（常用）**
 
 **实现**
 
@@ -1730,7 +1906,7 @@ public class UserService {
 
 
 
-##### 基于XML文件
+**基于XML文件**
 
 实现
 
@@ -1760,17 +1936,11 @@ public class UserService {
 
 
 
-### 纯注解声明式事务管理
+##### 纯注解声明式事务管理
 
 **注解功能**
 
 * `@Configuration`	表示该类为注解类
-
-  * 不加`@Configuration`，Spring依然可以扫描类中的注解也可以完成IOC和DI。但是无法实现对象的单例模式，也就是说每调用一次方法就会创建一个新的对象。
-
-    添加`@Configuration`后，配置类会被代理，然后代理对象被Spring进行扫描。在代理对象的方法中会优先检查容器中是否已经存在某个类的对象，如果已经存在则从容器中取出该对象进行使用。如果容器不存在才会调用真正的配置类中的方法来进行对象的创建。
-
-  * 注解类的使用方法：在测试时使用`AnnotationConfigApplicationContext(A.class)方法表示返回注解类A的ApplicationContext对象`
 
 * `@ComponentScan(basePackages = classpath)`    开启组件扫描
 
@@ -1827,5 +1997,5 @@ public void TestAccountMoney_Annotation(){
 
 
 
-
+# Spring-Web
 
