@@ -837,7 +837,9 @@ Constructor constructor2 = cls.getConstructor(String.class,int.class);//通过Cl
 
 `getDeclaredFields()`	返回Class对象所有本类以及父类的所有属性（数组）
 
-`getMethod(String name)`	返回Class对象的名为name的Method对象
+`getMethod(String name, Class<?>… parameterTypes)`	返回Class对象的名为name的Method对象
+
+`getDeclaredMethod(String name, Class<?>… parameterTypes)`	返回Class对象的有参方法
 
 `getMethods()`	返回Class对象所有本类以及父类的public方法（数组）
 
