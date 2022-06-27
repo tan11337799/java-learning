@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.Resource;
+
 @Repository
 public class FruitDaoImpl implements FruitDao{
-    @Autowired
+    @Resource
     private JdbcTemplate jdbcTemplate;
 
     @Override

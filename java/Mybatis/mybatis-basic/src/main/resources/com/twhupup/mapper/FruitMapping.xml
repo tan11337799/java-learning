@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fruitMapper">
+
+    <select id="findAll" resultType="com.twhupup.entity.Fruit">
+        select * from t_fruit
+    </select>
+    <select id="findOne" resultType="com.twhupup.entity.Fruit" parameterType="int">
+        select * from t_fruit where fid=#{abc}
+    </select>
+    <delete id="delete" parameterType="int">
+        delete from t_fruit where fid=#{abc}
+    </delete>
+    <insert id="save" parameterType="com.twhupup.entity.Fruit">
+        insert into t_fruit values(#{fid},#{fname},#{price},#{fcount},#{remark})
+    </insert>
+    <update id="update" parameterType="com.twhupup.entity.Fruit">
+        update t_fruit set fname=#{fname},price=#{price},fcount=#{fcount},remark=#{remark} where fid=#{fid}
+    </update>
+
+</mapper>

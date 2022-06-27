@@ -13,7 +13,7 @@ Spring是轻量级开源的JavaEE框架，引入jar包很少。提供了功能�
 
 **IOC：**控制反转，把创建对象过程交给Spring进行管理。
 
-**Aop：** 面向切面，不修改源代码的前提下进行功能增强。
+**AOP：**面向切面，不修改源代码的前提下进行功能增强。
 
 **特点：**
 
@@ -153,6 +153,8 @@ e.g.: `<?xml version="1.0" encoding="gb2312"?>`
 
 ---
 
+
+
 # IOC容器
 
 主要内容：IOC底层原理、IOC接口（BeanFactory)、IOC具体操作（Bean管理【基于xml、基于注解】）
@@ -203,12 +205,6 @@ class UserFactory{
 
 
 
----
-
-
-
-# Bean基本知识
-
 ### FactoryBean
 
 在Spring中有两种类型的bean，一种为普通bean，另外一种叫做FactoryBean。
@@ -247,6 +243,67 @@ class factoryBean implements FactoryBean<BeanImp> {
 
 
 
+### API
+
+（1）ApplicationContext
+
+作用：ApplicationContext是接口类型，代表应用上下文，可以通过其实例获得 Spring 容器中的 Bean 对象。
+
+![1656174235208](/1656174235208.png)
+
+
+
+---
+
+（2）ApplicationContext的实现类
+
+* ClassPathXmlApplicationContext：从类的根路径下加载配置文件（常用）
+* FileSystemXmlApplicationContext：从磁盘路径上加载配置文件，配置文件可以在磁盘的任意位置
+* AnnotationConfigApplicationContext：当使用注解配置容器对象时，需要使用此类来创建 spring 容器。用于读取注解。
+
+（3）getBean()方法
+
+```java
+//常用的三种重载
+//参数列表为bean的id
+public Object getBean(String name) throws BeansException {
+        this.assertBeanFactoryActive();
+        return this.getBeanFactory().getBean(name);
+    }
+
+//参数为Class类型
+public <T> T getBean(Class<T> requiredType) throws BeansException {
+        this.assertBeanFactoryActive();
+        return this.getBeanFactory().getBean(requiredType);
+}
+
+//根据bean的id和Class类型确定bean实例
+public <T> T getBean(String name, Class<T> requiredType) throws BeansException {
+    this.assertBeanFactoryActive();
+    return this.getBeanFactory().getBean(name, requiredType);
+}
+```
+
+
+
+当参数的数据类型是字符串时，表示根据bean的id从容器中获得Bean实例，返回是Object，需要强转。
+
+当参数的数据类型是Class类型时，表示根据类型从容器中匹配Bean实例，当容器中相同类型的Bean有多个时，该方法报错。
+
+当使用第三种方式获取bean实例时，不需要进行强转，也不需要担心有多个重复bean（因为id只有一个）。
+
+
+
+---
+
+
+
+
+
+# Bean基本知识
+
+
+
 ### Bean作用域
 
 在 Spring 中默认情况 bean 是单实例对象。需要设置作用域时：
@@ -261,9 +318,7 @@ class factoryBean implements FactoryBean<BeanImp> {
 </bean>
 ```
 
-
-
-**创建时刻：**
+**注意点：**
 
 设置 scope 值是 **singleton** 时，加载 spring 配置文件时就会创建单实例对象 ；
 
@@ -319,6 +374,26 @@ class factoryBean implements FactoryBean<BeanImp> {
 * 创建需要导入的Bean对象
 * 创建context.xml配置文件，进行对象创建和属性注入
 * 创建ApplicationContext对象获取容器中的bean
+
+
+
+**重点配置：**
+
+```xml
+<bean>标签
+id属性:在容器中Bean实例的唯一标识，不允许重复
+class属性:要实例化的Bean的全限定名
+scope属性:Bean的作用范围，常用是Singleton(默认)和prototype
+<property>标签：属性注入
+name属性：属性名称
+value属性：注入的普通属性值
+ref属性：注入的对象引用值
+<list>标签
+<map>标签
+<properties>标签
+<constructor-arg>标签
+<import>标签:导入其他的Spring的分文件
+```
 
 
 
@@ -384,14 +459,14 @@ public class DynamicFactoryBean{
 
 
 
-### 注入属性
+### 注入属性的方式
 
-语法：`<property name="xxx" value=“xxx”></property>`	name表示类中的属性名，value表示向属性注入的值；（置于bean标签结构体内）
+使用xml配置文件注入属性一般有两种方式：（1）通过构造方法注入；（2）通过setter方法注入。
 
 **知识点：**
 
 * 如果不写bean标签的方法体，则会默认调用无参构造器；
-* 如果类有有参构造器，**必须**添加<constructor-arg>标签并添加**所有**属性的值。
+* 如果类有有参构造器，必须添加`<constructor-arg>`标签并添加所有属性的值。
 
 **步骤：**
 
@@ -432,7 +507,9 @@ public class DynamicFactoryBean{
 
 **方式三：p名称空间注入（了解）**
 
-使用p名称空间注入，可以简化xml配置方式。（注意p名称空间注入相当于set()方法注入，需要类中定义setter方法）
+使用p名称空间注入，可以简化xml配置方式。p命名空间注入本质也是set方法注入，但比起上述的set方法注入更加方便。（需要定义setter方法）
+
+
 
 **步骤：**
 
@@ -445,6 +522,8 @@ public class DynamicFactoryBean{
 `<bean id="book" class="com.atguigu.spring5.Book" p:bname="very" p:bauthor="good"></bean>`
 
 
+
+### 根据类型注入属性
 
 **注入其他类型属性**
 
@@ -573,8 +652,6 @@ public class DynamicFactoryBean{
 
 
 
-
-
 **外部bean注入**
 
 使用场景：调用**其他包**中的类
@@ -592,22 +669,8 @@ public class UserService {//service类
     }
 
     public void add() {
-        System.out.println("service add...............");
         userDao.update();//调用dao方法
     }
-}
-```
-```java
-//另一个包中
-public class UserDaoImpl implements UserDao {//dao类
-    @Override
-    public void update() {
-        System.out.println("dao update...........");
-    }
-}
-//
-public interface UserDao {
-	void update();
 }
 ```
 (2) 在spring配置文件中进行配置
@@ -689,81 +752,9 @@ public class Emp {
 
 
 
-**xml自动装配**
-
-根据指定的装配规则（属性名称或属性类型），Spring会自动将匹配的属性值进行注入。autowire是在bean标签中设置的。**（较少使用）**
-
-（1）根据属性名称进行自动装配
-
-在bean标签中添加`autowire="byName"`，再添加需要插入的属性的bean标签
-
-**注意点：**注入值bean的id与需要插入的类属性名称一致，否则注入失败（不报错）；（2）必须存在set方法，否则注入失败（不报错）
-
-（2）根据属性类型进行自动装配
-
-在bean标签中添加`autowire="byType"`，再添加需要插入的属性的bean标签
-
-**注意点：**如果有多个相同类的bean对象，编译器无法确认使用哪个对象；（2）必须存在set方法，否则注入失败（不报错）
 
 
-
-**引入外部属性文件**
-
-需求：
-
-（1）配置德鲁伊连接池
-
-（2）引入德鲁伊依赖jar包
-
-1、直接配置数据库信息
-
-demo（手动配置）:
-
-```xml
-<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-    <property name="url" value="jdbc:mysql://localhost:3306/userDb"/>
-    <property name="username" value="root"/>
-    <property name="password" value="root"/>
-</bean>
-```
-
-
-
-2、通过引入外部属性文件配置数据库
-
-（1）创建外部属性文件，properties格式文件，写入数据库信息（这里属性名前加prop是为了避免属性名冲突）
-
-```properties
-prop.driverClass=com.mysql.jdbc.Driver
-prop.url=jdbc:mysql://localhost:3306/userDb
-prop.userName=root
-prop.password=root
-```
-
-（2）将外部properties属性引入到spring配置文件中
-
-* 首先在spring配置文件中引入context名称空间
-
-```xml
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/beans/spring-context.xsd">
-```
-
-* 在spring配置文件使用标签引入外部属性文件
-
-```xml
-<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-    <property name="driverClassName" value="${prop.driverClass}"/>
-    <property name="url" value="${prop.url}"/>
-    <property name="username" value="${prop.userName}"/>
-    <property name="password" value="${prop.password}"/>
-</bean>
-<!--引入外部属性文件-->
-<context:property-placeholder location="classpath:jdbc.properties"/>
-```
+---
 
 
 
@@ -789,7 +780,7 @@ prop.password=root
 当在组件类上使用了特定的注解之后, 还需要在 Spring 的配置文件中配置以下项：
 base-package 属性指定一个需要扫描的基类包，Spring 容器将会扫描这个基类包里及其子包中的所有类，当需要扫描多个包时, 可以使用逗号分隔。
 
-用法1（include-filter）
+**用法1（include-filter）**
 
 ```xml
 <context:component-scan base-package="com.twhupup" use-default-filters="false">
@@ -801,9 +792,7 @@ base-package 属性指定一个需要扫描的基类包，Spring 容器将会扫
 - `<context:include-filter>`标签写在`<context:component-scan>`的结构体内 ，设置filter中对指定的内容进行扫描
 - `type="annotation" expression="org.springframework.stereotype.Service"/>` 表示在base-package的范围内只扫描Service的注解类
 
-
-
-用法2（exclude-filter）
+**用法2（exclude-filter）**
 
 ```xml
 <context:component-scan base-package="com.twhupup">
@@ -812,6 +801,81 @@ base-package 属性指定一个需要扫描的基类包，Spring 容器将会扫
 ```
 
 - `<context:exclude-filter>`标签写在`<context:component-scan>`的结构体内 ，设置filter中哪些内容不进行扫描
+
+
+
+##### @ComponentScan
+
+我们使用`@ComponentScan`用于指定创建容器时要扫描的包。该注解在指定扫描的位置时，可以指定包名，也可以指定扫描的类。同时支持定义扫描规则，例如包含哪些或者排除哪些。同时，它还支持自定义Bean的命名规则。
+
+在spring4.3版本之后还加入了一个@ComponentScans的注解，该注解就是支持配置多个@ComponentScan。
+
+**属性：**
+
+* value: 用于指定要扫描的包。当指定了包的名称之后，spring会扫描指定的包及其子包下的所有类。
+* basePackages: 它和value作用是一样的。
+* basePackageClasses: 指定具体要扫描的类的字节码。    
+* nameGenrator: 指定扫描bean对象存入容器时的命名规则。
+* scopeResolver: 用于处理并转换检测到的Bean的作用范围。
+* soperdProxy: 用于指定bean生成时的代理方式。默认是Default，则不使用代理。
+* resourcePattern: 用于指定符合组件检测条件的类文件，默认是包扫描下的  **/*.class
+* useDefaultFilters: 是否对带有@Component @Repository @Service @Controller注解的类开启检测,默认是开启的。
+* includeFilters: 自定义组件扫描的过滤规则，用以扫描组件。
+  * FilterType有5种类型：
+    ANNOTATION, 注解类型 默认
+    ASSIGNABLE_TYPE,指定固定类
+    ASPECTJ， ASPECTJ类型
+    REGEX,正则表达式
+    CUSTOM,自定义类型
+* excludeFilters: 自定义组件扫描的排除规则。
+* lazyInit: 组件扫描时是否采用懒加载 ，默认不开启。
+
+**使用场景：**
+ 在注解驱动开发时，我们自己编写的类都使用注解的方式进行配置，要想让spring添加到ioc容器中，就需要使用此注解来实现组件的扫描。
+
+
+
+### 注入时机和条件
+
+有三个注解用于设定注入的时机和注入的条件
+
+##### @DependsOn
+
+**作用：**用于指定某个类的创建依赖的bean对象先创建。spring中没有特定bean的加载顺序，使用此注解则可指定bean的加载顺序。(在基于注解配置中，是按照类中方法的书写顺序决定的)
+
+**使用场景：**
+在观察者模式中，分为事件，事件源和监听器。一般情况下，我们的监听器负责监听事件源，当事件源触发了事件之后，监听器就要捕获，并且做出相应的处理。以此为前提，我们肯定希望监听器的创建时间在事件源之前，此时就可以使用此注解。
+
+**属性：**
+
+* value： 用于指定bean的唯一标识。被指定的bean会在当前bean创建之前加载。
+
+
+
+##### @Lazy
+
+**作用：**用于指定单例bean对象的创建时机。在没有使用此注解时，单例bean的生命周期与容器相同。但是当使用了此注解之后，单例对象的创建时机变成了第一次使用时创建。
+
+**使用场景：**
+在实际开发中，当我们的Bean是单例对象时，并不是每个都需要一开始都加载到ioc容器之中，有些对象可以在真正使用的时候再加载，当有此需求时，即可使用此注解。值得注意的是，此注解只对单例bean对象起作用，当指定了@Scope注解的prototype取值后，此注解不起作用。
+
+**属性：**
+
+* value: 指定是否采用延迟加载。默认值为true，表示开启。
+
+
+
+##### @Conditional
+
+**作用：**它的作用是根据条件选择注入的bean对象。
+
+**使用场景：**
+
+当我们在开发时，可能会使用多平台来测试，例如我们的测试数据库分别部署到了linux和windows两个操作系统上面，现在根据我们的工程运行环境选择连接的数据库。此时就可以使用此注解。同时基于此注解引出的@Profile注解，就是根据不同的环境，加载不同的配置信息，详情请参考第五章第9小节@Profile的使用。
+
+**属性：**
+
+* value: 用于提供一个Condition接口的实现类，实现类中需要编写具体代码实现注入的条件。
 
 
 
@@ -829,7 +893,9 @@ base-package 属性指定一个需要扫描的基类包，Spring 容器将会扫
 
 上述的四个注解功能都一样，都可以用于创建bean实例，分为若干方式主要用于方便开发
 
+**属性：**
 
+*  value：用于指定存入容器时bean的id。当不指定时，默认值为当前类的名称。
 
 **实现：**
 
@@ -872,7 +938,7 @@ public class UserService {
 
 （2）@Qualifier		根据属性名称进行注入
 
-（3）**@Resource		可以根据类型和名称注入**
+（3）@Resource		可以根据类型和名称注入
 
 （4）@Value		注入普通类型属性（int/float/String...）
 
@@ -881,6 +947,10 @@ public class UserService {
 ##### @AutoWired
 
 @AutoWired是一种注解，可以对**成员变量、方法和构造函数**进行标注。
+
+**属性：**
+
+* required：是否必须注入成功。默认值是true，表示必须注入成功。当取值为true的时候，注入不成功会报错。
 
 **注意点：**
 
@@ -905,48 +975,39 @@ public class UserService {
   }
   ```
 
+**实现**
 
-**一般实现**
+把service和dao对象进行创建，在service和dao类添加创建对象注释，在service中注入dao对象。此时Spring的组件扫描就会找到这两个类，将其初始化为bean对象注入到IOC容器中。
 
-* 把service和dao对象进行创建，在service和dao类添加创建对象注释。此时Spring的组件扫描就会找到这两个类，将其初始化为bean对象注入到IOC容器中。
+```java
+@Repository
+public class UserDaoImp1 implements UserDao{
+    @Override
+    public void add() {
+        System.out.println("dao add...");
+    }
+}
+//另一个包
+@Service(value="userService")//相当于在bean文件中配置：<bean id="userService" class="com.twhupup.service.UserService"/>
+public class UserService {
+    @Autowired
+    private UserDao userDao;//在这里使用AutoWired注释表示注入UserDao类型的对象（UserDao作为一个接口，根据多态原理会寻找其实现类）
+    public void add(){
+        System.out.println("Service add");
+        userDao.add();
+    }
+}
+```
 
-  ```java
-  @Service(value="userService")//相当于在bean文件中配置：<bean id="userService" class="com.twhupup.service.UserService"/>
-  public class UserService {
-      public void add(){
-          System.out.println("Service add");
-      }
-  }
-  //另一个包内
-  @Repository
-  public class UserDaoImp1 implements UserDao{
-      @Override
-      public void add() {
-          System.out.println("dao add...");
-      }
-  }
-  ```
-
-* 在service中注入dao对象，在属性上使用注释注入属性。**这里使用spring进行注入而不通过new创建对象，是因为：直接创建对象时会增加耦合性，将对象的创建交给ioc容器可以降低耦合性，同时对于对象的单例和多例可以有效的控制而不需要自己采取维护措施**
-
-  ```java
-  @Service(value="userService")//相当于在bean文件中配置：<bean id="userService" class="com.twhupup.service.UserService"/>
-  public class UserService {
-      @Autowired
-      private UserDao userDao;//在这里使用AutoWired注释表示注入UserDao类型的对象（UserDao作为一个接口，根据多态原理会寻找其实现类）
-      public void add(){
-          System.out.println("Service add");
-          userDao.add();
-      }
-  }
-  ```
-
+这里使用spring进行注入而不通过new创建对象，是因为：**直接创建对象时会增加耦合性，将对象的创建交给ioc容器可以降低耦合性，同时对于对象的单例和多例可以有效的控制而不需要自己采取维护措施**
 
 
 
 ##### @Qualifier 
 
-根据名称注入，一般和@AutoWired一起使用（这里的名称指注释的value值，默认为类名+首字母小写）
+根据名称注入（这里的名称指注释的value值，默认为类名+首字母小写）。
+
+当使用自动按类型注入时，遇到有多个类型匹配的时候，就可以使用此注解来明确注入哪个bean对象。注意它通常情况下都必须配置@Autowired注解一起使用
 
 ```java
 @Service
@@ -965,75 +1026,54 @@ public class UserService {
 
 ##### @Resource 
 
-可以根据类型注入，也可以根据名称注入
+此注解来源于JSR规范（Java Specification Requests），其作用是找到依赖的组件注入到应用来，它利用了JNDI（Java Naming and Directory Interface Java命名目录接口 J2EE规范之一）技术查找所需的资源。
 
-* 根据类型注入时，和@AutoWired用法一样；
-
-* 根据名称注入时：使用name属性指定名称，e.g.`@Resource(name="userDaoImpl")`
+默认情况下，即所有属性都不指定，它默认按照byType的方式装配bean对象。如果指定了name，没有指定type，则采用byName。如果没有指定name，而是指定了type，则按照byType装配bean对象。当byName和byType都指定了，两个都会校验，有任何一个不符合条件就会报错。
 
 **注意点：**Resource是javax扩展包中的注解，不是spring官方的注解。
+
+**属性：**
+
+* name：资源的JNDI名称。在spring的注入时，指定bean的唯一标识。
+* type：指定bean的类型。
 
 
 
 ##### @Value	
 
-注入普通类型属性
+用于注入基本类型和String类型的数据。它支持spring的EL表达式，可以通过${} 的方式获取配置文件中的数据。配置文件支持properties,xml和yml文件。
 
-@Value(value=xxx)可以将value值注入到普通类型属性中，相当于bean手动配置中的property
+**属性：**
+
+* value: 指定注入的数据或者spring的el表达式。
+
+**使用场景：**
+在实际开发中，像连接数据库的配置，发送邮件的配置等等，都可以使用配置文件配置起来。此时读取配置文件就可以借助spring的el表达式读取。
+
+```java
+@PropertySource("classpath:jdbc.properties")
+public class JdbcConfig {
+    @Value("${driver}")
+    private String driver;
+    @Value("${url}")
+    private String url;
+    @Value("${username}")
+    private String username;
+    @Value("${password}")
+    private String password;
+    //其它注入
+}
+```
 
 **注意点：**@Value注释的注入属性会滞后于属性的自定义赋值
 
 
 
+##### @Primary
 
+**作用：**在需要注入的实现类上添加@Primary注解，可以通知IOC容器优先使用该标注的bean对象进行注入。
 
-### 实用注解
-
-##### @Configuration
-
-作用：用于指定当前类是一个Spring配置类，当创建容器时会从该类加载注解（使用配置类代替配置文件，SpringBoot的使用主要就是基于纯注解开发）
-
-注意点：
-
-- 不加`@Configuration`，Spring依然可以扫描类中的注解也可以完成IOC和DI。但是无法实现对象的单例模式，也就是说每调用一次方法就会创建一个新的对象。
-
-  添加`@Configuration`后，配置类会被代理，然后代理对象被Spring进行扫描。在代理对象的方法中会优先检查容器中是否已经存在某个类的对象，如果已经存在则从容器中取出该对象进行使用。如果容器不存在才会调用真正的配置类中的方法来进行对象的创建。
-
-- 注解类的使用方法：在测试时使用`AnnotationConfigApplicationContext(A.class)方法表示返回注解类A的ApplicationContext对象`
-
-
-
-##### @ComponentScan
-
-作用：用于指定组件扫描区域
-
-
-
-##### **@**Bean
-
-作用：使用在方法上，标注该方法的返回值存储到Spring容器中。
-
-
-
-##### @PropertySource
-
-作用：用于加载.properties文件中的配置
-
-
-
-##### @Import
-
-作用：用于导入其他配置类
-
-
-
-### 注入冲突
-
-当一个类有多个实现类时，ioc容器无法确定使用哪一个实现类进行注入。此时需要指定需要注入的实现类，有两种解决方法：
-
-（1）@Primary
-
-在需要注入的实现类上添加@Primary注解，可以通知IOC容器优先使用该标注的bean对象进行注入。
+**使用场景：**当一个类有多个实现类时，ioc容器无法确定使用哪一个实现类进行注入。此时需要指定需要注入的实现类，就可以使用@Primary（使用@Qualifier也可以指定需要注入的bean id，但是这种做法每次都会使用指定的bean进行注入，而使用@Primary可以进行选择使用）
 
 e.g.
 
@@ -1048,48 +1088,115 @@ public class OperaSinger implements Singer{
 }
 ```
 
-（2）@Qualifier
 
-@Qualifier常用于根据属性名称注入，在这里可以用于和@Autowired合用，通过类型和名称一起筛选需要的bean对象。
 
-e.g.
+### 生命周期
 
-```java
-@Component // 让spring识别该bean对象
-@Qualifier("metalSinger")
-public class MetalSinger implements Singer{
-    @Override
-    public String sing(String lyrics) {
-        return "I am singing with DIO voice: "+lyrics;
-    }
-}
- 
-@Component // 让spring识别该bean对象
-@Qualifier("opreaSinger")
-public class OperaSinger implements Singer {
-    @Override
-    public String sing(String lyrics) {
-        return "I am singing in Bocelli voice: "+lyrics;
-    }
-}
+##### @Scope
 
-//另一个类中注入时
-@Component
-public class SingerService {
-    private static final Logger logger = LoggerFactory.getLogger(SingerService.class);
- 
-    @Autowired
-    private Singer singer;
- 	
-    @Qualifier("opreaSinger")
-    public String sing(){
-        return singer.sing("song lyrics");
-    }
-}
-```
+**作用：**用于指定bean对象的作用范围。
+**属性：**
+
+* value: 指定作用范围的取值。在注解中默认值是""。但是在spring初始化容器时，会借助ConfigurableBeanFactory接口中的类成员：String SCOPE_SINGLETON = "singleton";
+* scopeName:它和value的作用是一样的。
+* proxyMode:指定bean对象的代理方式的。指定的是ScopedProxyMode枚举的值
+  ​            DEFAULT：默认值。（就是NO）
+  ​            NO：不使用代理。
+  ​            INTERFACES：使用JDK官方的基于接口的代理。
+  ​            TARGET_CLASS：使用CGLIB基于目标类的子类创建代理对象。
+
+**使用场景：**
+
+在实际开发中，我们的bean对象默认都是单例的。通常情况下，被spring管理的bean都使用单例模式来创建。但是也有例外，例如Struts2框架中的Action，由于有模型驱动和OGNL表达式的原因，就必须配置成多例的。
+
+##### @PostConstruct
+
+作用：用于指定bean对象的初始化方法。
+
+##### @PreDestroy
+
+作用：用于指定bean对象的销毁方法。
 
 
 
+### 注解驱动
+
+##### @Configuration
+
+**作用：**用于指定当前类是一个Spring配置类，当创建容器时会从该类加载注解（使用配置类代替配置文件，SpringBoot的使用主要就是基于纯注解开发）
+
+**注意点：**
+
+- 不加`@Configuration`，Spring依然可以扫描类中的注解也可以完成IOC和DI。但是无法实现对象的单例模式，也就是说每调用一次方法就会创建一个新的对象。
+
+  添加`@Configuration`后，配置类会被代理，然后代理对象被Spring进行扫描。在代理对象的方法中会优先检查容器中是否已经存在某个类的对象，如果已经存在则从容器中取出该对象进行使用。如果容器不存在才会调用真正的配置类中的方法来进行对象的创建。
+
+- 注解类的使用方法：在测试时使用`AnnotationConfigApplicationContext(A.class)方法表示返回注解类A的ApplicationContext对象`
+
+
+
+##### @ComponentScan
+
+**作用：**用于指定组件扫描区域
+
+@ComponentScan注解扫描或解析的bean只能是Spring内部所定义的，比如@Component、@Service、@Controller或@Repository。如果要扫描一些自定义的注解，就可以自定义过滤规则来完成这个操作。
+
+
+
+##### **@Bean**
+
+**作用：**使用在方法上，标注该方法的返回值存储到Spring容器中，bean的id为方法名。
+
+**和其它注解的区别：**通常情况下，在基于注解的配置中，我们用于把一个类存入spring的ioc容器中，首先考虑的是使用@Component以及他的衍生注解。但是如果遇到要存入容器的Bean对象不是我们写的类，此时无法在类上添加@Component注解，这时就需要此注解了。
+
+**属性：**
+
+* name：标识存入Spring容器中的bean对象，也就是bean的id，不指定时默认为方法名；
+* initMethod: 用于指定初始化方法。
+* destroyMethod: 用于指定销毁方法。
+
+
+
+##### @PropertySource
+
+**作用：**用于加载.properties文件中的配置
+
+@PropertySource是spring3.1开始引入的基于java config的注解。等同于在xml中配置properties文件。（曾经的配置：`<context:property-placeholder location="classpath:jdbc.properties" />`）
+
+通过@PropertySource注解将properties配置文件中的值存储到Spring的 Environment中，Environment接口提供方法去读取配置文件中的值，参数是properties文件中定义的key值。	
+
+**说明：**
+
+@PropertySource注解用于指定读取资源文件的位置。注意，它不仅支持properties，也支持xml文件，并且通过YAML解析器，配合自定义PropertySourceFactory实现解析yml配置文件（详情请参考第五章第8小节自定义PropertySourceFactory实现YAML文件解析）。
+
+**属性：**
+
+* value：（必要）指定资源的位置。可以是类路径，也可以是文件路径。
+
+* name：指定资源的名称。如果没有指定，将根据基础资源描述生成。
+
+
+##### @Import
+
+**作用：**该注解是写在类上的，通常都是和注解驱动的配置类一起使用的。其作用是引入其他的配置类。使用了此注解之后，可以使我们的注解驱动开发和早期xml配置一样，分别配置不同的内容，使配置更加清晰。同时指定了此注解之后，被引入的类上可以不再使用@Configuration, @Component等注解。
+
+**使用场景：**当我们在使用注解驱动开发时，由于配置项过多，如果都写在一个类里面，配置结构和内容将杂乱不堪，此时使用此注解可以把配置项进行分门别类进行配置。
+
+**属性：**
+
+* value：用于指定其他配置类的字节码。它支持指定多个配置类。
+
+
+
+@Import注解可以导入如下四种类型：
+
+* 导入普通类      
+
+- 导入带有@Configuration的配置类       
+
+- 通过ImportSelector 方式导入的类       
+
+- 通过ImportBeanDefinitionRegistrar方式导入的类 
 
 
 ---
