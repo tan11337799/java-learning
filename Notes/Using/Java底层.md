@@ -821,7 +821,7 @@ Constructor constructor2 = cls.getConstructor(String.class,int.class);//通过Cl
 
 `getInterfaces()`	获取当前Class对象的所有接口（数组）
 
-`getAnnotaions()`	获取当前Class对象的注解信息
+`getAnnotations()`	获取当前Class对象的注解信息
 
 `getConstructor(ClassObject...)`	返回Class对象所有本类以及父类的public构造器
 

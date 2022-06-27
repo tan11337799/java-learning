@@ -10,8 +10,8 @@ package com.twhupup.dao;
  */
 
 public class fruitDao {
-    public void setFruitParams(){
-
+    public void print(int a){
+        System.out.println("print "+a);
     }
 
 }
