@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.twhupup.dao.UserMapper">
+    <insert id="save" parameterType="user">
+        insert into t_account values(#{id},#{username},#{password},#{birthday})
+    </insert>
+    <select id="selectById" parameterType="int" resultType="user">
+        select * from t_account where id=#{id}
+    </select>
+    <select id="selectAll" resultType="user">
+        select * from t_account
+    </select>
+</mapper>
+        <!--where fid=#{fid} and fname=#{fname} and fcount=#{fcount} and price=#{price} and remark=#{remark}-->

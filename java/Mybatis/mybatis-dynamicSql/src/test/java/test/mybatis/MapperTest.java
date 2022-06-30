@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,11 +34,11 @@ public class MapperTest {
         FruitMapper mapper = sqlSession.getMapper(FruitMapper.class);
         //模拟条件对象
         Fruit condition = new Fruit();
-        // condition.setFid(1);
-        // condition.setFname("测试水果");
+        condition.setFid(1);
+        condition.setFname("测试水果");
         condition.setPrice(15);
-        // condition.setFcount(50);
-        // condition.setRemark("测试评价");
+        condition.setFcount(50);
+        condition.setRemark("测试评价");
         List<Fruit> byCondition = mapper.findByCondition(condition);
         System.out.println(byCondition);
         //释放资源
@@ -54,6 +55,30 @@ public class MapperTest {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         //获取映射对象mapper
         FruitMapper mapper = sqlSession.getMapper(FruitMapper.class);
+        Fruit fruit = new Fruit();
+        fruit.setFcount(20);
+        List<Fruit> byCondition = mapper.findByCondition(fruit);
+        System.out.println(byCondition);
+
+        //释放资源
+        sqlSession.close();
+    }
+    @Test
+    public void testForEach() throws IOException {
+        //加载核心配置文件
+        InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
+        //获得sqlSession工厂对象
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        //获得sqlSession对象
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        //获取映射对象mapper
+        FruitMapper mapper = sqlSession.getMapper(FruitMapper.class);
+        List<Integer> ids = new ArrayList<>();
+        ids.add(3);
+        ids.add(4);
+        ids.add(5);
+        List<Fruit> fruitList = mapper.findByIds(ids);
+        System.out.println(fruitList);
 
         //释放资源
         sqlSession.close();

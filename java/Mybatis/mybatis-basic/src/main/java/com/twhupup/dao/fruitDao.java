@@ -13,5 +13,4 @@ public class fruitDao {
     public void print(int a){
         System.out.println("print "+a);
     }
-
 }

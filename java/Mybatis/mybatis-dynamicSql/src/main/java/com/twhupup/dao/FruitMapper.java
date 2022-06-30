@@ -15,5 +15,5 @@ import java.util.List;
  */
 public interface FruitMapper {
     public List<Fruit> findByCondition(Fruit fruit) throws IOException;
-
+    public List<Fruit> findByIds(List<Integer> ids) throws IOException;
 }

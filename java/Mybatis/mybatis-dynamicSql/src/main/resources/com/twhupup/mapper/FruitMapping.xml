@@ -1,7 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.twhupup.dao.FruitMapper">
+    <!--sql语句抽取-->
+    <sql id="selectFruit">select * from t_fruit</sql>
+
     <select id="findByCondition" parameterType="fruit" resultType="fruit">
-        select * from t_fruit where fid=#{fid} and fname=#{fname} and fcount=#{fcount} and price=#{price} and remark=#{remark}
+        <include refid="selectFruit"></include>
+        <where>
+            <if test="fid!=0">
+                and fid=#{fid}
+            </if>
+            <if test="fname!=null">
+                and fname=#{fname}
+            </if>
+            <if test="fcount!=0">
+                and fcount=#{fcount}
+            </if>
+            <if test="price!=0">
+                and price=#{price}
+            </if>
+            <if test="remark!=null">
+                and remark=#{remark}
+            </if>
+        </where>
     </select>
- </mapper>
+
+    <select id="findByIds" parameterType="list" resultType="fruit">
+        <include refid="selectFruit"></include>
+        <where>
+            <foreach collection="list" open="fid in(" close=")" item="fid" separator=",">
+                #{fid}
+            </foreach>
+        </where>
+    </select>
+
+
+</mapper>
+        <!--where fid=#{fid} and fname=#{fname} and fcount=#{fcount} and price=#{price} and remark=#{remark}-->

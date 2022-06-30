@@ -3,6 +3,7 @@ package com.twhupup.JustTest;
 import com.twhupup.entity.Book;
 import com.twhupup.service.BookService;
 import org.junit.Test;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -24,6 +25,7 @@ public class TestBook {
     public void testBook(){
         ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
         BookService bookService = context.getBean("bookService", BookService.class);
+        BeanFactoryPostProcessor
         // //添加
         // Book addbook = new Book();
         // addbook.setBookId("1");
