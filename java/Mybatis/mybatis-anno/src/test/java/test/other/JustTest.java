@@ -16,7 +16,7 @@ import java.lang.reflect.Method;
 public class JustTest {
 	@Test
 	public void testReflection() throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
-		Class<?> fruitDaoClass = Class.forName("com.twhupup.dao.fruitDao");
+		Class<?> fruitDaoClass = Class.forName("com.twhupup.mapper.fruitDao");
 		Object obj = fruitDaoClass.newInstance();
 		Method method = fruitDaoClass.getDeclaredMethod("print",int.class);
 		method.invoke(obj,10);

@@ -187,9 +187,132 @@ public int[] selectSort(int[] arr){
 
 
 
+### 快速排序
+
+快速排序使用分治法（Divide and conquer）策略来把一个串行（list）分为两个子串行（sub-lists）。
+
+快速排序又是一种分而治之思想在排序算法上的典型应用。本质上来看，快速排序应该算是在冒泡排序基础上的递归分治法。
+
+**步骤：**
+
+1. 从数列中挑出一个元素，称为 "基准"（pivot）;
+2. 重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为分区（partition）操作；
+3. 递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序；
+
+**实现：**
+
+（随机选择pivot）
+
+```java
+public int[] randomizeQuicksort(int[] nums, int left, int right) {
+    //递归条件，一直递归到左右指针重合
+    if (left < right) {
+        //进行一趟排序并返回分割点(即枢轴位置)
+        int partition = randomizePartition(nums, left, right);
+        //递归每一趟下来分割得到的两数组
+        randomizeQuicksort(nums, left, partition - 1);
+        randomizeQuicksort(nums, partition + 1, right);
+    }
+    return nums;
+}
+
+//1.随机化选择枢轴
+//2.以选择的枢轴为基准，小值放左，最后将枢轴放中间，此时大值默认均在枢轴右边
+//3.返回当前枢轴位置，作为递归函数的分割点
+public int randomizePartition(int[] nums, int left, int right) {
+    //随机化选出枢轴位置索引
+    int pos = new Random().nextInt(right - left) + left;
+    //将枢轴放于右边界
+    swap(nums, pos, right);
+    //记录枢轴值
+    int pivot = nums[right];
+    //partition标记了第一个比pivot大元素的位置
+    int partition = left;
+
+    //规定left和right边界，真正的指针移动仅仅是partition
+    for (int i = left; i < right; i++) {
+        //小了要交换是因为向后遍历时，要将后面小的数字移到partition的位置（如果第一个元素小于pivot则只移动partition)
+        if (nums[i] <= pivot) {
+            swap(nums, i, partition);
+            //由于交换后原来partition位置是交换过来的比pivot小的数，根据定义应该将该指针向后移动一格
+            ++partition;
+        }
+    }
+    //将第一个比枢轴大的值放于最右端，枢轴放中间
+    swap(nums, partition, right);
+    //返回分割点
+    return partition;
+}
+```
 
 
 
+### 归并排序
+
+归并排序是建立在归并操作上的一种有效，稳定的排序算法，该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为二路归并。
+
+**原理：**
+
+第一步：申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列
+
+第二步：设定两个指针，最初位置分别为两个已经排序序列的起始位置
+
+第三步：比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置
+
+重复步骤3直到某一指针超出序列尾
+
+将另一序列剩下的所有元素直接复制到合并序列尾
+
+
+
+**实现：**
+
+```java
+public int[] sortArray(int[] nums) {
+    int[] tmp = new int[nums.length];
+    mergeSort(nums, 0, nums.length - 1, tmp);
+    return nums;
+}
+
+public void mergeSort(int[] nums, int left, int right, int[] tmp) {
+    if (left >= right) return;
+    int mid = (left + right) >> 1;
+
+    mergeSort(nums, left, mid, tmp);
+    mergeSort(nums, mid + 1, right, tmp);
+
+    int i = left;
+    int j = mid + 1;
+    int cnt = 0;
+
+    while (i <= mid && j <= right) {
+        if (nums[i] <= nums[j]) {
+            tmp[cnt++] = nums[i++];
+        } else {
+            tmp[cnt++] = nums[j++];
+        }
+    }
+
+    while (i <= mid) {
+        tmp[cnt++] = nums[i++];
+    }
+    while (j <= right) {
+        tmp[cnt++] = nums[j++];
+    }
+
+    cnt = 0;
+    while(left<=right){
+        nums[left++] = tmp[cnt++];
+    }
+}
+
+```
+
+
+
+---
+
+---
 
 
 
@@ -231,37 +354,43 @@ ArrayList 类是一个**可以动态修改的数组**，与普通数组的区别
 
 
 
+---
+
+
+
 ### 队列
 
 队列是一种由数组和链表作为底层构造的只暴露头和尾操作API的数据结构，因此，队列是被认为是一种受限的数据结构。
 **队列的特性是：先进先出，类似于排队。**
 
+在java中Queue接口用于模拟队列的数据结构。用途主要包括三类：（1）阻塞队列；（2）非阻塞队列；（3）双向队列。
+
 <img src="assets\image-20220623105441554.png" alt="image-20220623105441554" style="zoom: 67%;" />
 
 
 
-**Queue接口**
-
 **常用方法：**
 
-* 压入元素(添加)：add()、offer()
+* 压入元素(添加)：`add()`、`offer()`
 
   相同：未超出容量，从队尾压入元素，返回压入的那个元素。
   区别：在超出容量时，add()方法会对抛出异常，offer()返回false
 
-* 弹出元素(删除)：remove()、poll()
+* 弹出元素(删除)：`remove()`、`poll()`
 
   相同：容量大于0的时候，删除并返回队头被删除的那个元素。
   区别：在容量为0的时候，remove()会抛出异常，poll()返回false
 
-* 获取队头元素(不删除)：element()、peek()
+* 获取队头元素(不删除)：`element()`、`peek()`
 
   相同：容量大于0的时候，都返回队头元素。但是不删除。
   区别：容量为0的时候，element()会抛出异常，peek()返回null。
 
 
 
-**双端队列**
+##### 双向队列
+
+Deque对Queue进行了扩展，允许在队首和队尾进行插入和删除操作。
 
 Deque的实现类包括LinkedList,ArrayDeque,LinkedBlockingDeque，其中LinkedList是最常用的。值得注意的是，LinkedList也实现了List接口。
 
@@ -291,8 +420,6 @@ Java堆栈Stack类已经过时，**Java官方推荐使用Deque替代Stack使用*
 
 `offerLast()`	向队尾插入元素，如果插入成功返回true，否则返回false
 
-
-
 **等价关系：**
 
 Deque的`addLast()` = Queue的`add()`
@@ -303,6 +430,33 @@ Deque的`pollFirst()` = Queue的`poll()`
 
 Deque的`peekFirst()` = Queue的`peek()`
 
+##### 阻塞队列
+
+阻塞队列是一个可以阻塞的先进先出集合，比如某个线程在空队列获取元素时、或者在已存满队列存储元素时，都会被阻塞。常用实现类包括：
+
+- ArrayBlockingQueue ：基于数组的有界阻塞队列，必须指定大小。
+- LinkedBlockingQueue ：基于单链表的无界阻塞队列，不需指定大小。
+- PriorityBlockingQueue ：基于最小二叉堆的无界、优先级阻塞队列。
+- DelayQueue：基于延迟、优先级、无界阻塞队列。
+- SynchronousQueue ：基于 CAS 的阻塞队列。
+
+
+
+##### 非阻塞队列
+
+非阻塞队列是使用CAS（compare and set）机制实现，类似 volatile，并发性能好。
+
+> 人太多了，很多现在开始流行取号，先取个号，看着离我这号太远了，我出去溜达溜达一下再来。
+
+常用的阻塞队列有 PriorityQueue 和 ConcurrentLinkedQueue。
+
+- PriorityQueue ：基于优先级的无界优先级队列
+- ConcurrentLinkedDeque：基于双向链表结构的无界并发队列。
+
+
+
+---
+
 
 
 ### 栈
@@ -312,8 +466,6 @@ Deque的`peekFirst()` = Queue的`peek()`
 我们一般使用Deque实现栈：
 
 **定义：** `Deque stack = new LinkedList();`
-
-
 
 **常用方法：**
 
@@ -326,6 +478,62 @@ Deque的`peekFirst()` = Queue的`peek()`
 
 
 ---
+
+
+
+### 集合
+
+Set是Java中的集合类,提供了一种无顺序,不重复的集合。常用的子类包括HashSet, TreeSet等。下面是对Hashset进行介绍。
+
+**特点：**(1) 最多只能存放一个null值；(2) 无序，hash后才能确定索引的结果；(3) 不能有重复的元素或对象（注意不同的对象值不同的地址）。
+
+**定义：**`Set<String> set =  new HashSet<>();`
+
+**常用方法：**
+
+`add() `        向集合中添加元素
+
+`clear()`        去掉集合中所有的元素
+
+`contains()`    判断集合中是否包含某一个元素
+
+`isEmpty()`    判断集合是否为空
+
+`iterator() `   主要用于递归集合，返回一个Iterator()对象
+
+`remove() `   从集合中去掉特定的对象
+
+`size()`        返回集合的大小
+
+
+
+### 散列表
+
+散列表主要是指HashMap。
+
+HashMap 是一个散列表，它存储的内容是键值对(key-value)映射。
+
+HashMap 实现了 Map 接口，根据键的 HashCode 值存储数据，具有很快的访问速度，最多允许一条记录的键为 null，不支持线程同步。
+
+**常用方法：**
+
+| 方法                                                         | 描述                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| clear()                                                      | 删除 hashMap 中的所有键/值对                                 |
+| clone() | 复制一份 hashMap                                             |
+| isEmpty() | 判断 hashMap 是否为空                                        |
+| size() | 计算 hashMap 中键/值对的数量                                 |
+| put()  | 将键/值对添加到 hashMap 中                                   |
+| remove() | 删除 hashMap 中指定键 key 的映射关系                         |
+|containsKey() | 检查 hashMap 中是否存在指定的 key 对应的映射关系。           |
+| containsValue() | 检查 hashMap 中是否存在指定的 value 对应的映射关系。         |
+| get() | 获取指定 key 对应对 value                                    |
+
+
+
+---
+
+
 
 
 

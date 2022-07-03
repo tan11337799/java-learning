@@ -9,6 +9,7 @@
         <id column="oid" property="id"/>
         <result column="ordertime" property="ordertime"/>
         <result column="total" property="total"/>
+        <!--前一个user指属性名，后一个user使用别名（User类）-->
         <association property="user" javaType="user">
             <id column="uid" property="id"/>
             <result column="username" property="username"/>

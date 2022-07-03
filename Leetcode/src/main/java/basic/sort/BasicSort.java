@@ -1,9 +1,5 @@
 package basic.sort;
 
-import org.junit.Test;
-
-import java.util.Arrays;
-
 /**
  * @Project: Leetcode
  * @Package: basic.sort
@@ -19,7 +15,7 @@ public class BasicSort {
     // 走访元素的工作是重复地进行，直到没有相邻元素需要交换，也就是说该元素列已经排序完成。
 
     public int[] bubbleSort(int[] arr) {
-        Boolean flag = false;
+        boolean flag = false;
         int length = arr.length;
         for (int i = 0; i < length - 1; i++) {
             for (int j = 0; j < length - i - 1; j++) {
@@ -69,9 +65,9 @@ public class BasicSort {
         return arr;
     }
 
-    @Test
-    public void test() {
-        System.out.println(Arrays.toString(selectSort(new int[]{3, 4, 5, 1})));
-    }
+    // @Test
+    // public void test() {
+    //     System.out.println(Arrays.toString(selectSort(new int[]{3, 4, 5, 1})));
+    // }
 
 }

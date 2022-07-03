@@ -14,7 +14,6 @@ public class Order {
     private int id;
     private Date ordertime;
     private double total;
-    private int uid;
 
     private User user;
 
@@ -42,14 +41,6 @@ public class Order {
         this.total = total;
     }
 
-    public int getUid() {
-        return uid;
-    }
-
-    public void setUid(int uid) {
-        this.uid = uid;
-    }
-
     public User getUser() {
         return user;
     }
@@ -64,7 +55,6 @@ public class Order {
                 "id=" + id +
                 ", ordertime=" + ordertime +
                 ", total=" + total +
-                ", uid=" + uid +
                 ", user=" + user +
                 '}';
     }

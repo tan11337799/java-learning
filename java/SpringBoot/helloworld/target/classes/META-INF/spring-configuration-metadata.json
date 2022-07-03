@@ -1,0 +1,28 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.twhupup.entity.Person",
+      "name": "person",
+      "type": "com.twhupup.entity.Person"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.twhupup.entity.Person",
+      "name": "person.address",
+      "type": "java.lang.String[]"
+    },
+    {
+      "sourceType": "com.twhupup.entity.Person",
+      "defaultValue": 0,
+      "name": "person.age",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.twhupup.entity.Person",
+      "name": "person.name",
+      "type": "java.lang.String"
+    }
+  ]
+}

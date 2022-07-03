@@ -17,15 +17,27 @@ public class User {
     private String username;
     private String password;
     private Date birthday;
-    private List<Order> orderList;
 
-    public List<Order> getOrderList() {
-        return orderList;
+    public List<Role> getRoleList() {
+        return roleList;
     }
 
-    public void setOrderList(List<Order> orderList) {
-        this.orderList = orderList;
+    public void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
     }
+
+    private List<Role> roleList;
+
+
+    // private List<Order> orderList;
+
+    // public List<Order> getOrderList() {
+    //     return orderList;
+    // }
+    //
+    // public void setOrderList(List<Order> orderList) {
+    //     this.orderList = orderList;
+    // }
 
     public int getId() {
         return id;
@@ -66,7 +78,8 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", birthday=" + birthday +
-                ", orderList=" + orderList +
+                // ", orderList=" + orderList +
+                ", roleList=" + roleList +
                 '}';
     }
 }
