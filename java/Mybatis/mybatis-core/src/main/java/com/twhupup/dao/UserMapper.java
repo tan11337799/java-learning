@@ -16,5 +16,4 @@ public interface  UserMapper {
     public void save(User user);
     public User selectById(Integer id);
     public List<User> selectAll();
-
 }

@@ -2,6 +2,7 @@ package test.mybatis;
 
 import com.twhupup.entity.User;
 import com.twhupup.mapper.UserMapper;
+import org.apache.ibatis.builder.xml.XMLMapperBuilder;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

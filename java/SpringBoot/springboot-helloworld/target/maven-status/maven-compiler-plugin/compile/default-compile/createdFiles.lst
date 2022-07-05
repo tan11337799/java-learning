@@ -1,0 +1,4 @@
+com\twhupup\SpringBootHelloWorld.class
+META-INF\spring-configuration-metadata.json
+com\twhupup\controller\HelloController.class
+com\twhupup\entity\Person.class
