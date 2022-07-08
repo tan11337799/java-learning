@@ -2267,9 +2267,13 @@ String表示不可变字符序列，效率低，但**复用率高**（不需要�
 
 **常用方法**
 
+`Arrays.asList(param1,param2,...)`	将一组值转换成一个List集合，用返回值接收
+
 `Arrays.toString(int[] array)`	将数组转换为String用返回值接收  ，便于快速输出数组信息
 
 `Arrays.sort(int[] array)`	对数组本身进行排序操作（数量小于47使用插入排序，大于286使用归并排序，在两者之间使用快速排序
+
+> 以上三个方法最为常用。
 
 `Arrays.binarySearch(int[] arr,Object o)`	通过二分查找查找val所在的索引，如果未查询到返回-(low+1)【应该插入的位置*(-1)】（要求数组为有序数组，当有多个相同的数值在数组中，无法正确找到该数值的最后一个数值的索引，或者第一个数值的索引。)
 
@@ -2278,8 +2282,6 @@ String表示不可变字符序列，效率低，但**复用率高**（不需要�
 `Arrays.fill(int[] arr,Object element)`	用element填充arr的每个元素，对arr本身进行修改
 
 `Arrays.equals(int[] arr1,int[] arr2)`	判断两个数组是否相同，返回布尔值
-
-`Arrays.asList(param1,param2,...)`	将一组值转换成一个List集合，用返回值接收
 
 
 

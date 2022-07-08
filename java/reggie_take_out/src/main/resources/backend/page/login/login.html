@@ -99,8 +99,8 @@
           this.$refs.loginForm.validate(async (valid) => {//登陆校验
             if (valid) {//如果验证通过
               this.loading = true
-              let res = await loginApi(this.loginForm) //通过axios向后端发送请求
-              if (String(res.code) === '1') {
+              let res = await loginApi(this.loginForm) //通过axios向后端发送请求，获取login方法返回的res对象
+              if (String(res.code) === '1') {//登陆成功
                 localStorage.setItem('userInfo',JSON.stringify(res.data)) //如果登陆成功，将数据转换为json保存（k-v形式）
                 window.location.href= '/backend/index.html' //跳转页面
               } else {
