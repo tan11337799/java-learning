@@ -2,6 +2,7 @@ package com.twhupup.reggie.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.twhupup.reggie.entity.Employee;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @Project: reggie_take_out

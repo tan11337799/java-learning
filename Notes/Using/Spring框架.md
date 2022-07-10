@@ -1,7 +1,7 @@
 typora-copy-images-to: assets
 typora-root-url: assets
 
-# Spring框架
+# Spring
 
 ### 概述
 
@@ -45,7 +45,7 @@ Java的结构大致可以分为三层：
 
 **调用流程：**
 
-![1654739823993](D:\WorkSpace\git\Mine\Notes\Using\assets\1654739823993.png)
+![1654739823993](assets\1654739823993.png)
 
 Service层是建立在DAO层之上的，建立了DAO层后才可以建立Service层，而Service层又是在Controller层之下的，因而 Service层应该既调用DAO层的接口，又要提供接口给Controller层的类来进行调用，它刚好处于一个中间层的位置。 每个模型都有一个Service接口，每个接口分别封装各自的业务处理方法。
 
@@ -183,7 +183,7 @@ class UserFactory{
 
 **结构图：**
 
-![1655309650669](/1655309650669.png)
+![1655309650669](assets/1655309650669.png)
 
 **基本要点：**
 
@@ -247,7 +247,7 @@ class factoryBean implements FactoryBean<BeanImp> {
 
 作用：ApplicationContext是接口类型，代表应用上下文，可以通过其实例获得 Spring 容器中的 Bean 对象。
 
-![1656174235208](/1656174235208.png)
+![1656174235208](assets/1656174235208.png)
 
 
 
@@ -320,7 +320,7 @@ public <T> T getBean(String name, Class<T> requiredType) throws BeansException {
 
 生命周期是对象从创建到销毁的过程，bean生命周期也就是bean对象的创建到销毁过程。
 
-![1655310053331](C:/Program Files/Typora)
+![1655310053331](assets/1655310053331.png)
 
 **在配置文件中的生命周期配置：**
 
@@ -1115,13 +1115,13 @@ public class OperaSinger implements Singer{
 
 **作用：**用于指定当前类是一个Spring配置类，当创建容器时会从该类加载注解（使用配置类代替配置文件，SpringBoot的使用主要就是基于纯注解开发）
 
-**注意点：**
+**知识点：**
 
-- 不加`@Configuration`，Spring依然可以扫描类中的注解也可以完成IOC和DI。但是无法实现对象的单例模式，也就是说每调用一次方法就会创建一个新的对象。
-
-  添加`@Configuration`后，配置类会被代理，然后代理对象被Spring进行扫描。在代理对象的方法中会优先检查容器中是否已经存在某个类的对象，如果已经存在则从容器中取出该对象进行使用。如果容器不存在才会调用真正的配置类中的方法来进行对象的创建。
-
-- 注解类的使用方法：在测试时使用`AnnotationConfigApplicationContext(A.class)方法表示返回注解类A的ApplicationContext对象`
+- @Configuration和@Component的区别：
+  - `@Configuration`底层是`@Component`。但是使用`@Component`，Spring虽然可以扫描类中的注解也可以完成IOC和DI。但是无法实现对象的单例模式，也就是说每调用一次方法就会创建一个新的对象。
+  - 使用`@Configuration`，配置类会被代理，然后代理对象被Spring进行扫描。在代理对象的方法中会优先检查容器中是否已经存在某个类的对象，如果已经存在则从容器中取出该对象进行使用。如果容器不存在才会调用真正的配置类中的方法来进行对象的创建。
+- 在@Configuration的属性中，有一个属性 proxyBeanMethods，用于设置是否使用代理创建bean，如果设为false，则@Configuration退化为@Component。
+- 注解类的使用方法：在测试时使用`AnnotationConfigApplicationContext(A.class)`方法表示返回注解类A的ApplicationContext对象。
 
 
 
@@ -1219,6 +1219,8 @@ AOP意思是面向切面编程。利用AOP可以对业务逻辑的各个部分�
 AOP底层使用到了动态代理，动态代理是指在程序运行期，创建目标对象的代理对象，并对目标对象中的方法进行功能性增强的一种技术。在生成代理对象的过程中，目标对象不变，代理对象中的方法是目标对象方法的增强方法。可以理解为运行期间，对象中方法的动态拦截，在拦截方法的前后执行功能操作。
 
 作用：有了动态代理的技术，那么就可以在不修改方法源码的情况下，增强被代理对象的方法的功能（在方法执行前后做任何你想做的事情）
+
+![1657383547570](assets/1657383547570.png)
 
 动态代理主要存在两种情况：
 
@@ -1972,7 +1974,7 @@ public class UserService {
 
 例：`@Transactional(timeout = -1,propagation = Propagation.REQUIRED,isolation = Isolation.REPEATABLE_READ)`
 
-![1655005254783](D:\WorkSpace\git\Mine\Notes\Using\assets\1655005254783.png)
+![1655005254783](assets\1655005254783.png)
 
 * **propagation:** 事务传播行为。描述了多事务方法（对数据库数据进行变化的操作）直接进行调用，这个过程事务是如何进行管理的。
 
@@ -2403,6 +2405,8 @@ public User save10() throws IOException {
 
 
 
+---
+
 
 
 ### 获取请求数据
@@ -2612,7 +2616,7 @@ public void save17(@PathVariable(value="name") String username) throws IOExcepti
 
 
 
-
+---
 
 
 
@@ -2694,7 +2698,7 @@ fragment: 锚点，定位到页面的资源。
 
 
 
-
+---
 
 
 
@@ -2786,6 +2790,137 @@ fragment: 锚点，定位到页面的资源。
 
 
 
+##### **@RequsetParam**
+
+见上。
+
+
+
+##### **@PathVariable** 
+
+见上。
+
+
+
+---
+
+
+
+### 拦截器
+
+##### 概述
+
+**拦截器：**SpringMVC的处理器拦截器（interceptor），类似于Servlet开发中的过滤器Filter，用于对处理器进行预处理和后处理。 
+
+**拦截器链：**将拦截器按一定顺序联结成一条链，并对相同的请求进行拦截，这条链被称为拦截器链（Interceptor Chain）。拦截器链中多个拦截器的执行顺序与根拦截器的配置顺序有关，先配置的先执行。
+
+**原理：**拦截器依赖于web框架，在实现上基于Java的反射机制，属于面向切面编程（AOP）的一种运用。由于拦截器是基于web框架的调用，因此可以使用Spring的依赖注入（DI）进行一些业务操作，同时一个拦截器实例在一个controller生命周期之内可以多次调用。
+
+**过滤器和拦截器的区别？**
+
+过滤器(filter)：
+
+1) filter属于Servlet技术，只要是web工程都可以使用
+2) filter主要对所有请求过滤
+3) filter的执行时机早于Interceptor
+
+ 拦截器(interceptor)：
+
+1) interceptor属于SpringMVC技术，必须要有SpringMVC环境才可以使用
+2) interceptor通常对处理器Controller进行拦截
+3) interceptor只能拦截dispatcherServlet处理的请求
+
+
+
+##### 基本实现
+
+* 创建inteceptor类，实现HandlerInterceptor接口，重写类中三个方法：
+
+  * preHandle：在目标方法执行前处理，如果返回true则不拦截，如果返回false则进行拦截。
+  * postHandle：目标方法执行后，视图对象返回前执行（可以在该过程中修改视图参数）
+  * afterCompletion：在流程都执行完毕后 执行
+
+  e.g.
+
+  ```java
+  public class MyInterceptor implements HandlerInterceptor {
+      //在目标方法执行之前 执行
+      public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException, IOException {
+          System.out.println("preHandle.....");
+          String param = request.getParameter("param");
+          if("yes".equals(param)){
+              return true;
+          }else{
+              request.getRequestDispatcher("/error.jsp").forward(request,response);
+              return false;//返回true代表放行  返回false代表不放行
+          }
+      }
+  
+      //在目标方法执行之后 视图对象返回之前执行
+      public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) {
+          modelAndView.addObject("name","itheima");
+          System.out.println("postHandle...");
+      }
+      
+  
+      //在流程都执行完毕后 执行
+      public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
+          System.out.println("afterCompletion....");
+      }
+  }
+  ```
+
+* 在配置文件或配置类中添加拦截器
+
+  * 配置类（注解开发）：
+
+      ```java
+      @Configuration
+      public class MyInterceptorConfigurer implements WebMvcConfigurer {
+          @Override
+          public void addInterceptors(InterceptorRegistry registry) {
+            //这种方式会拦截所有请求
+            //registry.addInterceptor(new MyInterceptor());
+            //这种方式会拦截指定的请求
+              registry.addInterceptor(new MyInterceptor())
+                  .addPathPatterns("/helloInterceptor");
+          }
+      }
+      ```
+
+  * 配置文件：
+
+      ```xml
+      <mvc:interceptors>
+          <mvc:interceptor>
+              <!--对哪些资源执行拦截操作-->
+              <mvc:mapping path="/**"/>
+              <bean class="com.itheima.interceptor.MyInterceptor2"/>
+          </mvc:interceptor>
+          <mvc:interceptor>
+              <!--对哪些资源执行拦截操作-->
+              <mvc:mapping path="/**"/>
+              <bean class="com.itheima.interceptor.MyInterceptor1"/>
+          </mvc:interceptor>
+      </mvc:interceptors>
+      ```
+
+
+
+##### 拦截器方法
+
+* `preHandle()`
+
+  方法将在请求处理之前进行调用，该方法的返回值是布尔值Boolean类型的，当它返回为false 时，表示请求结束，后续的Interceptor和Controller都不会再执行；当返回值为true 时就会继续调用下一个Interceptor 的preHandle 方法。
+
+* `postHandle()`
+
+  该方法是在当前请求进行处理之后被调用，前提是preHandle方法的返回值为true 时才能被调用，且它会在DispatcherServlet 进行视图返回渲染之前被调用，所以我们可以在这个方法中对Controller处理之后的ModelAndView对象进行操作。
+
+* `afterCompletion()`
+
+  该方法将在整个请求结束之后，也就是在DispatcherServlet渲染了对应的视图之后执行，前提是preHandle方法的返回值为true 时才能被调用。
+
 
 
 ---
@@ -2794,7 +2929,7 @@ fragment: 锚点，定位到页面的资源。
 
 
 
-# SpringBoot基础
+# SpringBoot
 
 ### 概念
 
