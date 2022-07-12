@@ -1,9 +1,6 @@
 package basic.binarytree;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @Project: LeetCode
@@ -17,7 +14,9 @@ import java.util.Stack;
 
 // 深度优先遍历
 public class depthFirstTraverse {
+    //////////////////////////////////////////////////////////////
     // 递归法
+    //////////////////////////////////////////////////////////////
     // 前序遍历
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
@@ -64,7 +63,10 @@ public class depthFirstTraverse {
         list.add(root.val);             // 注意这一句
     }
 
-    //前序遍历（迭代法）
+    //////////////////////////////////////////////////////////////
+    // 迭代法
+    //////////////////////////////////////////////////////////////
+    //前序遍历
     public List<Integer> preorderTraversal_iter(TreeNode root) {
         List<Integer> res = new LinkedList<>();
         Stack<TreeNode> stack = new Stack<>();
@@ -75,11 +77,41 @@ public class depthFirstTraverse {
         while(!stack.isEmpty()){
             TreeNode temp = stack.pop();
             res.add(temp.val);
+            //先右节点再左节点，出栈时才是先左后右
             if(temp.right!=null){
                 stack.push(temp.right);
             }
             if(temp.left!=null){
                 stack.push(temp.left);
+            }
+        }
+        return res;
+    }
+
+    //中序遍历（使用栈记录树的元素，使用指针遍历节点）
+    public List<Integer> inorderTraversal_iter(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if(root==null){
+            return res;
+        }
+
+        //栈中存放元素实际上是每个子二叉树的中间节点
+        Deque<TreeNode> stack = new LinkedList<>();
+        //cur表示当前处理的节点
+        TreeNode cur = root;
+        while(cur!=null || !stack.isEmpty()){
+            //如果指针指向的节点不为空，则将当前元素推入栈中，指针指向当前节点的左节点（不管左节点是否为null,都进行这一操作）
+            if(cur!=null){
+                stack.push(cur);
+                cur = cur.left;
+            }
+            //如果发现当前处理节点为空，则从栈中取出元素进行添加，将节点指向右节点
+            //第一次为空意味着该节点的左节点已处理完毕，从栈中移出该节点，开始处理右节点；
+            //第二次为空则意味着该节点的右节点也没有内容，则该节点处理完毕，处理栈的下一个顶部元素（不一定为cur的父节点）
+            else{
+                cur = stack.pop();
+                res.add(cur.val);
+                cur = cur.right;
             }
         }
         return res;
