@@ -85,7 +85,6 @@ public class EmployeeController {
         // log.info("新增员工，员工信息为：{}",employee.toString());
         //1.设置用户初始密码，使用MD5加密;设置创建时间/更新时间；设置创建用户/更新用户
         employee.setPassword(DigestUtils.md5DigestAsHex("123456".getBytes()));
-
         //以下字段通过元对象处理器MyMetaObjectHandler自动填充
         // employee.setCreateTime(LocalDateTime.now());
         // employee.setUpdateTime(LocalDateTime.now());
@@ -96,7 +95,6 @@ public class EmployeeController {
         employeeService.save(employee);
         return R.success(null);
     }
-
 
     /**
      * 员工信息分页查询
@@ -124,13 +122,8 @@ public class EmployeeController {
      * @return
      */
     @PutMapping
-    public R<String> update(HttpServletRequest request,@RequestBody Employee employee){
+    public R<String> update(@RequestBody Employee employee){
         log.info("需要修改的用户为：{}",employee.toString());
-
-        //以下字段通过元对象处理器MyMetaObjectHandler自动填充
-        // employee.setUpdateUser((Long) request.getSession().getAttribute("employee"));
-        // employee.setUpdateTime(LocalDateTime.now());
-
         employeeService.updateById(employee);
         return R.success(null);
     }

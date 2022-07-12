@@ -1,9 +1,9 @@
 package com.twhupup.reggie.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.twhupup.reggie.entity.Setmeal;
-import com.twhupup.reggie.mapper.SetMealMapper;
-import com.twhupup.reggie.service.SetMealService;
+import com.twhupup.reggie.entity.SetmealDish;
+import com.twhupup.reggie.mapper.SetMealDishMapper;
+import com.twhupup.reggie.service.SetmealDishService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,5 +15,5 @@ import org.springframework.stereotype.Service;
  * License: (C)2022,MIPAV Lab(mipav.net), Soochow University. tanritian1@163.com All Rights Reserved.
  */
 @Service
-public class SetMealServiceImpl extends ServiceImpl<SetMealMapper, Setmeal> implements SetMealService {
+public class SetmealDishServiceImpl extends ServiceImpl<SetMealDishMapper, SetmealDish> implements SetmealDishService {
 }

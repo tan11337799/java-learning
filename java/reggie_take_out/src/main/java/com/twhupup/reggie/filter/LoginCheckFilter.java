@@ -39,7 +39,10 @@ public class LoginCheckFilter implements Filter {
                 "/employee/login",
                 "/employee/logout",
                 "/backend/**",
-                "/front/**"
+                "/front/**",
+                "/common/**",
+                "/user/sendMsg",
+                "/user/login"
         };
         boolean check = check(permittedUrls, requestURI);
         //3、如果不需要处理，则直接放行
@@ -48,16 +51,26 @@ public class LoginCheckFilter implements Filter {
             filterChain.doFilter(request,response);
             return;
         }
-        //4.判断登陆状态，如果已经登陆，则可以放行
+        //4-1.判断后端登陆状态，如果已登陆则放行
         if(request.getSession().getAttribute("employee")!=null){
             log.info("用户已登陆，用户id为:{}",request.getSession().getAttribute("employee"));
             //登陆状态下，将当前用户的id设置到当前线程的ThreadLocal中
             Long empId = (Long)request.getSession().getAttribute("employee");
             BaseContext.setCurrentId(empId);
-
             filterChain.doFilter(request,response);
             return;
         }
+        //4-2、判断移动端登陆状态，如果已登陆则放行
+        if(request.getSession().getAttribute("user")!=null){
+            log.info("用户已登陆，用户id为:{}",request.getSession().getAttribute("employee"));
+            //登陆状态下，将当前用户的id设置到当前线程的ThreadLocal中
+            Long userId = (Long)request.getSession().getAttribute("employee");
+            BaseContext.setCurrentId(userId);
+            filterChain.doFilter(request,response);
+            return;
+        }
+
+
         //5.如果未登录，则返回未登录状态（通过输出流方式向客户端响应数据）
         log.info("用户未登录，已跳转至登录页！");
         response.getWriter().write(JSON.toJSONString(R.error("NOTLOGIN")));

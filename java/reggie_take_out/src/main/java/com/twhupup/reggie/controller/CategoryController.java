@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Project: reggie_take_out
  * Package: com.twhupup.reggie.controller
@@ -43,6 +45,11 @@ public class CategoryController {
         return R.success(pageInfo);
     }
 
+    /**
+     * 根据id修改分类信息
+     * @param category
+     * @return
+     */
     @PutMapping
     public R<String> update(@RequestBody Category category) {
         log.info("需要修改的分类为：{}", category.toString());
@@ -50,10 +57,30 @@ public class CategoryController {
         return R.success(null);
     }
 
+    /**
+     * 根据id删除对应分类，如果该分类绑定菜品或套餐则会删除失败
+     * @param id
+     * @return
+     */
     @DeleteMapping
     public R<String> delete(Long id){
         log.info("需要删除分类的id为：{}",id);
         categoryService.remove(id);
         return R.success(null);
+    }
+
+    /**
+     * 添加菜品（下拉框显示），根据type=?进行分类查询（使用实体类接收，通用性更强）
+     * 将查询到的类别进行上传，用于前端获取分类结果
+     * @param category
+     * @return
+     */
+    @GetMapping("/list")
+    public R<List<Category>> list(Category category){
+        LambdaQueryWrapper<Category> categoryLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        categoryLambdaQueryWrapper.eq(category.getType()!=null,Category::getType,category.getType())
+                .orderByAsc(Category::getSort).orderByDesc(Category::getUpdateTime);
+        List<Category> list = categoryService.list(categoryLambdaQueryWrapper);
+        return R.success(list);
     }
 }

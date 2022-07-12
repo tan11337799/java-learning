@@ -230,23 +230,24 @@
           statusHandle (row) {
             let params = {}
             if (typeof row === 'string' ){
-              if (this.checkList.length == 0){
+              if (this.checkList.length === 0){
                 this.$message.error('批量操作，请先勾选操作菜品！')
                 return false
               }
-              params.ids = this.checkList.join(',')
+              params.id = this.checkList.join(',')
               params.status = row
             } else {
-              params.ids = row.id
+              params.id = row.id
               params.status = row.status ? '0' : '1'
             }
+            this.setmealState = params
             this.$confirm('确认更改该套餐状态?', '提示', {
               'confirmButtonText': '确定',
               'cancelButtonText': '取消',
               'type': 'warning'
             }).then(() => {
               // 起售停售---批量起售停售接口
-              setmealStatusByStatus(params).then(res => {
+              setmealStatusByStatus(this.setmealState).then(res => {
                 if (res.code === 1) {
                   this.$message.success('套餐状态已经更改成功！')
                   this.handleQuery()

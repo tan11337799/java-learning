@@ -9,7 +9,7 @@ import com.twhupup.reggie.entity.Setmeal;
 import com.twhupup.reggie.mapper.CategoryMapper;
 import com.twhupup.reggie.service.CategoryService;
 import com.twhupup.reggie.service.DishService;
-import com.twhupup.reggie.service.SetMealService;
+import com.twhupup.reggie.service.SetmealService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +29,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     @Autowired
     private DishService dishService;
     @Autowired
-    private SetMealService setMealService;
+    private SetmealService setMealService;
 
     /**
      * 根据id删除分类，删除前判断该id是否绑定菜品或套餐

@@ -1,7 +1,7 @@
 package com.twhupup.reggie.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.twhupup.reggie.entity.Setmeal;
+import com.twhupup.reggie.entity.SetmealDish;
 
 /**
  * @Project: reggie_take_out
@@ -12,6 +12,6 @@ import com.twhupup.reggie.entity.Setmeal;
  * @License: (C)2022, MIPAV Lab(mipav.net), Soochow University. tanritian1@163.com All Rights Reserved.
  */
 
-public interface SetMealService extends IService<Setmeal> {
+public interface SetmealDishService extends IService<SetmealDish> {
 
 }

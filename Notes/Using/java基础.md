@@ -77,9 +77,9 @@ java将内存区域划分为：**栈、堆、方法区**、本地方法栈、寄
 
 
 
-# IDEA特性
+### IDEA特性
 
-**基础**
+##### **基础**
 
 **项目结构**：工程(Project)-模块(Module)-包(Package)-类(Class)
 
@@ -109,9 +109,9 @@ package的本质是用不同文件夹存放源文件。源文件**必须**在**�
 
 
 
-**快捷键**
+##### **快捷键**
 
-**alt+enter	快速解决错误（创建方法、抛出异常等）**
+**alt+enter	快速解决错误（引入类、创建方法、抛出异常等）**
 
 **ctrl+i	快速输入重写（主要用于实现类）**
 
@@ -228,15 +228,7 @@ JUnit是java语言的单元测试框架，主要用于单独测试某个方法�
 
 
 
-
-
----
-
-
-
-# 基础知识
-
-### 数据
+### 数据类型
 
 **字面量**
 
@@ -416,7 +408,7 @@ switch(expression){
 
 
 
-# 数组
+### 数组
 
 **基本概念**
 
@@ -429,7 +421,7 @@ switch(expression){
 
 
 
-**一维数组**
+##### **一维数组**
 
 **静态初始化数组**
 
@@ -499,7 +491,7 @@ for(int i=arr.length-1,j=0)
 
 
 
-**二维数组**
+##### **二维数组**
 
 定义格式：`数值类型[][] 数组名 = {{},{},{}...};`	或	`数值类型[] 数组名[] = {{},{}...};`
 
@@ -531,9 +523,9 @@ for(int i=0;i<array.length;i++){
 
 
 
-# 方法
+### 方法
 
-### **概念**
+##### **概念**
 
 方法是一种语法结构，可以把一段代码封装成一个功能，以便重复调用。
 
@@ -591,7 +583,7 @@ for(int i=0;i<array.length;i++){
 
 
 
-### 重载
+##### 重载
 
 重载（overload）是指同一个类中，出 现多个方法名称相同，但**形参列表不同**的**（形参的个数、类型、顺序不同【顺序指形参类型的顺序】）**，这些方法就是重载方法。
 
@@ -621,7 +613,7 @@ public int sum(int... nums){
 
 
 
-### 重写
+##### 重写
 
 方法重写/覆盖（override），是指**子类**有一个方法和**父类**的名称、返回类型、形参一致。
 
@@ -812,7 +804,7 @@ object类是类层次结构的根类，每个类都使用Object作为超类。�
 
 equals()是Object的方法，只能判断引用类型；在Object的多个数据类型的子类中常被重写。
 
-==和equals()的不同点：当对两个对象进行操作时，==比较两个对象的地址是否相等，equals()可以比较两个对象的值是否相等（默认也是比较地址）
+== 和equals()的不同点：当对两个对象进行操作时，== 比较两个对象的地址是否相等，equals()可以比较两个对象的值是否相等（默认也是比较地址）
 
 
 
@@ -862,7 +854,7 @@ equals()是Object的方法，只能判断引用类型；在Object的多个数据
 
 
 
-# 面向对象（中级）
+# 面向对象（高级）
 
 ### **封装**
 
@@ -1115,12 +1107,6 @@ public class PolyTest {
 ```
 
 
-
----
-
-
-
-# 面向对象（高级）
 
 ### 静态成员（static关键字）
 
@@ -1637,9 +1623,124 @@ interface Test{
 
 
 
+### 泛型
+
+##### 基本概念
+
+Java 泛型（generics）是 JDK 5 中引入的一个新特性, 泛型提供了**编译时类型安全检测机制**，该机制允许程序员在编译时检测到非法的类型。
+
+泛型的本质是**参数化类型**，一般在  在**类声明和实例化**时将操作的数据类型被指定为一个参数（泛型是数据类型的类型）。
+
+**泛型的语法：**
+
+声明：`interface i<T>{}`	或	`class c<K,V>{}`	其中T、K、V表示类型，任意字母都可。
+
+举例：（容器ArrayList实例化）`List<String> strList = new ArrayList<>():`	只需要一边指定类型。
+
+
+
+**泛型的作用：**
+
+- 可以在类声明时，通过一个标识标识类中的**属性类型**，或者某个方法**返回值类型**，或者**参数类型**。
+
+  ```java
+  class Person<E>{//相当于将需要的类型传入到E中
+  	public E name;//E标识name的数据类型，该数据类型在创建Person对象时确定（编译期间就确定E是什么类型）
+  	
+  	public E getName(E name){//E标识getName的返回值和name的参数类型
+  		this.name = name;
+  		return name;
+  	}
+  }
+  ```
+
+- 泛型可以保证如果程序在编译时没有发出警告，运行时就不会产生ClassCastException异常，使得代码更简洁、健壮；
+
+- 可以对加入到集合中的数据类型进行约束（安全）；
+
+- 放入和取出集合中的对象时不需要进行类型转换，间接提高效率。
+
+
+
+**泛型的细节：**
+
+- **在类声明处**使用泛型如果为T或E，则**创建对象时**只能指定为引用类型，而不能为基本数据类型；
+- **在类声明处**指定的具体类型可以传入该类型或其子类型（向上转型：形参为父类对象，实参可以用子类对象传入）； 
+- 在实际开发中，往往不写等号右边的泛型（简写），只用<>代替，编译器自动进行类型推断；
+- 如果我们不加泛型，例如：`List l = new ArrayList();`    则**默认泛型E=Object**；
+- 泛型不具备继承性，例如不允许使用`List<Object> l = new ArrayList<String>();`
+
+
+
+
+
+##### 自定义泛型
+
+**自定义泛型类**
+
+**语法：**`class 类名<T,R,...>{...}`
+
+**基本原则：**
+
+- **泛型类的类型在创建对象的时候确定；**
+- 类中的成员（属性、方法）可以使用泛型，属性依然可以使用构造器和setter、getter方法；
+- 使用泛型的数组不能进行初始化（原因：数组在创建时如果使用泛型则不能确定存储元素的类型，这样无法自定义的开辟空间）；
+- 静态属性的类型、静态方法中的返回值和参数都不能使用类的泛型（原因：泛型需要创建对象后才能确定数据类型，而静态成员在类的加载和创建时就放入内存，这将导致JVM无法完成初始化）；
+
+**自定义泛型接口**
+
+**语法：**`interface 接口名<T,R,...>{...}`
+
+通过继承接口时指定泛型类型：`interface 接口名1 extends 接口名2<具体泛型类型1,...>{}`（此时该接口实现类的重写方法需要用指定的泛型类型去重写）
+
+在实现接口时直接指定泛型类型：`class 类名 extends 接口名<具体泛型类型1,...>{}`
+
+**基本原则：**
+
+- **泛型接口的类型，在继承接口和实现接口的时候确定；**
+- 接口中，静态成员也不能使用泛型；
+
+**自定义泛型方法**
+
+**语法：**（方法定义）`访问修饰符<T,R,...> 返回值类型 方法名(参数列表){}`	注意此处的泛型标识符只提供给方法使用，而不是类或接口中的标识符 
+
+**基本原则：**
+
+- 泛型方法可以定义在普通类中，也可以定义在泛型类中（要求泛型方法和泛型类的标识符不同）；
+- 在泛型方法调用时：`对象名.方法名(实参列表)`，编译器会根据传入的实参类型自动为泛型方法中的标识符确定 类型；
+- 泛型方法可以使用自己声明的泛型，也可以使用类/接口声明的泛型。
+
+**注意事项：**
+
+- `访问修饰符 返回值类型 方法名(T o1， R o2)`不是泛型方法而只是使用了类或接口定义的泛型；
+
+e.g.
+
+```java
+class Fish<T,R>{
+    public void eat(T t){}//不是泛型方法，只是使用了泛型
+    
+	public<U> void swim(U u,T t){}//要求泛型方法和泛型类的标识符不同;泛型方法可以使用自己声明的泛型，也可以使用类/接口声明的泛型
+}
+```
+
+
+
+##### **泛型通配符**
+
+<?>：表示该类或方法支持任意泛型类型；
+
+<? extends A>：表示支持A类以及A类的子类型，规定了泛型的上限；
+
+<? super A>：支持A类以及A类的父类，不限于直接父类，规定了泛型的下限；
+
+
+
 ---
 
-# 其他操作
+---
+
+
 
 ### 枚举
 
@@ -1747,7 +1848,7 @@ enum Season1{
 
 
 
-### **注解**
+### 注解
 
 **介绍：**注解英文名为Annotation，又被称为**元数据**(Metadata)，用于修饰解释 包/类/方法/属性/构造器/局部变量等。和注释一样，注解不影响程序的逻辑，但注解可以被编译和运行，其相当于嵌入到代码中的补充信息。
 
@@ -1916,8 +2017,6 @@ System.out.println("输入的值为="+num);
 
 
 
-
-
 **throws关键字**
 
 Java总允许在方法的后面使用throws关键字对外声明该方法有可能发生异常，这样调用者在调用方法时，就明确地知道该方法有异常，并且必须在程序中对异常进行处理，否则编译无法通过。
@@ -1997,7 +2096,15 @@ class Person {
 
 
 
-# 常用类
+
+
+
+
+---
+
+
+
+# 常用工具类
 
 ### 包装类
 
@@ -2089,7 +2196,13 @@ System.out.println(k==t);//True  只要有基本数据类型，则此时比较�
 
 
 
-### String类
+---
+
+
+
+### 字符串类
+
+##### String类型
 
 String对象用于保存字符串，也就是一组字符序列（char数组）。String常量对象就是用双引号括起的字符系列。字符串的字符采用Unicode字符编码，一个字符（不论字母还是汉字）占两个字节。
 
@@ -2185,7 +2298,7 @@ String类用于保存字符串常量，但由于每次更新都需要重新开�
 
 
 
-### **StringBuffer类**
+##### **StringBuffer类**
 
 StringBuffer，字符串缓冲区是一种线程安全，可变的字符序列。 字符串缓冲区类似于String ，但可以进行修改。 在任何时间点它都包含一些特定的字符序列，但序列的**长度和内容**可以通过某些方法调用来改变。
 
@@ -2247,7 +2360,7 @@ StringBuffer，字符串缓冲区是一种线程安全，可变的字符序列�
 
 
 
-**StringBuilder类**
+##### StringBuilder类
 
 StringBuilder一种可变的字符序列。StringBuilder类提供了一个和StringBuffer兼容的API，但**不保证线程安全**，即没有synchronized关键字。主要使用在字符串缓冲区被**单个线程**使用的情况。
 
@@ -2260,6 +2373,10 @@ StringBuilder一种可变的字符序列。StringBuilder类提供了一个和Str
 后两者基本类似，均代表可变的字符序列，方法一致。StringBuffer效率较高但不如StringBuilder，线程安全；StringBuilder效率最高，但线程不安全。
 
 String表示不可变字符序列，效率低，但**复用率高**（不需要在池中重复创建）；效率低主要体现在每次进行字符串拼接等操作时，会在新的空间创建字符串，导致大量副本字符串对象存留在内存中（自动回收机制销毁对象也需要时间），降低效率，如果放在循环中则效率更低。因此如果对字符串变量做大量修改，不建议使用String。
+
+
+
+---
 
 
 
@@ -2285,7 +2402,7 @@ String表示不可变字符序列，效率低，但**复用率高**（不需要�
 
 
 
-### **自定义排序**
+##### 自定义排序
 
 **Comparable接口和Comparator接口**
 
@@ -2303,11 +2420,17 @@ Comparable是**只**定义了compareTo方法的接口：`public int compareTo(T 
 
 **ArrayList实现自定义排序**
 
-**语法：**`Arrays.sort(array,Comparator对象)`	通过实现**Comparator接口**自定义排序。
+**语法：**
+
+`Arrays.sort(array,Comparator对象)`	  通过实现**Comparator接口**自定义排序
+
+`arrays.sort(Comparator对象)`    同上
 
 
 
-通过创建Comparator对象实现自定义的排序。
+**实现：**
+
+（1）通过匿名内部类创建Comparator对象实现自定义的排序。
 
 ```java
 public class demo1{
@@ -2325,23 +2448,11 @@ public class demo1{
         });
     }
 }
-
-class Person{
-    private String name;
-    private int age;
-
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-    
-        public int getAge() {
-        return age;
-    }
-}
 ```
 
-通过创建Comparator对象并实现Comparable接口实现自定义的排序。
+（2）在MyDate类型中创建Comparator对象实现Comparable接口。
+
+对Employees数组进行排序，通过匿名内部类依照MyDate属性（已经在内部实现了比较方法）进行自定义排序。
 
 ```java
 public class exercise {
@@ -2355,8 +2466,6 @@ public class exercise {
         employees.sort(new Comparator<Employee>() {
             @Override
             public int compare(Employee o1, Employee o2) {
-                int i = o1.getName().compareTo(o2.getName());
-                if (i != 0) return i;
                 return o1.getBirthday().compareTo(o2.getBirthday());
             }
         });
@@ -2364,32 +2473,8 @@ public class exercise {
     }
 }
 
-class Employee {
-    private String name;
-    private double sal;
-    private Mydate birthday;
 
-    public Employee(String name, double sal, Mydate birthday) {
-        this.name = name;
-        this.sal = sal;
-        this.birthday = birthday;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Mydate getBirthday() {
-        return birthday;
-    }
-
-    @Override
-    public String toString() {
-        return "员工" +"姓名：'" + name + '\'' +", 工资：" + sal +", 生日：" + birthday;
-    }
-}
-
-class Mydate implements Comparable<Mydate> {//<Mydate>是泛型的使用，确定并标识了compareTo方法中形参 对象的类型
+class Mydate implements Comparable<Mydate> {
     private int month;
     private int day;
     private int year;
@@ -2430,128 +2515,124 @@ class Mydate implements Comparable<Mydate> {//<Mydate>是泛型的使用，确�
 
 
 
----
+### File类
 
-
-
-# 泛型
-
-### 基本概念
-
-Java 泛型（generics）是 JDK 5 中引入的一个新特性, 泛型提供了**编译时类型安全检测机制**，该机制允许程序员在编译时检测到非法的类型。
-
-泛型的本质是**参数化类型**，一般在  在**类声明和实例化**时将操作的数据类型被指定为一个参数（泛型是数据类型的类型）。
-
-**泛型的语法：**
-
-声明：`interface i<T>{}`	或	`class c<K,V>{}`	其中T、K、V表示类型，任意字母都可。
-
-举例：（容器ArrayList实例化）`List<String> strList = new ArrayList<>():`	只需要一边指定类型。
-
-
-
-**泛型的作用：**
-
-* 可以在类声明时，通过一个标识标识类中的**属性类型**，或者某个方法**返回值类型**，或者**参数类型**。
-
-  ```java
-  class Person<E>{//相当于将需要的类型传入到E中
-  	public E name;//E标识name的数据类型，该数据类型在创建Person对象时确定（编译期间就确定E是什么类型）
-  	
-  	public E getName(E name){//E标识getName的返回值和name的参数类型
-  		this.name = name;
-  		return name;
-  	}
-  }
-  ```
-
-* 泛型可以保证如果程序在编译时没有发出警告，运行时就不会产生ClassCastException异常，使得代码更简洁、健壮；
-
-* 可以对加入到集合中的数据类型进行约束（安全）；
-* 放入和取出集合中的对象时不需要进行类型转换，间接提高效率。
-
-
-
-**泛型的细节：**
-
-* **在类声明处**使用泛型如果为T或E，则**创建对象时**只能指定为引用类型，而不能为基本数据类型；
-* **在类声明处**指定的具体类型可以传入该类型或其子类型（向上转型：形参为父类对象，实参可以用子类对象传入）； 
-* 在实际开发中，往往不写等号右边的泛型（简写），只用<>代替，编译器自动进行类型推断；
-* 如果我们不加泛型，例如：`List l = new ArrayList();`    则**默认泛型E=Object**；
-* 泛型不具备继承性，例如不允许使用`List<Object> l = new ArrayList<String>();`
-
-
-
-
-
-### 自定义泛型
-
-**自定义泛型类**
-
-**语法：**`class 类名<T,R,...>{...}`
-
-**基本原则：**
-
-* **泛型类的类型在创建对象的时候确定；**
-
-* 类中的成员（属性、方法）可以使用泛型，属性依然可以使用构造器和setter、getter方法；
-
-* 使用泛型的数组不能进行初始化（原因：数组在创建时如果使用泛型则不能确定存储元素的类型，这样无法自定义的开辟空间）；
-
-* 静态属性的类型、静态方法中的返回值和参数都不能使用类的泛型（原因：泛型需要创建对象后才能确定数据类型，而静态成员在类的加载和创建时就放入内存，这将导致JVM无法完成初始化）；
-
-
-**自定义泛型接口**
-
-**语法：**`interface 接口名<T,R,...>{...}`
-
-通过继承接口时指定泛型类型：`interface 接口名1 extends 接口名2<具体泛型类型1,...>{}`（此时该接口实现类的重写方法需要用指定的泛型类型去重写）
-
-在实现接口时直接指定泛型类型：`class 类名 extends 接口名<具体泛型类型1,...>{}`
-
-**基本原则：**
-
-* **泛型接口的类型，在继承接口和实现接口的时候确定；**
-
-* 接口中，静态成员也不能使用泛型；
-
-
-**自定义泛型方法**
-
-**语法：**（方法定义）`访问修饰符<T,R,...> 返回值类型 方法名(参数列表){}`	注意此处的泛型标识符只提供给方法使用，而不是类或接口中的标识符 
-
-**基本原则：**
-
-* 泛型方法可以定义在普通类中，也可以定义在泛型类中（要求泛型方法和泛型类的标识符不同）；
-* 在泛型方法调用时：`对象名.方法名(实参列表)`，编译器会根据传入的实参类型自动为泛型方法中的标识符确定 类型；
-* 泛型方法可以使用自己声明的泛型，也可以使用类/接口声明的泛型。
+File类声明在java.io中，被称为文件类。以抽象的方式代表文件名和目录路径名。该类主要用于文件和目录的创建、文件的查找和文件的删除等。
 
 **注意事项：**
 
-* `访问修饰符 返回值类型 方法名(T o1， R o2)`不是泛型方法而只是使用了类或接口定义的泛型；
+* File类中涉及到关于文件或文件目录的创建、删除、重命名、修改时间、文件大小等方法，并没有涉及到写入或读取文件内容的操作如果需要读取或写入文件内容，必须使用IO流来完成。
+* 后续File类的对象常会作为参数传递到流的构造器中，指明读取或写入的“终点”
+* File不能访问文件内容本身
 
 
-e.g.
+
+**构造方法**
+
+`File(File parent, String child) `   通过给定的父抽象路径名和子路径名字符串创建一个新的File实例。
+
+`File(String pathname)`     通过将给定路径名字符串转换成抽象路径名来创建一个新 File 实例。
+
+`File(URI uri)`     通过将给定的 file: URI 转换成一个抽象路径名来创建一个新的 File 实例。
+
+
+
+**常用方法**
+
+`mkdir()`    创建此抽象路径名指定的目录
+
+`mkdirs()`    创建此抽象路径名指定的目录，包括创建必需但不存在的父目录
+
+`isFile()`    测试此抽象路径名表示的文件是否是一个标准文件。
+
+`isDirectory()`    测试此抽象路径名表示的文件是否是一个目录。
+
+
+
+##### FileInputStream
+
+该流用于从文件读取数据.
+
+**创建输入流对象：**
 
 ```java
-class Fish<T,R>{
-    public void eat(T t){}//不是泛型方法，只是使用了泛型
-    
-	public<U> void swim(U u,T t){}//要求泛型方法和泛型类的标识符不同;泛型方法可以使用自己声明的泛型，也可以使用类/接口声明的泛型
+//方法一
+InputStream f = new FileInputStream("C:/java/hello");
+//方法二
+File f = new File("C:/java/hello");
+InputStream in = new FileInputStream(f);
+```
+
+创建了InputStream对象，就可以使用相关方法来读取流或者进行其他的流操作。
+
+**相关方法：**
+
+`int read()`     从该输入流读取一个字节的数据。 
+
+`int read(byte[] b) `    从该输入流读取最多b.length个字节的数据为字节数组，如果读取完毕，则返回-1。 
+
+
+
+##### FileOutputStream
+
+该类用来创建一个文件并向文件中写数据。
+
+如果该流在打开文件进行输出前，目标文件不存在，那么该流会创建该文件。
+
+创建输出流对象：
+
+```java
+//方法一
+OutputStream f = new FileOutputStream("C:/java/hello");
+//方法二
+File f = new File("C:/java/hello");
+OutputStream fOut = new FileOutputStream(f);
+```
+
+**常用方法:**
+
+`write(byte[] b,int off,int len)`    该方法将len个字节的数据，并从数组b的off位置开始写入到输出流。
+
+
+
+
+
+通过输入流、输出流上传下载图片：
+
+```java
+try {
+    //根据文件路径获取文件输入流对象
+    FileInputStream fileInputStream = new FileInputStream(basePath+name);
+    //通过输出流将文件写回浏览器，在浏览器展示图片
+    ServletOutputStream outputStream = response.getOutputStream();
+    //设置发送到客户端的响应的内容类型
+    response.setContentType("image/jpeg");
+    int len = 0;
+    byte[] bytes = new byte[1024];
+    //输入流每次从文件中读取1kb的数据，记为len；无法获取数据（-1）
+    while( (len=fileInputStream.read(bytes))!=-1 ){
+        outputStream.write(bytes,0,len);
+        outputStream.flush();//刷新此输出流并强制写出所有缓冲的输出字节
+    }
+    fileInputStream.close();
+    outputStream.close();
+
+} catch (Exception e) {
+    e.printStackTrace();
 }
 ```
 
 
 
-### **泛型通配符**
-
-<?>：表示该类或方法支持任意泛型类型；
-
-<? extends A>：表示支持A类以及A类的子类型，规定了泛型的上限；
-
-<? super A>：支持A类以及A类的父类，不限于直接父类，规定了泛型的下限；
 
 
+
+
+
+
+
+
+---
 
 ---
 
@@ -2569,7 +2650,7 @@ Java 集合框架主要包括两种类型的**容器**，一种是**集合**（C
 
 
 
-### Collection接口
+##### Collection接口
 
 ![image-20220617140451850](assets\image-20220617140451850.png)
 
@@ -2627,7 +2708,7 @@ Collection 接口又有 3 种子类型：**List、Set 和 Queue**，
 
 
 
-### 迭代器
+##### 迭代器
 
 由于Collection类**继承了Iterable接口**，实现了Collection接口的类都可以**使用Iterator迭代器**。
 
