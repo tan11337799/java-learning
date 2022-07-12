@@ -2787,7 +2787,17 @@ public void save17(@PathVariable(value="name") String username) throws IOExcepti
 **使用场景：**
 
 * 作用于形参上。
-* 
+
+
+
+##### @RequestBody和@RequestParam的区别
+
+@RequestBody主要用来接收前端传递给后端的json字符串中的数据(请求体中的数据的)，因此@RequestBody只能用于接收POST请求的参数
+@RequestParam接收的是key-value里面的参数(URL中的参数)，通常用于接收GET请求的参数（POST请求也能接收但只接收URL里的，请求体的接收不到）
+
+
+
+
 
 ---
 

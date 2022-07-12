@@ -62,9 +62,9 @@ public class LoginCheckFilter implements Filter {
         }
         //4-2、判断移动端登陆状态，如果已登陆则放行
         if(request.getSession().getAttribute("user")!=null){
-            log.info("用户已登陆，用户id为:{}",request.getSession().getAttribute("employee"));
+            log.info("用户已登陆，用户id为:{}",request.getSession().getAttribute("user"));
             //登陆状态下，将当前用户的id设置到当前线程的ThreadLocal中
-            Long userId = (Long)request.getSession().getAttribute("employee");
+            Long userId = (Long)request.getSession().getAttribute("user");
             BaseContext.setCurrentId(userId);
             filterChain.doFilter(request,response);
             return;

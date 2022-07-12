@@ -12,6 +12,7 @@ import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * @Project: reggie_take_out
@@ -32,12 +33,12 @@ public class EmployeeController {
     /**
      * 员工登陆功能
      * 这里Employee的形参上添加@RequestBody注解，表示获取
-     * @param request
+     * @param session
      * @param employee
      * @return
      */
     @PostMapping("/login")
-    public R<Employee> login(HttpServletRequest request, @RequestBody Employee employee){
+    public R<Employee> login(@RequestBody Employee employee, HttpSession session){
         //1. 将页面提交密码进行md5加密处理
         String password = employee.getPassword();
         password = DigestUtils.md5DigestAsHex(password.getBytes());
@@ -59,7 +60,7 @@ public class EmployeeController {
             return R.error("该账号已被禁用！");
         }
         //6.登陆成功，将员工的id存入session，返回登陆成功的结果(将查询到的emp对象传给前端)
-        request.getSession().setAttribute("employee",emp.getId());
+        session.setAttribute("employee",emp.getId());
         return R.success(emp);
     }
 
