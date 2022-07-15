@@ -112,18 +112,24 @@ public class SetmealController {
         return R.success(null);
     }
 
+    /**
+     * 根据条件查询对应的套餐
+     * 用途：
+     * （1）在用户端，根据套餐的分类以及在售状态查询其对应的套餐数组
+     * @param setmeal
+     * @return
+     */
     @GetMapping("/list")
     public R<List<Setmeal>> list(Setmeal setmeal) {
         //条件构造器
-        LambdaQueryWrapper<Setmeal> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.like(StringUtils.isNotEmpty(setmeal.getName()), Setmeal::getName, setmeal.getName());
-        queryWrapper.eq(null != setmeal.getCategoryId(), Setmeal::getCategoryId, setmeal.getCategoryId());
-        queryWrapper.eq(null != setmeal.getStatus(), Setmeal::getStatus, setmeal.getStatus());
-        queryWrapper.orderByDesc(Setmeal::getUpdateTime);
-
-        return R.success(setmealService.list(queryWrapper));
+        LambdaQueryWrapper<Setmeal> setmealLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        setmealLambdaQueryWrapper.like(StringUtils.isNotEmpty(setmeal.getName()), Setmeal::getName, setmeal.getName());
+        setmealLambdaQueryWrapper.eq(null != setmeal.getCategoryId(), Setmeal::getCategoryId, setmeal.getCategoryId());
+        setmealLambdaQueryWrapper.eq(null != setmeal.getStatus(), Setmeal::getStatus, setmeal.getStatus());
+        setmealLambdaQueryWrapper.orderByDesc(Setmeal::getUpdateTime);
+        List<Setmeal> list = setmealService.list(setmealLambdaQueryWrapper);
+        return R.success(list);
     }
-
 
     //////////////////////////////////////////////////////////////////////////////////////
     //以下三个方法用于新增、修改套餐(还有一个位于DishController下的list方法，用于获取分类对应的菜品)

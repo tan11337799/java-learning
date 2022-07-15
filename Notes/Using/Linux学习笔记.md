@@ -884,7 +884,9 @@ e.g.
 `firewall-cmd --reload`	重新载入（reload后打开或关闭端口才生效）
 
 `firewall-cmd --query-port=portnumber/protocol`	查询端口是否开放
+
 `firewall-cmd --zone=public --add-port=【portnum】/tcp --permanent`	增加防火墙开放端口
+
 `firewall-cmd --zone=public --remove-port=6379/tcp --permanent`	关闭防火墙指定端口【禁用该端口】（配置更新后生效）
 
 `firewall-cmd --reload`	防火墙重载

@@ -12,22 +12,27 @@ import java.util.*;
  */
 public class levelTraverse {
     //使用队列实现层次遍历
-    public List<Integer> levelTraversal(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
+    public List<List<Integer>> levelTraversal(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
         Queue<TreeNode> q = new ArrayDeque<>();
         if (root == null) {
             return res;
         }
         q.offer(root);
         while (!q.isEmpty()) {
-            TreeNode temp = q.poll();
-            res.add(temp.val);
-            if (temp.left != null) {
-                q.offer(temp.left);
+            ArrayList<Integer> list = new ArrayList<>();
+            int size = q.size();
+            for(int i=0;i<size;i++){
+                TreeNode temp = q.poll();
+                list.add(temp.val);
+                if (temp.left != null) {
+                    q.offer(temp.left);
+                }
+                if (temp.right != null) {
+                    q.offer(temp.right);
+                }
             }
-            if (temp.right != null) {
-                q.offer(temp.right);
-            }
+            res.add(list);
         }
         return res;
     }

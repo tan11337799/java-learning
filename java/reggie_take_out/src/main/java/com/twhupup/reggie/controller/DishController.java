@@ -6,6 +6,7 @@ import com.twhupup.reggie.common.R;
 import com.twhupup.reggie.dto.DishDto;
 import com.twhupup.reggie.entity.Category;
 import com.twhupup.reggie.entity.Dish;
+import com.twhupup.reggie.entity.DishFlavor;
 import com.twhupup.reggie.service.CategoryService;
 import com.twhupup.reggie.service.DishFlavorService;
 import com.twhupup.reggie.service.DishService;
@@ -148,17 +149,31 @@ public class DishController {
     /**
      * 套餐中根据条件查询菜品数据
      * 在套餐的查询中，要求当前菜品处于在售状态
+     * 用途：
+     * （1）在修改或新增套餐时，在添加菜品功能中，显示每个分类对应的菜品数组
+     * （2）在用户端，显示不同菜品分类对应的菜品时，显示每个分类以及满足在售条件对应的菜品
      * @param dish
      * @return
      */
     @GetMapping("/list")
-    public R<List<Dish>> list(Dish dish){
+    public R<List<DishDto>> list(Dish dish){
         LambdaQueryWrapper<Dish> dishLambdaQueryWrapper = new LambdaQueryWrapper<>();
         //查询条件:(1)在售；（2）分类id为当前请求传入的id；（3）按菜品正向排序，再按更新时间逆序排列。
         dishLambdaQueryWrapper.eq(Dish::getStatus,1)
                 .eq(dish.getCategoryId()!=null,Dish::getCategoryId,dish.getCategoryId())
                 .orderByAsc(Dish::getSort).orderByDesc(Dish::getUpdateTime);
         List<Dish> list = dishService.list(dishLambdaQueryWrapper);
-        return R.success(list);
+        //在查询的菜品中添加对应的口味数据
+        List<DishDto> dishDtoList = list.stream().map((item)-> {
+            DishDto dishDto = new DishDto();
+            BeanUtils.copyProperties(item, dishDto);
+            Long dishId = item.getId();
+            LambdaQueryWrapper<DishFlavor> queryWrapper = new LambdaQueryWrapper<>();
+            queryWrapper.eq(DishFlavor::getDishId,dishId);
+            List<DishFlavor> dishFlavorList = dishFlavorService.list(queryWrapper);
+            dishDto.setFlavors(dishFlavorList);
+            return dishDto;
+        }).collect(Collectors.toList());
+        return R.success(dishDtoList);
     }
 }

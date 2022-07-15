@@ -24,7 +24,7 @@
             <div class="divUser">
                 <img src="./../images/headPage.png"/>
                 <div class="desc">
-                    <div class="divName">林之迷 <img src="./../images/women.png"/></div>
+                    <div class="divName">{{userName}}</div>
                     <div class="divPhone">{{userPhone}}</div>
                 </div>
             </div>
@@ -52,6 +52,9 @@
                 </div>
                 <div class="dishList">
                     <div v-for="(item,index) in order[0].orderDetails" :key="index" class="item">
+                        <el-image :src="getImage(item.image)"
+                                  :preview-src-list="[ `/common/download?name=${item.image}` ]" >
+                        </el-image>
                         <span>{{item.name}}</span>
                         <span>x{{item.number}}</span>
                     </div>
@@ -107,6 +110,7 @@
             computed:{},
             created(){
                 this.userPhone =sessionStorage.getItem("userPhone")
+                this.userName=sessionStorage.getItem("userName")
                 this.initData()
             },
             mounted(){},
@@ -178,9 +182,14 @@
                         this.$notify({ type:'warning', message:res.msg});
                     }
                 },
+                getImage (image) {
+                    return `/common/download?name=${image}`
+                },
                 async toPageLogin(){
                     const res = await loginoutApi()
                     if(res.code === 1){
+                        sessionStorage.removeItem("userPhone")
+                        sessionStorage.removeItem("userName")
                         window.requestAnimationFrame(()=>{
                             window.location.href = '/front/page/login.html'
                         }) 

@@ -5,7 +5,9 @@ import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.twhupup.reggie.common.BaseContext;
 import com.twhupup.reggie.common.R;
 import com.twhupup.reggie.entity.AddressBook;
+import com.twhupup.reggie.entity.User;
 import com.twhupup.reggie.service.AddressBookService;
+import com.twhupup.reggie.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +30,9 @@ public class AddressBookController {
     @Autowired
     private AddressBookService addressBookService;
 
+    @Autowired
+    private UserService userService;
+
     /**
      * 添加地址功能
      * @param addressBook
@@ -37,6 +42,13 @@ public class AddressBookController {
     @PostMapping
     public R<String> save(@RequestBody AddressBook addressBook){
         log.info("POST请求:添加地址到地址簿");
+        //如果未添加过地址，则将第一个地址设为默认地址
+        LambdaQueryWrapper<AddressBook> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(AddressBook::getUserId,BaseContext.getCurrentId());
+        int count = addressBookService.count(wrapper);
+        if (count==0){
+            addressBook.setIsDefault(1);
+        }
         addressBook.setUserId(BaseContext.getCurrentId());
         addressBookService.save(addressBook);
         return R.success(null);
@@ -69,7 +81,7 @@ public class AddressBookController {
      * @return
      */
     @GetMapping("/{id}")
-    public R<AddressBook> get(@PathVariable Long id){
+    public R<AddressBook> getById(@PathVariable Long id){
         AddressBook addressBook = addressBookService.getById(id);
         if(addressBook!=null){
             return R.success(addressBook);
@@ -97,14 +109,28 @@ public class AddressBookController {
         }
     }
 
-    @GetMapping("/list")
-    public R<List<AddressBook>> list(AddressBook addressBook){
-        log.info("GET请求:获取用户所有的收货地址");
-        LambdaQueryWrapper<AddressBook> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(null!=addressBook.getUserId(),AddressBook::getUserId,addressBook.getUserId());
-        wrapper.orderByDesc(AddressBook::getUpdateTime);
-        List<AddressBook> list = addressBookService.list(wrapper);
-        return R.success(list);
+    @GetMapping("/list/{loginUserPhone}")
+    public R<List<AddressBook>> list(@PathVariable("loginUserPhone") String phone){
+        //获取当前登录用户的信息
+        LambdaQueryWrapper<User> userWrapper = new LambdaQueryWrapper<>();
+        userWrapper.eq(User::getPhone,phone);
+        User user = userService.getOne(userWrapper);
+
+        //根据userId查询其地址簿
+        LambdaQueryWrapper<AddressBook> wrapper=new LambdaQueryWrapper<>();
+        wrapper.eq(AddressBook::getUserId,user.getId());
+        List<AddressBook> addressBookList = addressBookService.list(wrapper);
+
+        return R.success(addressBookList);
     }
 
+    @DeleteMapping
+    public R<String> remove(@RequestParam Long id){
+        log.info("Delete请求:删除地址");
+        boolean flag = addressBookService.removeById(id);
+        if(flag){
+            return R.success(null);
+        }
+        return R.error("删除失败");
+    }
 }
