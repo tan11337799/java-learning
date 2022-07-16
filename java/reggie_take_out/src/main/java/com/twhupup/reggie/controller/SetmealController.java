@@ -128,6 +128,10 @@ public class SetmealController {
         setmealLambdaQueryWrapper.eq(null != setmeal.getStatus(), Setmeal::getStatus, setmeal.getStatus());
         setmealLambdaQueryWrapper.orderByDesc(Setmeal::getUpdateTime);
         List<Setmeal> list = setmealService.list(setmealLambdaQueryWrapper);
+        int count = setmealService.count(setmealLambdaQueryWrapper);
+        if(count==0||list==null){
+            return R.error("当前类别下无相关套餐，请现在管理端添加套餐！");
+        }
         return R.success(list);
     }
 

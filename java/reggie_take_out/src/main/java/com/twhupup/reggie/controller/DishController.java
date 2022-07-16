@@ -165,7 +165,7 @@ public class DishController {
         List<Dish> list = dishService.list(dishLambdaQueryWrapper);
         int count = dishService.count(dishLambdaQueryWrapper);
         if(count==0||list==null){
-            return R.error("当前类别下无相关菜品");
+            return R.error("当前类别下无相关菜品，请现在管理端添加菜品！");
         }
         //在查询的菜品中添加对应的口味数据
         List<DishDto> dishDtoList = list.stream().map((item)-> {
