@@ -81,6 +81,9 @@ public class CategoryController {
         categoryLambdaQueryWrapper.eq(category.getType()!=null,Category::getType,category.getType())
                 .orderByAsc(Category::getSort).orderByDesc(Category::getUpdateTime);
         List<Category> list = categoryService.list(categoryLambdaQueryWrapper);
+        if(list==null){
+            return R.error("查询类别为空");
+        }
         return R.success(list);
     }
 }

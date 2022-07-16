@@ -163,6 +163,10 @@ public class DishController {
                 .eq(dish.getCategoryId()!=null,Dish::getCategoryId,dish.getCategoryId())
                 .orderByAsc(Dish::getSort).orderByDesc(Dish::getUpdateTime);
         List<Dish> list = dishService.list(dishLambdaQueryWrapper);
+        int count = dishService.count(dishLambdaQueryWrapper);
+        if(count==0||list==null){
+            return R.error("当前类别下无相关菜品");
+        }
         //在查询的菜品中添加对应的口味数据
         List<DishDto> dishDtoList = list.stream().map((item)-> {
             DishDto dishDto = new DishDto();
